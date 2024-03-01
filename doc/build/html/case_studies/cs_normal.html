@@ -1,0 +1,1524 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Background: Case Study &#8212; Make My Prior</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script src="../_static/documentation_options.js?v=3611b776"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'case_studies/cs_normal';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Make My Prior</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../MakeMyPrior.html">MakeMyPrior package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../case_studies.html">Case Studies</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/case_studies/cs_normal.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Background: Case Study</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Background: Case Study</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-generating-model">Data generating model</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology-workflow">Methodology: Workflow</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-normalizing-flow">Method: Normalizing Flow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-specification">Method specification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-specification">User specification</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-hyperparameter-for-the-learning-algorithm">Setting hyperparameter for the learning algorithm</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-design-matrix">Define the design matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-the-ideal-agent">Setup the ‘ideal agent’</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-data-generating-model">Define the data generating model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-the-target-quantities-and-the-elicitation-technique">Specify the target quantities and the elicitation technique</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-from-the-ideal-expert">Simulate from the “ideal” expert</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expert-predictions">Expert predictions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-the-prior-distributions">Learn the prior distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-function">Loss function</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-model-parameters">Summary of model parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learned-prior-distributions">Learned prior distributions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-hyperparameter-learning">Method: Hyperparameter Learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Method specification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">User specification</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Setting hyperparameter for the learning algorithm</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Define the design matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Setup the ‘ideal agent’</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Define the data generating model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Specify the target quantities and the elicitation technique</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Simulate from the “ideal” expert</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Expert predictions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Learn the prior distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Loss function</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-hyperparameter-values">Summary of hyperparameter values</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Learned prior distributions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> pretty_jupyter
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">patsy</span> <span class="k">as</span> <span class="nn">pa</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tensorflow_probability</span> <span class="k">as</span> <span class="nn">tfp</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">tfd</span> <span class="o">=</span> <span class="n">tfp</span><span class="o">.</span><span class="n">distributions</span>
+
+<span class="kn">from</span> <span class="nn">MakeMyPrior.elicitation_wrapper</span> <span class="kn">import</span> <span class="n">expert_model</span>
+<span class="kn">from</span> <span class="nn">MakeMyPrior.training</span> <span class="kn">import</span> <span class="n">trainer</span>
+<span class="kn">from</span> <span class="nn">MakeMyPrior.helper_functions</span> <span class="kn">import</span> <span class="n">group_obs</span><span class="p">,</span> <span class="n">Exponential_unconstrained</span><span class="p">,</span> <span class="n">Normal_unconstrained</span>
+<span class="kn">from</span> <span class="nn">MakeMyPrior.user_config</span> <span class="kn">import</span> <span class="n">target_config</span><span class="p">,</span> <span class="n">target_input</span>
+<span class="kn">from</span> <span class="nn">MakeMyPrior.helper_functions</span> <span class="kn">import</span> <span class="n">print_restab</span><span class="p">,</span> <span class="n">plot_priors_hyp</span><span class="p">,</span> <span class="n">plot_expert_preds</span><span class="p">,</span> <span class="n">group_stats</span><span class="p">,</span> <span class="n">plot_priors_flow</span>
+<span class="kn">import</span> <span class="nn">MakeMyPrior.combine_losses</span> 
+
+<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="n">pp</span> <span class="o">=</span> <span class="n">pprint</span><span class="o">.</span><span class="n">PrettyPrinter</span><span class="p">(</span><span class="n">depth</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">2024</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flobo\anaconda3\envs\make-my-prior\Lib\site-packages\bayesflow\trainers.py:27: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from tqdm.autonotebook import tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<section id="background-case-study">
+<h1>Background: Case Study<a class="headerlink" href="#background-case-study" title="Link to this heading">#</a></h1>
+<p>We focus on an experiment conducted by Unkelbach &amp; Rom (2020)[REF], where participants are presented with general knowledge statements in two consecutive phases. During the second phase, they are required to indicate whether each statement is true or false. The response variable of interest is the proportion of true judgments (PTJs). The main objective of the study is to investigate the influence of two factors on PTJs: (1) repetition (ReP), which involves presenting some statements from the first phase again in the second phase, and (2) encoding depth (EnC), where participants are divided into groups varying in the level of elaboration required for initial sentence processing in the first phase. We consider a 2 (ReP:repeated, new) $\times$ 3 (EnC: shallow, standard, deep) between-subject factorial design with treatment contrasts used for both factors. The baseline levels are set as new for ReP and deep for EnC.</p>
+<section id="data-generating-model">
+<h2>Data generating model<a class="headerlink" href="#data-generating-model" title="Link to this heading">#</a></h2>
+<p>\begin{align*}
+y_i &amp;\sim \text{Normal}(\theta_i, s)\
+\theta_i &amp;= \beta_0 + \beta_1x_1 + \beta_2x_2 + \beta_3x_3 + \beta_4x_4 + \beta_5x_5\
+\beta_k &amp;\sim \text{Normal}(\mu_k, \sigma_k) \quad \text{for }k=0,\ldots, 5\
+s &amp;\sim \text{Exponential}(\nu)
+\end{align*}
+Here, $𝑦_𝑖$ represents the responses for each observation $𝑖 = 1, \ldots , 𝑁$, assumed to follow a normal distribution with mean $\theta_𝑖$ and standard deviation $𝑠$. The expected value $\theta_𝑖$ is modeled as a linear function of two categorical predictors, ReP and EnC. The regression coefficients $\beta_𝑘$ for $𝑘 = 0, \ldots , 5$ are assigned normal prior distributions. Specifically, $\beta_0$ represents the PTJs for condition new-deep, while $\beta_1$ represents the difference in PTJs ($\Delta$PTJ) between repeated and new statements. Additionally, $\beta_2$ captures the $\Delta$PTJ for new statements in the shallow- vs. standard-encoding condition, $\beta_3$ represents the $\Delta$PTJ for new statements in the shallow- vs. deep-encoding condition, and $\beta_4$ and $\beta_5$ account for the interaction effects between ReP and EnC. The standard deviation 𝑠 of the normal likelihood follows an Exponential prior distribution with rate parameter $\nu$.</p>
+</section>
+</section>
+<section id="methodology-workflow">
+<h1>Methodology: Workflow<a class="headerlink" href="#methodology-workflow" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>For each mini-batch:</p>
+<ul>
+<li><p>$i$ observations with $i = 1, \ldots, N$,</p></li>
+<li><p>$k$ regression coefficients with $k = 0,\ldots,6$,</p></li>
+<li><p>$s$ samples from each prior distribution with $s=1,\ldots, M$</p></li>
+<li><p>$g$ group means with $g = 1,\ldots,6$ (corresponding to a $2 \times 3$ factorial design</p></li>
+</ul>
+</li>
+<li><p>General procedure:</p>
+<ul>
+<li><p>Draw samples from prior distribution(s) of model parameters</p></li>
+<li><p>Generate prior predictions according to the data generating model</p></li>
+<li><p>Compute the pre-defined target quantities</p></li>
+<li><p>Compute the elicited statistics of the target quantities</p></li>
+<li><p>Measure the discrepancy between the model-implied and the expert elicited statistics</p></li>
+<li><p>Update the weights of the transformation function of the normalizing flow</p></li>
+</ul>
+</li>
+</ul>
+<section id="method-normalizing-flow">
+<h2>Method: Normalizing Flow<a class="headerlink" href="#method-normalizing-flow" title="Link to this heading">#</a></h2>
+<section id="method-specification">
+<h3>Method specification<a class="headerlink" href="#method-specification" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>PriorSamples($\lambda$):
+\begin{align*}
+({\beta_k}_s,{s}<em>s) &amp;\sim p</em>\phi(\lambda)\
+\end{align*}</p></li>
+<li><p>Generator($\beta_k, s$):
+\begin{align*}
+{\theta_i}_s &amp;= {\beta_k}<em>s \times X_i\
+\bar{s} &amp;= \frac{1}{M} \sum</em>{i=1}^M {s}_s\
+{y_i}_s &amp;\sim \text{Normal}({\theta_i}_s, \bar{s})\
+\end{align*}</p></li>
+<li><p>Targets(${y_i}<em>s$):
+\begin{align*}
+{\bar{y}</em>{g}}<em>s &amp;= \frac{1}{N</em>{g}} \sum_{i=1}^{N_{g}} {y_i}<em>s \quad \text{ for } g = 1,\ldots,6\
+{\Delta</em>{eff}}<em>s &amp;= {\bar{y}</em>{g1}}<em>s - {\bar{y}</em>{g2}}_s \quad \text{ for } g1 = 3,4,5 \text{ and } g2 = 0,1,2\
+{R^2}_s &amp;= \frac{Var({\theta_i}_s)}{Var({y_i}_s)}
+\end{align*}</p></li>
+<li><p>Elicits(${\bar{y}_{g}}<em>s, {\Delta</em>{eff}}<em>s, {R^2}<em>s$)
+\begin{align*}
+\text{Quantile-based:} \quad &amp;Q_p^{g} = Q</em>{p}^{g} {y_i}<em>s \quad \text{ for } g = 1,\ldots, 6, p = 0.1, \ldots, 0.9\
+\text{Quantile-based:} \quad &amp;Q_p^{eff} = Q</em>{p}^{eff} {\Delta</em>{eff}}_s \quad \text{ for } eff = 1,2,3; p = 0.1, \ldots, 0.9\
+\text{Histogram-based:} \quad &amp;{R^2}_s ={R^2}_s
+\end{align*}</p></li>
+</ul>
+</section>
+<section id="user-specification">
+<h3>User specification<a class="headerlink" href="#user-specification" title="Link to this heading">#</a></h3>
+<section id="setting-hyperparameter-for-the-learning-algorithm">
+<h4>Setting hyperparameter for the learning algorithm<a class="headerlink" href="#setting-hyperparameter-for-the-learning-algorithm" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -.-|m { input: true, output_error: false, input_fold: show }</span>
+
+<span class="c1"># setting of hyperparameter of learning algorithm</span>
+<span class="n">user_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>                    
+        <span class="n">B</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">8</span><span class="p">,</span>                          
+        <span class="n">rep</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>                         
+        <span class="n">epochs</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>                      
+        <span class="n">view_ep</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="n">lr_decay</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">lr0</span> <span class="o">=</span> <span class="mf">0.001</span><span class="p">,</span> 
+        <span class="n">lr_min</span> <span class="o">=</span> <span class="mf">0.000001</span><span class="p">,</span> 
+        <span class="n">loss_dimensions</span> <span class="o">=</span> <span class="s2">&quot;m,n:B&quot;</span><span class="p">,</span>   
+        <span class="n">loss_discrepancy</span> <span class="o">=</span> <span class="s2">&quot;energy&quot;</span><span class="p">,</span>       
+        <span class="n">loss_scaling</span> <span class="o">=</span> <span class="s2">&quot;unscaled&quot;</span><span class="p">,</span>         
+        <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;normalizing_flow&quot;</span>  
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-the-design-matrix">
+<h4>Define the design matrix<a class="headerlink" href="#define-the-design-matrix" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># construct design matrix</span>
+<span class="n">X</span> <span class="o">=</span>  <span class="n">pa</span><span class="o">.</span><span class="n">dmatrix</span><span class="p">(</span><span class="s2">&quot;a*b&quot;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">balanced</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">repeat</span> <span class="o">=</span> <span class="mi">60</span><span class="p">),</span> <span class="n">return_type</span><span class="o">=</span><span class="s2">&quot;dataframe&quot;</span><span class="p">)</span>
+<span class="n">dmatrix</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="c1"># extract contrast matrix from design matrix (for allocating observations to groups)</span>
+<span class="n">cmatrix</span> <span class="o">=</span> <span class="n">dmatrix</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">dmatrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">:]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Intercept  a[T.a2]  b[T.b2]  b[T.b3]  a[T.a2]:b[T.b2]  a[T.a2]:b[T.b3]
+0          1.0      0.0      0.0      0.0              0.0              0.0
+1          1.0      0.0      1.0      0.0              0.0              0.0
+2          1.0      0.0      0.0      1.0              0.0              0.0
+3          1.0      1.0      0.0      0.0              0.0              0.0
+4          1.0      1.0      1.0      0.0              1.0              0.0
+..         ...      ...      ...      ...              ...              ...
+355        1.0      0.0      1.0      0.0              0.0              0.0
+356        1.0      0.0      0.0      1.0              0.0              0.0
+357        1.0      1.0      0.0      0.0              0.0              0.0
+358        1.0      1.0      1.0      0.0              1.0              0.0
+359        1.0      1.0      0.0      1.0              0.0              1.0
+
+[360 rows x 6 columns]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="setup-the-ideal-agent">
+<h4>Setup the ‘ideal agent’<a class="headerlink" href="#setup-the-ideal-agent" title="Link to this heading">#</a></h4>
+<p>Define an ‘arbitrary’ ground truth for the hyperparameter values for method validation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># true hyperparameter values for ideal_expert</span>
+<span class="n">true_values</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;mu&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.03</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.04</span><span class="p">]</span>
+<span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;sigma&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">]</span>
+<span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;nu&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">9.</span>
+
+<span class="c1"># model parameters</span>
+<span class="n">parameters_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">parameters_dict</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;beta_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;true&quot;</span><span class="p">:</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;mu&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;sigma&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span>
+            <span class="s2">&quot;initialization&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">tfd</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)]</span><span class="o">*</span><span class="mi">2</span>
+            <span class="p">}</span>
+
+<span class="n">parameters_dict</span><span class="p">[</span><span class="s2">&quot;sigma&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;true&quot;</span><span class="p">:</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;nu&quot;</span><span class="p">]),</span>
+        <span class="s2">&quot;initialization&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">tfd</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)]</span>
+        <span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;True hyperparameter values:&quot;</span><span class="p">)</span>
+<span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">true_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True hyperparameter values:
+{&#39;mu&#39;: [0.12, 0.15, -0.02, -0.03, -0.02, -0.04],
+ &#39;nu&#39;: 9.0,
+ &#39;sigma&#39;: [0.02, 0.02, 0.06, 0.06, 0.03, 0.03]}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-the-data-generating-model">
+<h4>Define the data generating model<a class="headerlink" href="#define-the-data-generating-model" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -.-|m { input: true, output_error: false, input_fold: show }</span>
+
+<span class="c1"># generative model</span>
+<span class="k">class</span> <span class="nc">GenerativeModel</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                 <span class="n">parameters</span><span class="p">,</span> <span class="c1"># obligatory: samples from prior distributions; tf.Tensor</span>
+                 <span class="n">dmatrix</span><span class="p">,</span>    <span class="c1"># optional: design matrix; tf.Tensor</span>
+                 <span class="n">cmatrix</span><span class="p">,</span>    <span class="c1"># optional: contrast matrix; tf.Tensor</span>
+                 <span class="o">**</span><span class="n">kwargs</span>    <span class="c1"># obligatory: possibility for further keyword arguments is needed </span>
+                 <span class="p">):</span>  
+
+        <span class="c1"># transformed sigma parameter</span>
+        <span class="n">sigma_avg</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">parameters</span><span class="p">[:,:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)[:,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">]</span>
+        
+        <span class="c1"># compute linear predictor term</span>
+        <span class="n">epred</span> <span class="o">=</span> <span class="n">parameters</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">@</span> <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">dmatrix</span><span class="p">)</span>
+        
+        <span class="c1"># define likelihood</span>
+        <span class="n">likelihood</span> <span class="o">=</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span>
+            <span class="n">loc</span> <span class="o">=</span> <span class="n">epred</span><span class="p">,</span> 
+            <span class="n">scale</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">sigma_avg</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="n">epred</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="p">)</span>
+        
+        <span class="c1"># sample prior predictive data</span>
+        <span class="n">ypred</span> <span class="o">=</span> <span class="n">likelihood</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+        
+        <span class="c1"># compute custom target quantity (here: group-differences)</span>
+        <span class="n">samples_grouped</span> <span class="o">=</span> <span class="n">group_obs</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span> <span class="n">dmatrix</span><span class="p">,</span> <span class="n">cmatrix</span><span class="p">)</span>
+
+        <span class="c1"># compute mean difference between groups</span>
+        <span class="n">effect_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">diffs</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">diffs</span><span class="p">)):</span>
+            <span class="c1"># compute group difference</span>
+            <span class="n">diff</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span>
+                <span class="n">samples_grouped</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">diffs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]],</span>
+                <span class="n">samples_grouped</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">diffs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="p">)</span>
+            <span class="c1"># average over individual obs within each group</span>
+            <span class="n">diff_mean</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="c1"># collect all mean group differences</span>
+            <span class="n">effect_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">diff_mean</span><span class="p">)</span>
+
+        <span class="n">mean_effects</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">effect_list</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">likelihood</span> <span class="o">=</span> <span class="n">likelihood</span><span class="p">,</span>      <span class="c1"># obligatory: likelihood; callable</span>
+                    <span class="n">ypred</span> <span class="o">=</span> <span class="n">ypred</span><span class="p">,</span>                <span class="c1"># obligatory: prior predictive data</span>
+                    <span class="n">epred</span> <span class="o">=</span> <span class="n">epred</span><span class="p">,</span>                <span class="c1"># obligatory: samples from linear predictor</span>
+                    <span class="n">mean_effects</span> <span class="o">=</span> <span class="n">mean_effects</span><span class="p">,</span>   <span class="c1"># optional: custom target quantity</span>
+                    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="specify-the-target-quantities-and-the-elicitation-technique">
+<h4>Specify the target quantities and the elicitation technique<a class="headerlink" href="#specify-the-target-quantities-and-the-elicitation-technique" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># define a custom function using the output from the generative model   </span>
+<span class="k">def</span> <span class="nf">custom_r2</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span> <span class="n">epred</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">reduce_variance</span><span class="p">(</span><span class="n">epred</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> 
+                          <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">reduce_variance</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># specify target quantity, elicitation technique and loss combination</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">target_config</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;R2&quot;</span><span class="p">,</span> 
+                   <span class="n">elicitation</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
+                   <span class="n">combine_loss</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+                   <span class="n">custom_target_function</span> <span class="o">=</span> <span class="n">custom_r2</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">target_config</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;group_means&quot;</span><span class="p">,</span> 
+                   <span class="n">elicitation</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span> 
+                   <span class="n">combine_loss</span><span class="o">=</span><span class="s2">&quot;by-group&quot;</span><span class="p">,</span> 
+                   <span class="n">quantiles_specs</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span>
+<span class="n">t3</span> <span class="o">=</span> <span class="n">target_config</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;mean_effects&quot;</span><span class="p">,</span> 
+                   <span class="n">elicitation</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span>
+                   <span class="n">combine_loss</span><span class="o">=</span><span class="s2">&quot;by-group&quot;</span><span class="p">,</span>
+                   <span class="n">quantiles_specs</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span>
+
+<span class="n">target_info</span> <span class="o">=</span> <span class="n">target_input</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">)</span>
+
+<span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">target_info</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;combine_loss&#39;: [&#39;all&#39;, &#39;by-group&#39;, &#39;by-group&#39;],
+ &#39;custom_target_function&#39;: [&lt;function custom_r2 at 0x0000024BB5197D80&gt;,
+                            None,
+                            None],
+ &#39;elicitation&#39;: [&#39;histogram&#39;, &#39;quantiles&#39;, &#39;quantiles&#39;],
+ &#39;internal_loss&#39;: [None, None, None],
+ &#39;quantiles_specs&#39;: [(10, 20, 30, 40, 50, 60, 70, 80, 90),
+                     (10, 20, 30, 40, 50, 60, 70, 80, 90)],
+ &#39;target&#39;: [&#39;R2&#39;, &#39;group_means&#39;, &#39;mean_effects&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="simulate-from-the-ideal-expert">
+<h3>Simulate from the “ideal” expert<a class="headerlink" href="#simulate-from-the-ideal-expert" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -.-|m { input: true, output_error: false, input_fold: show }</span>
+
+<span class="n">expert_res_list</span><span class="p">,</span> <span class="n">prior_pred_res</span> <span class="o">=</span> <span class="n">expert_model</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">user_config</span><span class="p">[</span><span class="s2">&quot;rep&quot;</span><span class="p">],</span>
+                                   <span class="n">parameters_dict</span><span class="p">,</span> <span class="n">GenerativeModel</span><span class="p">,</span> <span class="n">target_info</span><span class="p">,</span>
+                                   <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;ideal_expert_nf&quot;</span><span class="p">,</span>
+                                   <span class="n">dmatrix</span> <span class="o">=</span> <span class="n">dmatrix</span><span class="p">,</span>
+                                   <span class="n">cmatrix</span> <span class="o">=</span> <span class="n">cmatrix</span><span class="p">,</span>
+                                   <span class="n">dmatrix_fct</span> <span class="o">=</span> <span class="n">dmatrix</span><span class="p">)</span>
+
+<span class="c1"># elicited statistics from the (ideal) expert</span>
+<span class="n">expert_res_list</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;R2_hist_0&#39;, &#39;group_means_quant_1&#39;, &#39;mean_effects_quant_2&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<section id="expert-predictions">
+<h4>Expert predictions<a class="headerlink" href="#expert-predictions" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># group means</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">group_stats</span><span class="p">(</span><span class="n">prior_pred_res</span><span class="p">[</span><span class="s2">&quot;ypred&quot;</span><span class="p">],</span> <span class="n">num_groups</span> <span class="o">=</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># mean effects</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mean effects:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">prior_pred_res</span><span class="p">[</span><span class="s2">&quot;mean_effects&quot;</span><span class="p">],(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-------+------+------+
+| group | mean | std  |
++-------+------+------+
+|  gr_0 | 0.12 | 0.02 |
+|  gr_1 | 0.1  | 0.06 |
+|  gr_2 | 0.09 | 0.07 |
+|  gr_3 | 0.27 | 0.03 |
+|  gr_4 | 0.22 | 0.07 |
+|  gr_5 | 0.2  | 0.08 |
++-------+------+------+
+mean effects:
+[0.15 0.13 0.11]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot expert predictions</span>
+<span class="n">plot_expert_preds</span><span class="p">(</span><span class="n">expert_res_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flobo\MakeMyPrior\MakeMyPrior\helper_functions.py:417: UserWarning: FixedFormatter should only be used together with FixedLocator
+  axs[0].set_yticklabels([&quot;r&quot;,&quot;new: deep&quot;,&quot;new: standard&quot;,&quot;new: shallow&quot;,&quot;rep: deep&quot;,&quot;rep: standard&quot;,&quot;rep: shallow&quot;])
+</pre></div>
+</div>
+<img alt="../_images/fb28f97e548d419d7fd4fa75474ac95282953305b20d64334e4f15ff969e01ab.png" src="../_images/fb28f97e548d419d7fd4fa75474ac95282953305b20d64334e4f15ff969e01ab.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="learn-the-prior-distributions">
+<h3>Learn the prior distributions<a class="headerlink" href="#learn-the-prior-distributions" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_dict</span> <span class="o">=</span> <span class="n">trainer</span><span class="p">(</span><span class="n">expert_res_list</span><span class="p">,</span> <span class="n">user_config</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">],</span> <span class="n">user_config</span><span class="p">[</span><span class="s2">&quot;rep&quot;</span><span class="p">],</span>
+                   <span class="n">parameters_dict</span><span class="p">,</span> <span class="n">user_config</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">],</span> <span class="n">GenerativeModel</span><span class="p">,</span>
+                   <span class="n">target_info</span><span class="p">,</span> <span class="n">user_config</span><span class="p">,</span> <span class="n">loss_balancing</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">save_vals</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;prior_preds&quot;</span><span class="p">],</span>
+                   <span class="n">dmatrix</span> <span class="o">=</span> <span class="n">dmatrix</span><span class="p">,</span> <span class="n">cmatrix</span> <span class="o">=</span> <span class="n">cmatrix</span><span class="p">,</span> <span class="n">dmatrix_fct</span> <span class="o">=</span> <span class="n">dmatrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch_time: 1117.474ms
+Epoch: 0, loss: 0.76864, lr: 0.001000
+epoch_time: 304.150ms
+Epoch: 30, loss: 0.02586, lr: 0.000531
+epoch_time: 268.193ms
+Epoch: 60, loss: 0.01175, lr: 0.000282
+epoch_time: 283.451ms
+Epoch: 90, loss: 0.00847, lr: 0.000150
+epoch_time: 289.710ms
+Epoch: 120, loss: 0.00889, lr: 0.000080
+epoch_time: 275.654ms
+Epoch: 150, loss: 0.00839, lr: 0.000042
+epoch_time: 268.742ms
+Epoch: 180, loss: 0.00846, lr: 0.000023
+epoch_time: 277.343ms
+Epoch: 210, loss: 0.00893, lr: 0.000012
+epoch_time: 266.057ms
+Epoch: 240, loss: 0.00814, lr: 0.000006
+epoch_time: 258.379ms
+Epoch: 270, loss: 0.00922, lr: 0.000003
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="results">
+<h3>Results<a class="headerlink" href="#results" title="Link to this heading">#</a></h3>
+<section id="loss-function">
+<h4>Loss function<a class="headerlink" href="#loss-function" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res_dict</span><span class="p">[</span><span class="s2">&quot;loss_info&quot;</span><span class="p">])),</span> <span class="n">res_dict</span><span class="p">[</span><span class="s2">&quot;loss_info&quot;</span><span class="p">])</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;epochs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;energy loss (weighted sum)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/498227443113dbf4ea1c115293adec42c5ea108e3ff59df3c81c325be0a854b6.png" src="../_images/498227443113dbf4ea1c115293adec42c5ea108e3ff59df3c81c325be0a854b6.png" />
+</div>
+</div>
+</section>
+<section id="summary-of-model-parameters">
+<h4>Summary of model parameters<a class="headerlink" href="#summary-of-model-parameters" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sig</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">res_dict</span><span class="p">[</span><span class="s2">&quot;priors_info&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;priors&quot;</span><span class="p">][:,:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">prior_samples</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">res_dict</span><span class="p">[</span><span class="s2">&quot;priors_info&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;priors&quot;</span><span class="p">][:,:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">],</span> <span class="n">sig</span><span class="p">],</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">print_restab</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;normalizing_flow&quot;</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="n">prior_samples</span><span class="p">,</span>
+             <span class="n">precision</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">true_mu</span> <span class="o">=</span> <span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;mu&quot;</span><span class="p">],</span> <span class="n">true_sigma</span> <span class="o">=</span> <span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;sigma&quot;</span><span class="p">],</span> 
+             <span class="n">true_nu</span> <span class="o">=</span> <span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;nu&quot;</span><span class="p">],</span> <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;beta</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)]</span><span class="o">+</span><span class="p">[</span><span class="s2">&quot;sigma&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>var_name</th>
+            <th>pred mean</th>
+            <th>pred std</th>
+            <th>true mean</th>
+            <th>err mean</th>
+            <th>true std</th>
+            <th>err std</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>beta0</td>
+            <td>0.12</td>
+            <td>0.02</td>
+            <td>0.12</td>
+            <td>0.0</td>
+            <td>0.02</td>
+            <td>0.0</td>
+        </tr>
+        <tr>
+            <td>beta1</td>
+            <td>0.15</td>
+            <td>0.02</td>
+            <td>0.15</td>
+            <td>0.0</td>
+            <td>0.02</td>
+            <td>0.0</td>
+        </tr>
+        <tr>
+            <td>beta2</td>
+            <td>-0.03</td>
+            <td>0.07</td>
+            <td>-0.02</td>
+            <td>0.01</td>
+            <td>0.06</td>
+            <td>0.01</td>
+        </tr>
+        <tr>
+            <td>beta3</td>
+            <td>-0.03</td>
+            <td>0.08</td>
+            <td>-0.03</td>
+            <td>0.0</td>
+            <td>0.06</td>
+            <td>0.02</td>
+        </tr>
+        <tr>
+            <td>beta4</td>
+            <td>-0.02</td>
+            <td>0.04</td>
+            <td>-0.02</td>
+            <td>0.0</td>
+            <td>0.03</td>
+            <td>0.01</td>
+        </tr>
+        <tr>
+            <td>beta5</td>
+            <td>-0.04</td>
+            <td>0.04</td>
+            <td>-0.04</td>
+            <td>0.0</td>
+            <td>0.03</td>
+            <td>0.01</td>
+        </tr>
+        <tr>
+            <td>sigma</td>
+            <td>0.12</td>
+            <td>0.05</td>
+            <td>0.11</td>
+            <td>0.01</td>
+            <td>0.11</td>
+            <td>0.06</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+</section>
+<section id="learned-prior-distributions">
+<h4>Learned prior distributions<a class="headerlink" href="#learned-prior-distributions" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_priors_flow</span><span class="p">(</span><span class="n">prior_samples</span><span class="p">,</span> <span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;mu&quot;</span><span class="p">],</span> <span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;sigma&quot;</span><span class="p">],</span> <span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;nu&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e9bcd738c56e9a2cabc604234640795684427df2ed8309f6594b8131f1cf6968.png" src="../_images/e9bcd738c56e9a2cabc604234640795684427df2ed8309f6594b8131f1cf6968.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="method-hyperparameter-learning">
+<h2>Method: Hyperparameter Learning<a class="headerlink" href="#method-hyperparameter-learning" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Method specification<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>PriorSamples($\lambda = (\mu_k, \sigma_k, \nu)$):
+\begin{align*}
+{\beta_k}_s &amp;\sim \text{Normal}(\mu_k, \exp{\sigma_k})\
+{s}_s &amp;\sim \text{Exponential}(\nu)
+\end{align*}</p></li>
+<li><p>Generator($\beta_k, s$):
+\begin{align*}
+{\theta_i}_s &amp;= {\beta_k}<em>s \times X_i\
+\bar{s} &amp;= \frac{1}{M} \sum</em>{i=1}^M {s}_s\
+{y_i}_s &amp;\sim \text{Normal}({\theta_i}_s, \bar{s})\
+\end{align*}</p></li>
+<li><p>Targets(${y_i}<em>s$):
+\begin{align*}
+{\bar{y}</em>{g}}<em>s &amp;= \frac{1}{N</em>{g}} \sum_{i=1}^{N_{g}} {y_i}<em>s \quad \text{ for } g = 1,\ldots,6\
+{\Delta</em>{eff}}<em>s &amp;= {\bar{y}</em>{g1}}<em>s - {\bar{y}</em>{g2}}_s \quad \text{ for } g1 = 3,4,5 \text{ and } g2 = 0,1,2\
+{R^2}_s &amp;= \frac{Var({\theta_i}_s)}{Var({y_i}_s)}
+\end{align*}</p></li>
+<li><p>Elicits(${\bar{y}_{g}}<em>s, {\Delta</em>{eff}}<em>s, {R^2}<em>s$)
+\begin{align*}
+\text{Quantile-based:} \quad &amp;Q_p^{g} = Q</em>{p}^{g} {y_i}<em>s \quad \text{ for } g = 1,\ldots, 6, p = 0.1, \ldots, 0.9\
+\text{Quantile-based:} \quad &amp;Q_p^{eff} = Q</em>{p}^{eff} {\Delta</em>{eff}}_s \quad \text{ for } eff = 1,2,3; p = 0.1, \ldots, 0.9\
+\text{Histogram-based:} \quad &amp;{R^2}_s ={R^2}_s
+\end{align*}</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>User specification<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h4>Setting hyperparameter for the learning algorithm<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -.-|m { input: true, output_error: false, input_fold: show }</span>
+
+<span class="c1"># setting of hyperparameter of learning algorithm</span>
+<span class="n">user_config</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>                    
+        <span class="n">B</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">8</span><span class="p">,</span>                          
+        <span class="n">rep</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>                         
+        <span class="n">epochs</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>                      
+        <span class="n">view_ep</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="n">lr_decay</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">lr0</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> 
+        <span class="n">lr_min</span> <span class="o">=</span> <span class="mf">0.0001</span><span class="p">,</span> 
+        <span class="n">loss_dimensions</span> <span class="o">=</span> <span class="s2">&quot;m,n:B&quot;</span><span class="p">,</span>   
+        <span class="n">loss_discrepancy</span> <span class="o">=</span> <span class="s2">&quot;energy&quot;</span><span class="p">,</span> 
+        <span class="n">loss_scaling</span> <span class="o">=</span> <span class="s2">&quot;unscaled&quot;</span><span class="p">,</span>         
+        <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;hyperparameter_learning&quot;</span>  
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h4>Define the design matrix<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># construct design matrix</span>
+<span class="n">X</span> <span class="o">=</span>  <span class="n">pa</span><span class="o">.</span><span class="n">dmatrix</span><span class="p">(</span><span class="s2">&quot;a*b&quot;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">balanced</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">repeat</span> <span class="o">=</span> <span class="mi">60</span><span class="p">),</span> <span class="n">return_type</span><span class="o">=</span><span class="s2">&quot;dataframe&quot;</span><span class="p">)</span>
+<span class="n">dmatrix</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="c1"># extract contrast matrix from design matrix (for allocating observations to groups)</span>
+<span class="n">cmatrix</span> <span class="o">=</span> <span class="n">dmatrix</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">dmatrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">:]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Intercept  a[T.a2]  b[T.b2]  b[T.b3]  a[T.a2]:b[T.b2]  a[T.a2]:b[T.b3]
+0          1.0      0.0      0.0      0.0              0.0              0.0
+1          1.0      0.0      1.0      0.0              0.0              0.0
+2          1.0      0.0      0.0      1.0              0.0              0.0
+3          1.0      1.0      0.0      0.0              0.0              0.0
+4          1.0      1.0      1.0      0.0              1.0              0.0
+..         ...      ...      ...      ...              ...              ...
+355        1.0      0.0      1.0      0.0              0.0              0.0
+356        1.0      0.0      0.0      1.0              0.0              0.0
+357        1.0      1.0      0.0      0.0              0.0              0.0
+358        1.0      1.0      1.0      0.0              1.0              0.0
+359        1.0      1.0      0.0      1.0              0.0              1.0
+
+[360 rows x 6 columns]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h4>Setup the ‘ideal agent’<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<p>Define an ‘arbitrary’ ground truth for the hyperparameter values for method validation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># true hyperparameter values for ideal_expert</span>
+<span class="n">true_values</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;mu&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.03</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.04</span><span class="p">]</span>
+<span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;sigma&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">]</span>
+<span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;nu&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">9.</span>
+
+<span class="c1"># model parameters</span>
+<span class="n">parameters_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">parameters_dict</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;beta_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;family&quot;</span><span class="p">:</span>  <span class="n">Normal_unconstrained</span><span class="p">(),</span>
+            <span class="s2">&quot;true&quot;</span><span class="p">:</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;mu&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;sigma&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span>
+            <span class="s2">&quot;initialization&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">tfd</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)]</span><span class="o">*</span><span class="mi">2</span>
+            <span class="p">}</span>
+
+<span class="n">exp_dist</span> <span class="o">=</span> <span class="n">Exponential_unconstrained</span><span class="p">(</span><span class="n">user_config</span><span class="p">[</span><span class="s2">&quot;rep&quot;</span><span class="p">])</span>
+<span class="n">parameters_dict</span><span class="p">[</span><span class="s2">&quot;sigma&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;family&quot;</span><span class="p">:</span> <span class="n">exp_dist</span><span class="p">,</span>
+        <span class="s2">&quot;true&quot;</span><span class="p">:</span> <span class="n">exp_dist</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;nu&quot;</span><span class="p">])),</span>
+        <span class="s2">&quot;initialization&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">tfd</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)]</span>
+        <span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;True hyperparameter values:&quot;</span><span class="p">)</span>
+<span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">true_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True hyperparameter values:
+{&#39;mu&#39;: [0.12, 0.15, -0.02, -0.03, -0.02, -0.04],
+ &#39;nu&#39;: 9.0,
+ &#39;sigma&#39;: [0.02, 0.02, 0.06, 0.06, 0.03, 0.03]}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id6">
+<h4>Define the data generating model<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -.-|m { input: true, output_error: false, input_fold: show }</span>
+
+<span class="c1"># generative model</span>
+<span class="k">class</span> <span class="nc">GenerativeModel</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                 <span class="n">parameters</span><span class="p">,</span> <span class="c1"># obligatory: samples from prior distributions; tf.Tensor</span>
+                 <span class="n">dmatrix</span><span class="p">,</span>    <span class="c1"># optional: design matrix; tf.Tensor</span>
+                 <span class="n">cmatrix</span><span class="p">,</span>    <span class="c1"># optional: contrast matrix; tf.Tensor</span>
+                 <span class="o">**</span><span class="n">kwargs</span>    <span class="c1"># obligatory: possibility for further keyword arguments is needed </span>
+                 <span class="p">):</span>  
+        
+        <span class="c1"># compute linear predictor term</span>
+        <span class="n">epred</span> <span class="o">=</span> <span class="n">parameters</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">@</span> <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">dmatrix</span><span class="p">)</span>
+        
+        <span class="c1"># define likelihood</span>
+        <span class="n">likelihood</span> <span class="o">=</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span>
+            <span class="n">loc</span> <span class="o">=</span> <span class="n">epred</span><span class="p">,</span> 
+            <span class="n">scale</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">parameters</span><span class="p">[:,:,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        
+        <span class="c1"># sample prior predictive data</span>
+        <span class="n">ypred</span> <span class="o">=</span> <span class="n">likelihood</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+        
+        <span class="c1"># compute custom target quantity (here: group-differences)</span>
+        <span class="n">samples_grouped</span> <span class="o">=</span> <span class="n">group_obs</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span> <span class="n">dmatrix</span><span class="p">,</span> <span class="n">cmatrix</span><span class="p">)</span>
+
+        <span class="c1"># compute mean difference between groups</span>
+        <span class="n">effect_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">diffs</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">diffs</span><span class="p">)):</span>
+            <span class="c1"># compute group difference</span>
+            <span class="n">diff</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span>
+                <span class="n">samples_grouped</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">diffs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]],</span>
+                <span class="n">samples_grouped</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">diffs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="p">)</span>
+            <span class="c1"># average over individual obs within each group</span>
+            <span class="n">diff_mean</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="c1"># collect all mean group differences</span>
+            <span class="n">effect_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">diff_mean</span><span class="p">)</span>
+
+        <span class="n">mean_effects</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">effect_list</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">likelihood</span> <span class="o">=</span> <span class="n">likelihood</span><span class="p">,</span>      <span class="c1"># obligatory: likelihood; callable</span>
+                    <span class="n">ypred</span> <span class="o">=</span> <span class="n">ypred</span><span class="p">,</span>                <span class="c1"># obligatory: prior predictive data</span>
+                    <span class="n">epred</span> <span class="o">=</span> <span class="n">epred</span><span class="p">,</span>                <span class="c1"># obligatory: samples from linear predictor</span>
+                    <span class="n">mean_effects</span> <span class="o">=</span> <span class="n">mean_effects</span>   <span class="c1"># optional: custom target quantity</span>
+                    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id7">
+<h4>Specify the target quantities and the elicitation technique<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># define a custom function using the output from the generative model   </span>
+<span class="k">def</span> <span class="nf">custom_r2</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span> <span class="n">epred</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">reduce_variance</span><span class="p">(</span><span class="n">epred</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> 
+                          <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">reduce_variance</span><span class="p">(</span><span class="n">ypred</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># specify target quantity, elicitation technique and loss combination</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">target_config</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;R2&quot;</span><span class="p">,</span> 
+                   <span class="n">elicitation</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
+                   <span class="n">combine_loss</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
+                   <span class="n">custom_target_function</span> <span class="o">=</span> <span class="n">custom_r2</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">target_config</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;group_means&quot;</span><span class="p">,</span> 
+                   <span class="n">elicitation</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span> 
+                   <span class="n">combine_loss</span><span class="o">=</span><span class="s2">&quot;by-group&quot;</span><span class="p">,</span> 
+                   <span class="n">quantiles_specs</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span>
+<span class="n">t3</span> <span class="o">=</span> <span class="n">target_config</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="s2">&quot;mean_effects&quot;</span><span class="p">,</span> 
+                   <span class="n">elicitation</span><span class="o">=</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span>
+                   <span class="n">combine_loss</span><span class="o">=</span><span class="s2">&quot;by-group&quot;</span><span class="p">,</span>
+                   <span class="n">quantiles_specs</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">))</span>
+
+<span class="n">target_info</span> <span class="o">=</span> <span class="n">target_input</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">)</span>
+
+<span class="n">pp</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">target_info</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;combine_loss&#39;: [&#39;all&#39;, &#39;by-group&#39;, &#39;by-group&#39;],
+ &#39;custom_target_function&#39;: [&lt;function custom_r2 at 0x0000024BFD075800&gt;,
+                            None,
+                            None],
+ &#39;elicitation&#39;: [&#39;histogram&#39;, &#39;quantiles&#39;, &#39;quantiles&#39;],
+ &#39;internal_loss&#39;: [None, None, None],
+ &#39;quantiles_specs&#39;: [(10, 20, 30, 40, 50, 60, 70, 80, 90),
+                     (10, 20, 30, 40, 50, 60, 70, 80, 90)],
+ &#39;target&#39;: [&#39;R2&#39;, &#39;group_means&#39;, &#39;mean_effects&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id8">
+<h3>Simulate from the “ideal” expert<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -.-|m { input: true, output_error: false, input_fold: show }</span>
+
+<span class="n">expert_res_list</span><span class="p">,</span> <span class="n">prior_pred_res</span> <span class="o">=</span> <span class="n">expert_model</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">user_config</span><span class="p">[</span><span class="s2">&quot;rep&quot;</span><span class="p">],</span>
+                                   <span class="n">parameters_dict</span><span class="p">,</span> <span class="n">GenerativeModel</span><span class="p">,</span> <span class="n">target_info</span><span class="p">,</span>
+                                   <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;ideal_expert&quot;</span><span class="p">,</span>
+                                   <span class="n">dmatrix</span> <span class="o">=</span> <span class="n">dmatrix</span><span class="p">,</span>
+                                   <span class="n">cmatrix</span> <span class="o">=</span> <span class="n">cmatrix</span><span class="p">,</span>
+                                   <span class="n">dmatrix_fct</span> <span class="o">=</span> <span class="n">dmatrix</span><span class="p">)</span>
+
+<span class="c1"># elicited statistics from the (ideal) expert</span>
+<span class="n">expert_res_list</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;R2_hist_0&#39;, &#39;group_means_quant_1&#39;, &#39;mean_effects_quant_2&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id9">
+<h4>Expert predictions<a class="headerlink" href="#id9" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># group means</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">group_stats</span><span class="p">(</span><span class="n">prior_pred_res</span><span class="p">[</span><span class="s2">&quot;ypred&quot;</span><span class="p">],</span> <span class="n">num_groups</span> <span class="o">=</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># mean effects</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mean effects:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">prior_pred_res</span><span class="p">[</span><span class="s2">&quot;mean_effects&quot;</span><span class="p">],(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+-------+------+------+
+| group | mean | std  |
++-------+------+------+
+|  gr_0 | 0.12 | 0.02 |
+|  gr_1 | 0.1  | 0.07 |
+|  gr_2 | 0.09 | 0.06 |
+|  gr_3 | 0.27 | 0.03 |
+|  gr_4 | 0.22 | 0.07 |
+|  gr_5 | 0.19 | 0.07 |
++-------+------+------+
+mean effects:
+[0.15 0.12 0.11]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot expert predictions</span>
+<span class="n">plot_expert_preds</span><span class="p">(</span><span class="n">expert_res_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flobo\MakeMyPrior\MakeMyPrior\helper_functions.py:417: UserWarning: FixedFormatter should only be used together with FixedLocator
+  axs[0].set_yticklabels([&quot;r&quot;,&quot;new: deep&quot;,&quot;new: standard&quot;,&quot;new: shallow&quot;,&quot;rep: deep&quot;,&quot;rep: standard&quot;,&quot;rep: shallow&quot;])
+</pre></div>
+</div>
+<img alt="../_images/78692d0132ba5751c74a49d09096e697816a5af5e91d3d129d88012737023188.png" src="../_images/78692d0132ba5751c74a49d09096e697816a5af5e91d3d129d88012737023188.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="id10">
+<h3>Learn the prior distributions<a class="headerlink" href="#id10" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_dict</span> <span class="o">=</span> <span class="n">trainer</span><span class="p">(</span><span class="n">expert_res_list</span><span class="p">,</span> <span class="n">user_config</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">],</span> <span class="n">user_config</span><span class="p">[</span><span class="s2">&quot;rep&quot;</span><span class="p">],</span>
+                   <span class="n">parameters_dict</span><span class="p">,</span> <span class="n">user_config</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">],</span> <span class="n">GenerativeModel</span><span class="p">,</span>
+                   <span class="n">target_info</span><span class="p">,</span> <span class="n">user_config</span><span class="p">,</span> <span class="n">loss_balancing</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">save_vals</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;prior_preds&quot;</span><span class="p">],</span>
+                   <span class="n">dmatrix</span> <span class="o">=</span> <span class="n">dmatrix</span><span class="p">,</span> <span class="n">cmatrix</span> <span class="o">=</span> <span class="n">cmatrix</span><span class="p">,</span> <span class="n">dmatrix_fct</span> <span class="o">=</span> <span class="n">dmatrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epoch_time: 462.108ms
+Epoch: 0, loss: 0.74886, lr: 0.100000
+epoch_time: 105.835ms
+Epoch: 30, loss: 0.05988, lr: 0.053144
+epoch_time: 104.903ms
+Epoch: 60, loss: 0.01880, lr: 0.028243
+epoch_time: 109.590ms
+Epoch: 90, loss: 0.02891, lr: 0.015009
+epoch_time: 103.867ms
+Epoch: 120, loss: 0.01400, lr: 0.007977
+epoch_time: 103.787ms
+Epoch: 150, loss: 0.02049, lr: 0.004239
+epoch_time: 112.480ms
+Epoch: 180, loss: 0.01503, lr: 0.002253
+epoch_time: 108.481ms
+Epoch: 210, loss: 0.01145, lr: 0.001197
+epoch_time: 108.643ms
+Epoch: 240, loss: 0.01789, lr: 0.000636
+epoch_time: 108.552ms
+Epoch: 270, loss: 0.01152, lr: 0.000338
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id11">
+<h3>Results<a class="headerlink" href="#id11" title="Link to this heading">#</a></h3>
+<section id="id12">
+<h4>Loss function<a class="headerlink" href="#id12" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res_dict</span><span class="p">[</span><span class="s2">&quot;loss_info&quot;</span><span class="p">])),</span> <span class="n">res_dict</span><span class="p">[</span><span class="s2">&quot;loss_info&quot;</span><span class="p">])</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;epochs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;energy loss (weighted sum)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d1b09d6a77f58fae4e6f63b5a031f78ceba6e1c83023fb4a7d7e189077a78b54.png" src="../_images/d1b09d6a77f58fae4e6f63b5a031f78ceba6e1c83023fb4a7d7e189077a78b54.png" />
+</div>
+</div>
+</section>
+<section id="summary-of-hyperparameter-values">
+<h4>Summary of hyperparameter values<a class="headerlink" href="#summary-of-hyperparameter-values" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">true_vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;mu&quot;</span><span class="p">],</span><span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;sigma&quot;</span><span class="p">])</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">i</span><span class="p">]</span>
+<span class="n">true_vals</span> <span class="o">+=</span> <span class="p">[</span><span class="n">true_values</span><span class="p">[</span><span class="s2">&quot;nu&quot;</span><span class="p">]]</span>
+
+<span class="n">tab</span><span class="p">,</span> <span class="n">avg_res</span> <span class="o">=</span> <span class="n">print_restab</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;hyperparameter_learning&quot;</span><span class="p">,</span> 
+                             <span class="n">num_vars</span> <span class="o">=</span> <span class="mi">13</span><span class="p">,</span> 
+                             <span class="n">res</span> <span class="o">=</span> <span class="n">res_dict</span><span class="p">[</span><span class="s2">&quot;hyperparam_info&quot;</span><span class="p">],</span> 
+                             <span class="n">start</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> 
+                             <span class="n">precision</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> 
+                             <span class="n">true_values</span> <span class="o">=</span> <span class="n">true_vals</span><span class="p">)</span>
+<span class="n">tab</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>var_name</th>
+            <th>pred mean</th>
+            <th>pred std</th>
+            <th>true</th>
+            <th>err</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>loc_0</td>
+            <td>0.121</td>
+            <td>0.004</td>
+            <td>0.12</td>
+            <td>0.001</td>
+        </tr>
+        <tr>
+            <td>scale_0</td>
+            <td>0.023</td>
+            <td>0.0</td>
+            <td>0.02</td>
+            <td>0.003</td>
+        </tr>
+        <tr>
+            <td>loc_1</td>
+            <td>0.149</td>
+            <td>0.004</td>
+            <td>0.15</td>
+            <td>0.001</td>
+        </tr>
+        <tr>
+            <td>scale_1</td>
+            <td>0.02</td>
+            <td>0.0</td>
+            <td>0.02</td>
+            <td>0.0</td>
+        </tr>
+        <tr>
+            <td>loc_2</td>
+            <td>-0.024</td>
+            <td>0.005</td>
+            <td>-0.02</td>
+            <td>0.004</td>
+        </tr>
+        <tr>
+            <td>scale_2</td>
+            <td>0.06</td>
+            <td>0.0</td>
+            <td>0.06</td>
+            <td>0.0</td>
+        </tr>
+        <tr>
+            <td>loc_3</td>
+            <td>-0.032</td>
+            <td>0.008</td>
+            <td>-0.03</td>
+            <td>0.002</td>
+        </tr>
+        <tr>
+            <td>scale_3</td>
+            <td>0.06</td>
+            <td>0.0</td>
+            <td>0.06</td>
+            <td>0.0</td>
+        </tr>
+        <tr>
+            <td>loc_4</td>
+            <td>-0.028</td>
+            <td>0.005</td>
+            <td>-0.02</td>
+            <td>0.008</td>
+        </tr>
+        <tr>
+            <td>scale_4</td>
+            <td>0.027</td>
+            <td>0.0</td>
+            <td>0.03</td>
+            <td>0.003</td>
+        </tr>
+        <tr>
+            <td>loc_5</td>
+            <td>-0.043</td>
+            <td>0.006</td>
+            <td>-0.04</td>
+            <td>0.003</td>
+        </tr>
+        <tr>
+            <td>scale_5</td>
+            <td>0.031</td>
+            <td>0.0</td>
+            <td>0.03</td>
+            <td>0.001</td>
+        </tr>
+        <tr>
+            <td>rate_6</td>
+            <td>9.114</td>
+            <td>0.056</td>
+            <td>9.0</td>
+            <td>0.114</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+</section>
+<section id="id13">
+<h4>Learned prior distributions<a class="headerlink" href="#id13" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_priors_hyp</span><span class="p">(</span><span class="n">avg_res</span><span class="p">,</span> <span class="n">true_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/316955dbb1de31dc5208f018eedc8c01e9f3ac1437fe03f6db3b56df870b257e.png" src="../_images/316955dbb1de31dc5208f018eedc8c01e9f3ac1437fe03f6db3b56df870b257e.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Background: Case Study</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-generating-model">Data generating model</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology-workflow">Methodology: Workflow</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-normalizing-flow">Method: Normalizing Flow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-specification">Method specification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-specification">User specification</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-hyperparameter-for-the-learning-algorithm">Setting hyperparameter for the learning algorithm</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-design-matrix">Define the design matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-the-ideal-agent">Setup the ‘ideal agent’</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-data-generating-model">Define the data generating model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-the-target-quantities-and-the-elicitation-technique">Specify the target quantities and the elicitation technique</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-from-the-ideal-expert">Simulate from the “ideal” expert</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expert-predictions">Expert predictions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learn-the-prior-distributions">Learn the prior distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-function">Loss function</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-model-parameters">Summary of model parameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learned-prior-distributions">Learned prior distributions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-hyperparameter-learning">Method: Hyperparameter Learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Method specification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">User specification</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Setting hyperparameter for the learning algorithm</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Define the design matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Setup the ‘ideal agent’</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Define the data generating model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Specify the target quantities and the elicitation technique</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Simulate from the “ideal” expert</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Expert predictions</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Learn the prior distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Results</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">Loss function</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-hyperparameter-values">Summary of hyperparameter values</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">Learned prior distributions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florence Bockting
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024, Florence Bockting.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
