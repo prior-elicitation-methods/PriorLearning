@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Overview: module code &#8212; Make My Prior</title>
+    <title>Overview: module code &#8212; Prior Learning</title>
   
   
   
@@ -30,6 +30,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
@@ -39,7 +40,10 @@
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/index';</script>
+    <link rel="icon" href="../_static/favicon-light.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -112,20 +116,30 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/mmp-logo-light.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/mmp-logo-dark.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
-    <p class="title logo__title">Make My Prior</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../MakeMyPrior.html">MakeMyPrior package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../PriorLearning.html">PriorLearning package</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../case_studies.html">Case Studies</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../case_studies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../case_studies/cs_normal.html">Normal regression model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../case_studies/cs_binomial.html">Binomial regression model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../case_studies/cs_poisson.html">Poisson regression model</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -227,21 +241,19 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <h1>All modules for which code is available</h1>
-<ul><li><a href="MakeMyPrior/combine_losses.html">MakeMyPrior.combine_losses</a></li>
-<li><a href="MakeMyPrior/discrepancy_measures.html">MakeMyPrior.discrepancy_measures</a></li>
-<li><a href="MakeMyPrior/elicitation_techniques.html">MakeMyPrior.elicitation_techniques</a></li>
-<li><a href="MakeMyPrior/elicitation_wrapper.html">MakeMyPrior.elicitation_wrapper</a></li>
-<li><a href="MakeMyPrior/helper_functions.html">MakeMyPrior.helper_functions</a></li>
-<li><a href="MakeMyPrior/loss_helpers.html">MakeMyPrior.loss_helpers</a></li>
-<li><a href="MakeMyPrior/multi_loss_weighting.html">MakeMyPrior.multi_loss_weighting</a></li>
-<li><a href="MakeMyPrior/nn_implementation.html">MakeMyPrior.nn_implementation</a></li>
-<li><a href="MakeMyPrior/normal_cs.html">MakeMyPrior.normal_cs</a></li>
-<li><a href="MakeMyPrior/plot_helpers.html">MakeMyPrior.plot_helpers</a></li>
-<li><a href="MakeMyPrior/simulator.html">MakeMyPrior.simulator</a></li>
-<li><a href="MakeMyPrior/softmax_gumbel_trick.html">MakeMyPrior.softmax_gumbel_trick</a></li>
-<li><a href="MakeMyPrior/target_quantities.html">MakeMyPrior.target_quantities</a></li>
-<li><a href="MakeMyPrior/training.html">MakeMyPrior.training</a></li>
-<li><a href="MakeMyPrior/user_config.html">MakeMyPrior.user_config</a></li>
+<ul><li><a href="PriorLearning/combine_losses.html">PriorLearning.combine_losses</a></li>
+<li><a href="PriorLearning/discrepancy_measures.html">PriorLearning.discrepancy_measures</a></li>
+<li><a href="PriorLearning/elicitation_techniques.html">PriorLearning.elicitation_techniques</a></li>
+<li><a href="PriorLearning/elicitation_wrapper.html">PriorLearning.elicitation_wrapper</a></li>
+<li><a href="PriorLearning/global_config_params.html">PriorLearning.global_config_params</a></li>
+<li><a href="PriorLearning/helper_functions.html">PriorLearning.helper_functions</a></li>
+<li><a href="PriorLearning/loss_helpers.html">PriorLearning.loss_helpers</a></li>
+<li><a href="PriorLearning/multi_loss_weighting.html">PriorLearning.multi_loss_weighting</a></li>
+<li><a href="PriorLearning/simulator.html">PriorLearning.simulator</a></li>
+<li><a href="PriorLearning/softmax_gumbel_trick.html">PriorLearning.softmax_gumbel_trick</a></li>
+<li><a href="PriorLearning/target_quantities.html">PriorLearning.target_quantities</a></li>
+<li><a href="PriorLearning/training.html">PriorLearning.training</a></li>
+<li><a href="PriorLearning/user_config.html">PriorLearning.user_config</a></li>
 </ul>
 
                 </article>

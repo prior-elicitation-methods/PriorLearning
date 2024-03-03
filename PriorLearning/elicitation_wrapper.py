@@ -1,20 +1,16 @@
-"""
-File: expert_wrapper.py
-Author: Florence Bockting
-Date: 09.2023  
-"""
-import tensorflow as tf
 import tensorflow_probability as tfp
+
 tfd = tfp.distributions
 
-from MakeMyPrior.target_quantities import TargetQuantities
-from MakeMyPrior.elicitation_techniques import ElicitationTechnique
-from MakeMyPrior.combine_losses import combine_loss_components
-from MakeMyPrior.simulator import Simulator
+from PriorLearning.target_quantities import TargetQuantities
+from PriorLearning.elicitation_techniques import ElicitationTechnique
+from PriorLearning.combine_losses import combine_loss_components
+from PriorLearning.simulator import Simulator
 
 def elicitation_wrapper(B, rep, parameters_dict, Simulator, GenerativeModel, 
                         target_info, method, **kwargs):
-    """Wrapper function that takes as input the initialized simulator and returns
+    """
+    Wrapper function that takes as input the initialized simulator and returns
     the final quantities that are used as input for each loss component.
 
     Parameters
@@ -70,7 +66,8 @@ def elicitation_wrapper(B, rep, parameters_dict, Simulator, GenerativeModel,
 
 def expert_model(B, rep, parameters_dict, GenerativeModel, target_info, method,
                  **kwargs):
-    """wrapper function for computing the loss components of the ideal expert
+    """
+    wrapper function for computing the loss components of the ideal expert
     as specified by the user.
 
     Parameters

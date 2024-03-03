@@ -1,20 +1,12 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 13 19:24:36 2024
-
-@author: flobo
-"""
 import tensorflow as tf
 import tensorflow_probability as tfp
+
 tfd = tfp.distributions
+
 from itertools import product
-
-from MakeMyPrior.loss_helpers import test_value
-
 
 def combi_none(elicits, target):
     loss_component = []
-    test_num_losses = test_value(elicits[target])
     test_shape = (elicits[target].shape[0],)
     
     if tf.rank(elicits[target]) == 2:
@@ -27,14 +19,10 @@ def combi_none(elicits, target):
                  range(elicits[target].shape[2]))]
     
     assert loss_component[0].shape == test_shape, f"Shape of loss component should be {test_shape} but is {loss_component[0].shape}."
-    assert len(loss_component) == test_num_losses, f"Number of loss components should be {test_num_losses} but is {len(loss_component)}." 
     
     return loss_component
 
 def combi_all(elicits, target):
-   # test_shape = (elicits[target].shape[0], test_value(elicits[target]))
-    #loss_component = 0
-  
     if len(elicits[target].shape) == 2:
         loss_component = elicits[target]
     
@@ -46,9 +34,7 @@ def combi_all(elicits, target):
             loss_component = tf.concat([loss_component,
                 elicits[target][:,:,i]
                 ], axis = 1)
-    
-   # assert loss_component[0].shape == test_shape, f"Shape of loss component should be {test_shape} but is {loss_component.shape}."
-    
+      
     return loss_component
 
 
@@ -64,21 +50,13 @@ def combi_group(elicits, target):
 def combi_stats(elicits, target):
     loss_component = []
     if len(elicits[target].shape) == 3:
-        #test_num_losses =  elicits[target].shape[1]
-        #test_shape = (elicits[target].shape[0], elicits[target].shape[2])
-        
         [loss_component.append(elicits[target][:,i,:]) for i in 
          range(elicits[target].shape[1])]
     
     if len(elicits[target].shape) == 2:
-        #test_num_losses =  elicits[target].shape[1]
-        #test_shape = (elicits[target].shape[0], )
-        
         [loss_component.append(elicits[target][:,i]) for i in 
          range(elicits[target].shape[1])]
     
-    #assert loss_component[0].shape == test_shape, f"Shape of loss component should be {test_shape} but is {loss_component[0].shape}."
-    #assert len(loss_component) == test_num_losses, f"Number of loss components should be {test_num_losses} but is {len(loss_component)}." 
     return loss_component 
 
 def combine_loss_components(target_info, elicits):

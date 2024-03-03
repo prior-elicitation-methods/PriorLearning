@@ -6,4 +6,9 @@
 Case Studies
 =============
 
-+ `Normal regression <../html/_static/cs_normal.html>`_ 
+.. toctree::
+   :maxdepth: 2
+
+   Normal regression model <case_studies/cs_normal>
+   Binomial regression model <case_studies/cs_binomial>
+   Poisson regression model <case_studies/cs_poisson>

@@ -6,20 +6,20 @@ tfd = tfp.distributions
 
 from tensorflow import keras
 
-from MakeMyPrior.loss_helpers import compute_loss
-from MakeMyPrior.simulator import Simulator
-from MakeMyPrior.global_config_params import _global_variables
-from MakeMyPrior.multi_loss_weighting import dynamic_weight_averaging
-from MakeMyPrior.target_quantities import TargetQuantities
-from MakeMyPrior.combine_losses import combine_loss_components
-from MakeMyPrior.elicitation_techniques import ElicitationTechnique
+from PriorLearning.loss_helpers import compute_loss
+from PriorLearning.simulator import Simulator
+from PriorLearning.global_config_params import _global_variables
+from PriorLearning.multi_loss_weighting import dynamic_weight_averaging
+from PriorLearning.target_quantities import TargetQuantities
+from PriorLearning.combine_losses import combine_loss_components
+from PriorLearning.elicitation_techniques import ElicitationTechnique
 
 @tf.function
-def body(simulation_model,expert_res_list,user_config, _global_variables,
-                         loss_balancing, epoch, optimizer, lr,
-                         B, rep, parameters_dict, GenerativeModel, 
-                         target_info, method, targets_ini, elicit_ini, 
-                         initial_loss_components, save_vals, num_loss_comp, **kwargs):
+def _body(simulation_model,expert_res_list,user_config, _global_variables,
+         loss_balancing, epoch, optimizer, lr,
+         B, rep, parameters_dict, GenerativeModel, 
+         target_info, method, targets_ini, elicit_ini, 
+         initial_loss_components, save_vals, num_loss_comp, **kwargs):
     
     # simulate from generative model
     predictive_simulations = simulation_model(
@@ -67,7 +67,7 @@ def body(simulation_model,expert_res_list,user_config, _global_variables,
     return loss_sum, loss, return_values
 
 @tf.function
-def gradient_computation(
+def _gradient_computation(
         simulation_model,expert_res_list,user_config, _global_variables,
         loss_balancing, epoch, optimizer, lr, B, rep, parameters_dict, 
         GenerativeModel, target_info, method, targets_ini, elicit_ini, 
@@ -76,7 +76,7 @@ def gradient_computation(
     with tf.GradientTape() as tape:   
         
         # compute loss and simulate from data generating model
-        loss_sum, loss, predictive_simulations = body(
+        loss_sum, loss, predictive_simulations = _body(
             simulation_model, expert_res_list,user_config, _global_variables,
             loss_balancing, epoch, optimizer, lr,
             B, rep, parameters_dict, GenerativeModel, 
@@ -91,6 +91,49 @@ def gradient_computation(
 
 def trainer(expert_res_list, B, rep, parameters_dict, method, GenerativeModel, 
             target_info, user_config, loss_balancing, save_vals, **kwargs):
+    """
+    Performs training over all epochs and saves results.
+
+    Parameters
+    ----------
+    expert_res_list : list
+        Elicited statistics of expert as input for loss computation.
+    B : int
+        batch size.
+    rep : int
+        number of simulations from prior distribution.
+    parameters_dict : dict
+        User specification of prior distribution family and hyperparameter initialization.
+    method : string; 'hyperparameter_learning'
+        Goal of learning algorithm. Currently only hyperparameter learning is implemented.
+    GenerativeModel : Callable; Class object
+        User specification of generative model 
+    target_info : dict
+        User specification of type of target quantity, elicitation technique, and further optional arguments.
+    user_config : dict
+        User specification of hyperparameter of the learning algorithm such as batch size, number of sim. from priors, etc..
+    loss_balancing : Boolean; default = True
+        Whether loss_balancing should be applied or not. If not weights for each loss component are set to one.
+    save_vals : list of strings; ['targets', 'elicits', 'prior_preds']
+        Whether quantities from substeps in analyses should be savd for later analysis.
+        Possibility to save for the last epoch: target quantities ('targets'), elicited statistics ('elicits'), and predictions from generative model ('prior_preds')
+    **kwargs : optional add. keywords arguments
+        For example design matrix, contrast matrix, total_count.
+
+    Returns
+    -------
+    res_return : dict
+        results of learning algorithm with the following keys:
+            
+        - 'loss_info' : list of total loss per epoch
+        - 'epoch_time' : list of time needed per epoch in sec 
+        - 'priors_info' : list
+            - priors_info[0]: dict with the following keys :
+                - 'likelihood', 'ypred', 'epred' (+ custom target quantities)
+                - 'priors' (depending on the save_vals argument)    
+            - 'hyperparam_info' : list of model hyperparameter values per epoch
+
+    """
     
     # initalize schedule for learning rate decay
     if user_config["lr_decay"]:
@@ -117,9 +160,7 @@ def trainer(expert_res_list, B, rep, parameters_dict, method, GenerativeModel,
         varnames = []
     loss_list = []
     epoch_time = []
-    # for early stopping
-    wait = 0
-    best = float('inf')
+
     # initialize the adam optimizer
     optimizer = keras.optimizers.legacy.Adam(
         learning_rate = lr,
@@ -138,7 +179,7 @@ def trainer(expert_res_list, B, rep, parameters_dict, method, GenerativeModel,
         
         params = []
         # compute loss, gradients, and simulate model predictions
-        loss_sum, loss , g, predictive_simulations  = gradient_computation(
+        loss_sum, loss , g, predictive_simulations  = _gradient_computation(
             simulation_model,expert_res_list,user_config, _global_variables,
             loss_balancing, epoch, optimizer, lr, B, rep, parameters_dict, 
             GenerativeModel, target_info, method, targets_ini, elicit_ini,
@@ -150,16 +191,6 @@ def trainer(expert_res_list, B, rep, parameters_dict, method, GenerativeModel,
 
         # update trainable_variables using gradient info with adam optimizer
         optimizer.apply_gradients(zip(g, simulation_model.trainable_variables))
-        
-        # The early stopping strategy: stop the training if `val_loss` does not
-        # decrease over a certain number of epochs.
-        wait += 1
-        if loss_sum < best:
-          best = loss_sum
-          wait = 0
-        if wait >= _global_variables["patience"]:
-          print(f"early stopping at epoch {epoch}")
-          break
           
         # time end of epoch
         end = time.time()
@@ -185,7 +216,7 @@ def trainer(expert_res_list, B, rep, parameters_dict, method, GenerativeModel,
     res_return = dict()
     res_return["loss_info"] = loss_list
     res_return["epoch_time"] = epoch_time
-    res_return["priors_info"] = predictive_simulations #["priors"]
+    res_return["priors_info"] = predictive_simulations 
     
     if user_config["method"] == "hyperparameter_learning":
         res_return["hyperparam_info"] = [vars_list, varnames]

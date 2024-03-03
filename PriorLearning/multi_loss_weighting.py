@@ -1,11 +1,3 @@
-"""
-File: multi_loss_weighting.py
-Author: Florence Bockting
-Date: 09.2023
-
-Description: Loss weightings used for weighted sum loss
-"""
-
 import tensorflow as tf
 
 

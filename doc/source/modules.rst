@@ -1,7 +1,7 @@
-MakeMyPrior
-===========
+PriorLearning
+=============
 
 .. toctree::
    :maxdepth: 4
 
-   MakeMyPrior
+   PriorLearning

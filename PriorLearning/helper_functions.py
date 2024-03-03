@@ -9,22 +9,13 @@ import numpy as np
 bfn = bf.networks
 tfd = tfp.distributions
 
-from MakeMyPrior.global_config_params import _global_variables
+from PriorLearning.global_config_params import _global_variables
 from prettytable import PrettyTable
 
-def function_time(func):
-    def inner(**kwargs):
-        func_name = func.__name__
-        start = time.time()
-        func(**kwargs)
-        end = time.time()
-        print(f"{func_name}" + f": {(end-start)*60:.3f}ms") 
-        return func(**kwargs)
-    return inner
-
-
 class Normal_unconstrained:
-    """Tensorflow_probability Normal distribution with exponentiated scale"""
+    """
+    Tensorflow_probability Normal distribution with exponentiated scale
+    """
 
     def __init__(self):
         self.keys = ["loc", "scale"]
@@ -52,7 +43,8 @@ class Normal_unconstrained:
 
 class TruncatedNormal_unconstrained:
     def __init__(self, loc, low, high):
-        """Tensorflow_probability TruncatedNormal distribution with exponentiated
+        """
+        Tensorflow_probability TruncatedNormal distribution with exponentiated
         scale
 
         Parameters
@@ -73,7 +65,8 @@ class TruncatedNormal_unconstrained:
         self.keys = ["scale"]
 
     def __call__(self, scale):
-        """Tensorflow_probability TruncatedNormal distribution with exponentiated
+        """
+        Tensorflow_probability TruncatedNormal distribution with exponentiated
         scale
 
         Parameters
@@ -96,7 +89,8 @@ class TruncatedNormal_unconstrained:
 
 class Exponential_unconstrained:
     def __init__(self, rep):
-        """Tensorflow_probability Exponential distribution reparameterized
+        """
+        Tensorflow_probability Exponential distribution reparameterized
         as Gamma distribution and with exponentiated rate
 
         Assume s ~ Exponential(exp(rate)), then the mean of N replicated s follows
@@ -114,7 +108,8 @@ class Exponential_unconstrained:
         self.keys = ["rate"]
 
     def __call__(self, rate):
-        """Tensorflow_probability TruncatedNormal distribution with exponentiated
+        """
+        Tensorflow_probability TruncatedNormal distribution with exponentiated
         scale
 
         Parameters
@@ -132,40 +127,10 @@ class Exponential_unconstrained:
         return tfd.Gamma(concentration=self.rep, rate=tf.exp(rate) * self.rep)
 
 
-def create_cinn(num_params, num_coupling_layers):
-    """Construct an invertible network using the bayesflow package
-
-    Parameters
-    ----------
-    num_params : integer
-        Number of model parameters.
-    num_coupling_layers : integer
-        Number of coupling layers.
-
-    Returns
-    -------
-    invertible_net : bayesflow.networks.InvertibleNetwork
-        Definition of the architecture of the invertible network.
-
-    """
-    invertible_net = bfn.InvertibleNetwork(
-        num_params=num_params,
-        num_coupling_layers=num_coupling_layers,
-        coupling_design=_global_variables["coupling_design"],
-        coupling_settings={
-            "dense_args": dict(
-                units=_global_variables["units"],
-                activation=_global_variables["activation"],
-            )
-        },
-        permutation=_global_variables["permutation"],
-    )
-    return invertible_net
-
-
 def group_obs(samples, dmatrix_fct, cmatrix):
-    """Function that assigns the values of the outcome variable y to groups
-    given a design matrix consisting only of factors and a contrast matrix
+    """
+    Function that assigns the values of ypred to groups
+    given a design matrix incl. only factors and a contrast matrix
 
     Parameters
     ----------
@@ -178,10 +143,8 @@ def group_obs(samples, dmatrix_fct, cmatrix):
 
     Returns
     -------
-    grouped_samples : tf.tensor of shape (B, rep, N_gr, num_groups) (where N_gr
-                      is the number of observations within each group)
-        Tensor with observations from the response variable assigned to
-        respective group.
+    grouped_samples : tf.tensor of shape (B, rep, N_gr, num_groups) (where N_gr is the number of observations within each group)
+        Tensor with observations from the response variable assigned to respective group.
 
     """
     gr_samples = []
@@ -189,10 +152,6 @@ def group_obs(samples, dmatrix_fct, cmatrix):
     for i in range(cmatrix.shape[0]):
         # check for each observation whether it is in the respective group or not
         mask = tf.reduce_all(tf.cast(cmatrix, tf.float32)[i, :] == dmatrix_fct, 1)
-
-        # assert tf.math.reduce_any(
-        #     mask
-        # ), f"No observation for group {i}. Note: First group is counted as group 0."
         # select all observations which are in the respective group
         gr_samples.append(tf.boolean_mask(tensor=samples, mask=mask, axis=2))
     # stack all observations together such that final tensor shape is
@@ -200,87 +159,8 @@ def group_obs(samples, dmatrix_fct, cmatrix):
     grouped_samples = tf.stack(gr_samples, -1)
 
     return grouped_samples
-
-
-def scale_predictor(X_col, method):
-    """Function that scales the predictor variable
-
-    Parameters
-    ----------
-    X_col : tf.tensor of shape (1, N_obs)
-        Continuous predictor variable from the design matrix.
-    method : string; either 'standardize' or 'normalize'
-        Scaling method applied to the predictor variable.
-
-    Returns
-    -------
-    X_col_std : tf.tensor of shape (1, N_obs)
-        scaled predictor variable.
-
-    """
-    # compute mean and standard dev. of predictor variable
-    emp_mean = tf.reduce_mean(X_col)
-    emp_sd = tf.math.reduce_std(X_col)
-
-    if method == "standardize":
-        # z = (x-mean)/sd
-        X_col_std = (X_col - emp_mean) / emp_sd
-    if method == "normalize":
-        # z = x/sd
-        X_col_std = X_col / emp_sd
-
-    return X_col_std
-
-
-def scale_loss_component(method, loss_comp_exp, loss_comp_sim):
-    """Function for scaling the expert and model elicited statistic of
-    a particular loss component
-
-    Parameters
-    ----------
-    method : string; either 'scale-by-std', 'scale-to-unity', or 'unscaled'
-        Scaling method applied to the elicited statistics of the loss component.
-    loss_comp_exp : tf.tensor of shape (B, stats)
-        Elicited statistics from the expert.
-    loss_comp_sim : tf.tensor of shape (B, stats)
-        Elicited statistics as simulated by the model.
-
-    Returns
-    -------
-    loss_comp_exp_std : tf.tensor of shape (B, stats)
-        if not 'unscaled': scaled elicited statistics from the expert otherwise
-        unmodified elicited statistics
-    loss_comp_sim_std : tf.tensor of shape (B, stats)
-        if not 'unscaled': scaled elicited statistics from the model otherwise
-        unmodified elicited statistics
-
-    """
-    if method == "unscaled":
-        return loss_comp_exp, loss_comp_sim
-
-    if method == "scale-by-std":
-        emp_std_sim = tf.expand_dims(tf.math.reduce_std(loss_comp_sim, axis=-1), -1)
-
-        loss_comp_exp_std = tf.divide(loss_comp_exp, emp_std_sim)
-        loss_comp_sim_std = tf.divide(loss_comp_sim, emp_std_sim)
-        
-        return loss_comp_exp_std, loss_comp_sim_std
-
-    if method == "scale-to-unity":
-        emp_min_sim = tf.expand_dims(tf.math.reduce_min(loss_comp_sim, axis=-1), -1)
-        emp_max_sim = tf.expand_dims(tf.math.reduce_max(loss_comp_sim, axis=-1), -1)
-
-        loss_comp_exp_std = tf.math.divide(
-            loss_comp_exp - emp_min_sim, emp_max_sim - emp_min_sim
-        )
-        loss_comp_sim_std = tf.math.divide(
-            loss_comp_sim - emp_min_sim, emp_max_sim - emp_min_sim
-        )
-        
-        return loss_comp_exp_std, loss_comp_sim_std
-
     
-class print_res:  
+class _print_res:  
     def __call__(self, method, res, precision, 
                  true_values=None, names = None, start = None, num_vars = None, 
                  **kwargs):
@@ -362,9 +242,9 @@ class print_res:
         
         return val_mean(key, start, end), val_std(key, start, end)
 
-print_restab = print_res()
+_print_restab = _print_res()
 
-def plot_priors_flow(res, true_mu, true_sigma, true_nu):
+def _plot_priors_flow(res, true_mu, true_sigma, true_nu):
     _, axes = plt.subplots(2,4, constrained_layout = True, figsize = (6,3))
     [sns.kdeplot(res[0,:,i], ax = axes[0,i], color = "orange", 
                 lw = 3) for i in range(4)]
@@ -387,25 +267,7 @@ def plot_priors_flow(res, true_mu, true_sigma, true_nu):
     axes[1,3].add_patch(plt.Rectangle((0,0.6), 0.1, 0.07, color = "black"))
     axes[1,3].text(0.2, 0.6, 'true prior', fontsize="small")
     
-def plot_priors_hyp(avg_res, true_values):
-    _, axes = plt.subplots(2,4, constrained_layout = True, figsize = (8,4))
-    [sns.kdeplot(tfd.Normal(avg_res[i], avg_res[i+1]).sample(1000), 
-                 ax = axes[0,s], lw=3) for s,i in enumerate([0,2,4,6])]
-    [sns.kdeplot(tfd.Normal(true_values["mu"][s], true_values["sigma"][s]).sample(1000), 
-                 ax = axes[0,s], color = "black", linestyle = "dashed") for s in range(4)]
-    [sns.kdeplot(tfd.Normal(avg_res[i], avg_res[i+1]).sample(1000), 
-                 ax = axes[1,s], lw=3) for s,i in enumerate([8,10])]
-    [sns.kdeplot(tfd.Normal(true_values["mu"][s], true_values["sigma"][s]).sample(1000), 
-                 ax = axes[1,i], color = "black", linestyle = "dashed") for i,s in enumerate(range(4,6))]
-    sns.kdeplot(tfd.Exponential(avg_res[-1]).sample(1000), lw = 3, ax = axes[1,2])
-    sns.kdeplot(tfd.Exponential(true_values["nu"]).sample(1000), ax = axes[1,2], 
-                color = "black", linestyle = "dashed")
-    [axes[0,i].set_xlabel(rf"$\beta_{i}$") for i in range(4)]
-    [axes[1,j].set_xlabel(rf"$\beta_{i}$") for j,i in enumerate(range(4,6))]
-    axes[1,2].set_xlabel(r"$s$")
-    axes[1,3].set_axis_off()
-    
-def plot_expert_preds(expert_res_list):
+def _plot_expert_preds(expert_res_list):
     d = expert_res_list[list(expert_res_list.keys())[0]]
     d2 = expert_res_list[list(expert_res_list.keys())[1]]
     d3 = expert_res_list[list(expert_res_list.keys())[2]]
@@ -426,7 +288,7 @@ def plot_expert_preds(expert_res_list):
     axs[1].legend(fontsize = "x-small", loc = "upper right")
     plt.show()
 
-def group_stats(ypred, num_groups):
+def _group_stats(ypred, num_groups):
     x = PrettyTable(field_names = ["group", "mean", "std"])
     [x.add_row([f"gr_{i}", 
                np.round(tf.reduce_mean(ypred[:,:,i::num_groups]),2),
