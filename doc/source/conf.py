@@ -10,7 +10,7 @@ project = 'PriorLearning'
 copyright = '2024, Florence Bockting'
 author = 'Florence Bockting'
 release = '0.0.1'
-
+#theme: `jekyll-theme-minimal`
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
