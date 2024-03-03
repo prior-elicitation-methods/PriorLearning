@@ -49,7 +49,9 @@ html_theme_options = {
     "logo": {
       "image_light": "_static/mmp-logo-light.png",
       "image_dark": "_static/mmp-logo-dark.png",
-   }
+   },
+   "repository_url": "https://github.com/florence-bockting/PriorLearning",
+    "use_repository_button": True,
 }
 
 templates_path = ['_templates']
