@@ -21,7 +21,6 @@ extensions = [
     "sphinx.ext.mathjax",     # Allow support for Latex
     "sphinx.ext.viewcode",    # Include the source code in documentation
     "sphinx.ext.githubpages", # Build for GitHub pages
-    'nbsphinx',
     "numpydoc",               # Support NumPy style docstrings
     "myst_nb",                # For compiling Jupyter Notebooks into high quality documentation formats
     'sphinx.ext.autosectionlabel', # Using references to files in local folders   
