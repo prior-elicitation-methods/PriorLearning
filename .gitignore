@@ -9,4 +9,5 @@ dags/dags_airflow/
 elicit/validation/misc_plotting/
 elicit/user_input/configuration_files/
 elicit/user_input/config_files/
+elicit/simulations/case_studies/sim_results/
 webserver_config.py
