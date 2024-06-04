@@ -1,0 +1,597 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>functions.prior_simulation &#8212; Prior Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/functions/prior_simulation';</script>
+    <link rel="icon" href="../../_static/favicon-light.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/mmp-logo-light.png" class="logo__image only-light" alt="Prior Learning - Home"/>
+    <script>document.write(`<img src="../../_static/mmp-logo-dark.png" class="logo__image only-dark" alt="Prior Learning - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api_overview.html">API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/dags/modules.html">DAG</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/dags/dags.html">dags package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/dags/dags.elicitation_pipeline.html">dags.elicitation_pipeline module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/functions/modules.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/functions/functions.html">functions package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.helper_functions.html">functions.helper_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.loss_computation.html">functions.loss_computation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.loss_functions.html">functions.loss_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.model_simulation.html">functions.model_simulation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.prior_simulation.html">functions.prior_simulation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.targets_elicits_computation.html">functions.targets_elicits_computation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.training.html">functions.training module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/setup/modules.html">User setup</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/setup/setup.html">setup package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/setup/setup.create_dictionaries.html">setup.create_dictionaries module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/setup/setup.input_functions.html">setup.input_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/setup/setup.write_results.html">setup.write_results module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/user_input/modules.html">User input</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/user_input/user_input.html">user_input package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/user_input/user_input.custom_functions.html">user_input.custom_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/user_input/user_input.design_matrices.html">user_input.design_matrices module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/user_input/user_input.generative_models.html">user_input.generative_models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/user_input/user_input.utils.html">user_input.utils module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case_studies.html">Case Studies</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/florence-bockting/PriorLearning" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for functions.prior_simulation</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tensorflow_probability</span> <span class="k">as</span> <span class="nn">tfp</span>
+<span class="kn">import</span> <span class="nn">bayesflow</span> <span class="k">as</span> <span class="nn">bf</span>
+
+<span class="n">tfd</span> <span class="o">=</span> <span class="n">tfp</span><span class="o">.</span><span class="n">distributions</span>
+<span class="n">bfn</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">networks</span>
+
+<span class="kn">from</span> <span class="nn">functions.helper_functions</span> <span class="kn">import</span> <span class="n">save_as_pkl</span>
+
+<div class="viewcode-block" id="priors">
+<a class="viewcode-back" href="../../api/functions/functions.prior_simulation.html#functions.prior_simulation.priors">[docs]</a>
+<span class="k">def</span> <span class="nf">priors</span><span class="p">(</span><span class="n">global_dict</span><span class="p">,</span> <span class="n">ground_truth</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a class instantiation which initializes and samples from prior </span>
+<span class="sd">    distributions</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    global_dict : dict</span>
+<span class="sd">        dictionary including all user-input settings..</span>
+<span class="sd">    ground_truth : bool</span>
+<span class="sd">        whether simulation is based on a pre-specified ground truth </span>
+<span class="sd">        (for method validation). The default is False.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    prior_model : class instance</span>
+<span class="sd">        class instance for initializing and sampling from prior distributions.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># initalize generator model</span>
+    <span class="k">class</span> <span class="nc">Priors</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">,</span> <span class="n">global_dict</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">global_dict</span> <span class="o">=</span> <span class="n">global_dict</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ground_truth</span> <span class="o">=</span> <span class="n">ground_truth</span>
+            <span class="c1"># initialize hyperparameter for learning (if true hyperparameter</span>
+            <span class="c1"># are given, no initialization is needed)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">ground_truth</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">init_priors</span> <span class="o">=</span> <span class="n">intialize_priors</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">global_dict</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">init_priors</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">prior_samples</span> <span class="o">=</span> <span class="n">sample_from_priors</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">init_priors</span><span class="p">,</span> 
+                                               <span class="bp">self</span><span class="o">.</span><span class="n">ground_truth</span><span class="p">,</span> 
+                                               <span class="bp">self</span><span class="o">.</span><span class="n">global_dict</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">prior_samples</span>
+    <span class="c1"># create a class instance</span>
+    <span class="n">prior_model</span> <span class="o">=</span> <span class="n">Priors</span><span class="p">(</span><span class="n">ground_truth</span><span class="p">,</span> <span class="n">global_dict</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">prior_model</span></div>
+
+
+<div class="viewcode-block" id="intialize_priors">
+<a class="viewcode-back" href="../../api/functions/functions.prior_simulation.html#functions.prior_simulation.intialize_priors">[docs]</a>
+<span class="k">def</span> <span class="nf">intialize_priors</span><span class="p">(</span><span class="n">global_dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialize prior distributions.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    global_dict : dict</span>
+<span class="sd">        dictionary including all user-input settings..</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    init_prior : dict</span>
+<span class="sd">        returns initialized prior distributions ready for sampling.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># number parameters</span>
+    <span class="n">no_param</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">global_dict</span><span class="p">[</span><span class="s2">&quot;model_params&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">global_dict</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;parametric_prior&quot;</span><span class="p">:</span>
+        <span class="c1"># list for saving initialize hyperparameter values</span>
+        <span class="n">init_hyperparam_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># loop over model parameter and initialize each hyperparameter </span>
+        <span class="c1"># given the user specified initialization</span>
+        <span class="k">for</span> <span class="n">model_param</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">no_param</span><span class="p">):</span>
+            <span class="n">get_hyp_dict</span> <span class="o">=</span> <span class="n">global_dict</span><span class="p">[</span><span class="s2">&quot;model_params&quot;</span><span class="p">][</span><span class="s2">&quot;hyperparams_dict&quot;</span><span class="p">]</span>
+            <span class="n">initialized_hyperparam</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">init_val</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">get_hyp_dict</span><span class="p">[</span><span class="n">model_param</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> 
+                                      <span class="n">get_hyp_dict</span><span class="p">[</span><span class="n">model_param</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>  
+                <span class="c1"># check whether initial value is a distributions</span>
+                <span class="c1"># TODO currently we silently assume that we have either a value or a tfd.distribution object</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">init_val</span><span class="o">.</span><span class="n">reparameterization_type</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">initial_value</span> <span class="o">=</span> <span class="n">init_val</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">initial_value</span> <span class="o">=</span> <span class="n">init_val</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+                
+                <span class="c1"># if value was initialized on the log level apply exp. transf.</span>
+                <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;log_&quot;</span><span class="p">):</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">removeprefix</span><span class="p">(</span><span class="s2">&quot;log_&quot;</span><span class="p">)</span>
+                    
+                <span class="c1"># initialize hyperparameter</span>
+                <span class="n">initialized_hyperparam</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span>
+                    <span class="n">initial_value</span> <span class="o">=</span> <span class="n">initial_value</span><span class="p">,</span>
+                    <span class="n">trainable</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="n">init_hyperparam_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">initialized_hyperparam</span><span class="p">)</span>    
+        <span class="c1"># save initialized priors</span>
+        <span class="n">init_prior</span> <span class="o">=</span> <span class="n">init_hyperparam_list</span>
+        <span class="c1"># save file in object</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">global_dict</span><span class="p">[</span><span class="s2">&quot;output_path&quot;</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/init_prior.pkl&#39;</span>
+        <span class="n">save_as_pkl</span><span class="p">(</span><span class="n">init_prior</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">global_dict</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;deep_prior&quot;</span><span class="p">:</span>
+        <span class="c1"># for more information see BayesFlow documentation</span>
+        <span class="c1"># https://bayesflow.org/api/bayesflow.inference_networks.html</span>
+            
+        <span class="n">invertible_neural_network</span> <span class="o">=</span> <span class="n">bfn</span><span class="o">.</span><span class="n">InvertibleNetwork</span><span class="p">(</span>
+            <span class="n">num_params</span> <span class="o">=</span> <span class="n">no_param</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">global_dict</span><span class="p">[</span><span class="s2">&quot;model_params&quot;</span><span class="p">][</span><span class="s1">&#39;normalizing_flow_specs&#39;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="c1"># save initialized priors</span>
+        <span class="n">init_prior</span> <span class="o">=</span> <span class="n">invertible_neural_network</span>
+        
+    <span class="k">return</span> <span class="n">init_prior</span></div>
+
+
+<div class="viewcode-block" id="sample_from_priors">
+<a class="viewcode-back" href="../../api/functions/functions.prior_simulation.html#functions.prior_simulation.sample_from_priors">[docs]</a>
+<span class="k">def</span> <span class="nf">sample_from_priors</span><span class="p">(</span><span class="n">initialized_priors</span><span class="p">,</span> <span class="n">ground_truth</span><span class="p">,</span> <span class="n">global_dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Samples from initialized prior distributions.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    initialized_priors : dict</span>
+<span class="sd">        initialized prior distributions ready for sampling.</span>
+<span class="sd">    ground_truth : bool</span>
+<span class="sd">        whether simulations are based on ground truth (then sampling is performed</span>
+<span class="sd">                                                       from true distribution).</span>
+<span class="sd">    global_dict : dict</span>
+<span class="sd">        dictionary including all user-input settings..</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    prior_samples : dict</span>
+<span class="sd">        Samples from prior distributions.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># extract variables from dict</span>
+    <span class="n">rep</span> <span class="o">=</span> <span class="n">global_dict</span><span class="p">[</span><span class="s2">&quot;rep&quot;</span><span class="p">]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">global_dict</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">]</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">global_dict</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span>
+    <span class="n">scale_prior_samples</span> <span class="o">=</span> <span class="n">global_dict</span><span class="p">[</span><span class="s2">&quot;model_params&quot;</span><span class="p">][</span><span class="s2">&quot;scaling_value&quot;</span><span class="p">]</span>
+    <span class="c1"># number parameters</span>
+    <span class="n">no_param</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">global_dict</span><span class="p">[</span><span class="s2">&quot;model_params&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">ground_truth</span><span class="p">:</span>
+        <span class="n">priors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># TODO: check what happens if you specify one multivariate distribution: How does the code has to be changed?</span>
+        <span class="k">for</span> <span class="n">prior</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">global_dict</span><span class="p">[</span><span class="s2">&quot;expert_input&quot;</span><span class="p">][</span><span class="s1">&#39;simulator_specs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+            <span class="c1"># sample from the prior distribution </span>
+            <span class="n">priors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prior</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">rep</span><span class="p">)))</span>
+        <span class="n">prior_samples</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">priors</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;parametric_prior&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ground_truth</span><span class="p">:</span>
+        <span class="n">initialized_hyperparameters</span> <span class="o">=</span> <span class="n">initialized_priors</span>
+        <span class="n">priors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">model_param</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">no_param</span><span class="p">):</span>
+            <span class="c1"># get the prior distribution family as specified by the user</span>
+            <span class="n">prior_family</span> <span class="o">=</span> <span class="n">global_dict</span><span class="p">[</span><span class="s2">&quot;model_params&quot;</span><span class="p">][</span><span class="s2">&quot;family&quot;</span><span class="p">][</span><span class="n">model_param</span><span class="p">]</span>
+            <span class="c1"># save hyperparameter values in list</span>
+            <span class="n">hyperparams</span> <span class="o">=</span> <span class="p">[</span><span class="n">initialized_hyperparameters</span><span class="p">[</span><span class="n">model_param</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> 
+                           <span class="ow">in</span> <span class="n">initialized_hyperparameters</span><span class="p">[</span><span class="n">model_param</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+            <span class="c1"># sample from the prior distribution </span>
+            <span class="n">priors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prior_family</span><span class="p">(</span><span class="o">*</span><span class="n">hyperparams</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="n">B</span><span class="p">,</span> <span class="n">rep</span><span class="p">)))</span>
+        <span class="c1"># stack all prior distributions into one tf.Tensor of</span>
+        <span class="c1"># shape (B, rep, num_parameters)</span>
+        <span class="n">prior_samples</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">priors</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;deep_prior&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ground_truth</span><span class="p">:</span>
+        <span class="c1"># initialize base distribution</span>
+        <span class="n">base_distribution</span> <span class="o">=</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">no_param</span><span class="p">),</span> 
+                                       <span class="n">scale</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">no_param</span><span class="p">))</span>
+        <span class="c1"># sample from base distribution</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">base_distribution</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="n">B</span><span class="p">,</span> <span class="n">rep</span><span class="p">))</span>
+        <span class="c1"># apply transformation function to samples from base distr.</span>
+        <span class="n">prior_samples</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">initialized_priors</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">condition</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">inverse</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+        <span class="c1"># create results dictionary</span>
+        <span class="n">prior_samples_dict</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;prior_samples&quot;</span><span class="p">:</span> <span class="n">prior_samples</span>
+        <span class="p">}</span>
+    
+        <span class="c1">## scaling of prior distributions, default is no scaling (value = 1.)</span>
+        <span class="c1"># scale prior samples</span>
+        <span class="n">prior_samples</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">prior_samples</span><span class="p">[:,:,</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">scaling_factor</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> 
+                                  <span class="n">scaling_factor</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scale_prior_samples</span><span class="p">)],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># save results in dict</span>
+        <span class="n">prior_samples_dict</span><span class="p">[</span><span class="s2">&quot;scaled_prior_samples&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prior_samples</span>
+        <span class="c1"># save results in path</span>
+        <span class="n">saving_path</span> <span class="o">=</span> <span class="n">global_dict</span><span class="p">[</span><span class="s2">&quot;output_path&quot;</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+        <span class="n">path_prior_samples_dict</span> <span class="o">=</span> <span class="n">saving_path</span><span class="o">+</span><span class="s1">&#39;/prior_samples_dict.pkl&#39;</span>
+        <span class="n">save_as_pkl</span><span class="p">(</span><span class="n">prior_samples_dict</span><span class="p">,</span> <span class="n">path_prior_samples_dict</span><span class="p">)</span>
+        
+    <span class="c1"># save results in path</span>
+    <span class="n">saving_path</span> <span class="o">=</span> <span class="n">global_dict</span><span class="p">[</span><span class="s2">&quot;output_path&quot;</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">ground_truth</span><span class="p">:</span>
+        <span class="n">saving_path</span> <span class="o">=</span> <span class="n">saving_path</span><span class="o">+</span><span class="s2">&quot;/expert&quot;</span>
+    <span class="n">path_prior_samples</span> <span class="o">=</span> <span class="n">saving_path</span><span class="o">+</span><span class="s1">&#39;/prior_samples.pkl&#39;</span>
+    <span class="n">save_as_pkl</span><span class="p">(</span><span class="n">prior_samples</span><span class="p">,</span> <span class="n">path_prior_samples</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">prior_samples</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florence Bockting
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Florence Bockting.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
