@@ -1,0 +1,974 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setup.input_functions &#8212; Prior Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/setup/input_functions';</script>
+    <link rel="icon" href="../../_static/favicon-light.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/mmp-logo-light.png" class="logo__image only-light" alt="Prior Learning - Home"/>
+    <script>document.write(`<img src="../../_static/mmp-logo-dark.png" class="logo__image only-dark" alt="Prior Learning - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api_overview.html">API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/dags/modules.html">DAG</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/dags/dags.html">dags package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/dags/dags.elicitation_pipeline.html">dags.elicitation_pipeline module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/functions/modules.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/functions/functions.html">functions package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.helper_functions.html">functions.helper_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.loss_computation.html">functions.loss_computation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.loss_functions.html">functions.loss_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.model_simulation.html">functions.model_simulation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.prior_simulation.html">functions.prior_simulation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.targets_elicits_computation.html">functions.targets_elicits_computation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.training.html">functions.training module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/setup/modules.html">User setup</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/setup/setup.html">setup package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/setup/setup.create_dictionaries.html">setup.create_dictionaries module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/setup/setup.input_functions.html">setup.input_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/setup/setup.write_results.html">setup.write_results module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/user_input/modules.html">User input</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/user_input/user_input.html">user_input package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/user_input/user_input.custom_functions.html">user_input.custom_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/user_input/user_input.design_matrices.html">user_input.design_matrices module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/user_input/user_input.generative_models.html">user_input.generative_models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/user_input/user_input.utils.html">user_input.utils module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case_studies.html">Case Studies</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/florence-bockting/PriorLearning" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for setup.input_functions</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">functions.loss_functions</span> <span class="kn">import</span> <span class="n">MmdEnergy</span>
+<span class="kn">from</span> <span class="nn">dags.elicitation_pipeline</span> <span class="kn">import</span> <span class="n">prior_elicitation_dag</span>
+<span class="kn">from</span> <span class="nn">setup.create_dictionaries</span> <span class="kn">import</span> <span class="n">create_global_dict</span>
+
+<div class="viewcode-block" id="normalizing_flow_specs">
+<a class="viewcode-back" href="../../api/setup/setup.input_functions.html#setup.input_functions.normalizing_flow_specs">[docs]</a>
+<span class="k">def</span> <span class="nf">normalizing_flow_specs</span><span class="p">(</span>
+        <span class="n">num_coupling_layers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="n">coupling_design</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;affine&quot;</span><span class="p">,</span> 
+        <span class="n">coupling_settings</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;dropout&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">&quot;dense_args&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
+                <span class="s2">&quot;activation&quot;</span><span class="p">:</span> <span class="s2">&quot;softplus&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;kernel_regularizer&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">1e-4</span><span class="p">)</span>
+                <span class="p">},</span>
+            <span class="s2">&quot;num_dense&quot;</span><span class="p">:</span> <span class="mi">2</span>
+            <span class="p">},</span>
+        <span class="n">permutation</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;fixed&quot;</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="c1"># for more information see BayesFlow documentation</span>
+    <span class="c1"># https://bayesflow.org/api/bayesflow.inference_networks.html</span>
+    
+    <span class="n">nf_specs_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;num_coupling_layers&quot;</span><span class="p">:</span> <span class="n">num_coupling_layers</span><span class="p">,</span>
+        <span class="s2">&quot;coupling_design&quot;</span><span class="p">:</span> <span class="n">coupling_design</span><span class="p">,</span>      
+        <span class="s2">&quot;coupling_settings&quot;</span><span class="p">:</span> <span class="n">coupling_settings</span><span class="p">,</span>                                 
+        <span class="s2">&quot;permutation&quot;</span><span class="p">:</span> <span class="n">permutation</span>
+        <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">nf_specs_dict</span></div>
+
+
+<div class="viewcode-block" id="param">
+<a class="viewcode-back" href="../../api/setup/setup.input_functions.html#setup.input_functions.param">[docs]</a>
+<span class="k">def</span> <span class="nf">param</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+          <span class="n">family</span><span class="p">:</span> <span class="nb">callable</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+          <span class="n">hyperparams_dict</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+          <span class="n">scaling_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a dictionary including user information about the model parameters.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : str</span>
+<span class="sd">        name of the model parameter</span>
+<span class="sd">            </span>
+<span class="sd">    family : callable, optional</span>
+<span class="sd">        prior distribution family as tfp.distribution object</span>
+<span class="sd">        </span>
+<span class="sd">        :Example:</span>
+<span class="sd">            </span>
+<span class="sd">            .. highlight:: python</span>
+<span class="sd">            .. code-block:: python</span>
+<span class="sd">            </span>
+<span class="sd">                tfd.Normal      # or</span>
+<span class="sd">                tfd.Gamma       # or</span>
+<span class="sd">                tfd.Exponential # etc.</span>
+<span class="sd">            </span>
+<span class="sd">    hyperparams_dict : dict, optional</span>
+<span class="sd">        dictionary including all hyperparameters of the pre-specified prior distribution family, with</span>
+<span class="sd">        key referring to hyperparameter name and value to the initial value or a tfp.distribution when initializing from a distribution is desired.</span>
+<span class="sd">        </span>
+<span class="sd">        :Example:</span>
+<span class="sd">            </span>
+<span class="sd">            .. highlight:: python</span>
+<span class="sd">            .. code-block:: python</span>
+<span class="sd">            </span>
+<span class="sd">                {&quot;mu0&quot;: tfd.Normal(0.,1.),</span>
+<span class="sd">                 &quot;sigma0&quot;: 1.0}</span>
+<span class="sd">        </span>
+<span class="sd">    scaling_value : float, optional</span>
+<span class="sd">        After sampling from the prior distribution it is possible to scale the value before it is used</span>
+<span class="sd">        as input for the generative model. This might be helpful when model parameter values are expected</span>
+<span class="sd">        to be on very different scales, e.g., b0=250. vs. b1=2. In this case it might be reasonable to scale</span>
+<span class="sd">        b0 by b0/100.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        Dictionary including all user information about model parameters</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># specifies name and value of prior hyperparameters</span>
+    <span class="k">if</span> <span class="n">hyperparams_dict</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">hyppar_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">hyperparams_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+                                                       <span class="n">hyperparams_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">hyppar_dict</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="c1"># creates final dictionary with prior specifications</span>
+    <span class="n">parameter_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">name</span><span class="p">],</span> 
+        <span class="s2">&quot;family&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">family</span><span class="p">],</span> 
+        <span class="s2">&quot;hyperparams_dict&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">hyppar_dict</span><span class="p">],</span>
+        <span class="s2">&quot;scaling_value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">scaling_value</span><span class="p">]</span>
+        <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">parameter_dict</span></div>
+
+
+
+<div class="viewcode-block" id="model">
+<a class="viewcode-back" href="../../api/setup/setup.input_functions.html#setup.input_functions.model">[docs]</a>
+<span class="k">def</span> <span class="nf">model</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">callable</span><span class="p">,</span> 
+          <span class="n">additional_model_args</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> 
+          <span class="n">discrete_likelihood</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+          <span class="n">softmax_gumble_specs</span><span class="p">:</span> <span class="nb">dict</span> <span class="ow">or</span> <span class="kc">None</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span>
+                                                <span class="s2">&quot;upper_threshold&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+          <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a dictionary including user information about the generative model.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    model : callable</span>
+<span class="sd">        class object that specifies the generative model. </span>
+<span class="sd">        The class object requires a specific input-output structure which is presented in the following </span>
+<span class="sd">        example. Additional input and output arguments can be added but the here presented input and </span>
+<span class="sd">        output arguments are necessary.</span>
+<span class="sd">        </span>
+<span class="sd">        :Example:</span>
+<span class="sd">            </span>
+<span class="sd">            .. highlight:: python</span>
+<span class="sd">            .. code-block:: python</span>
+<span class="sd">            </span>
+<span class="sd">                class GenerativeModel(tf.Module):</span>
+<span class="sd">                    def __call__(self, prior_samples, **kwargs):</span>
+<span class="sd">                        </span>
+<span class="sd">                        # linear predictor</span>
+<span class="sd">                        theta = some_func(prior_samples)</span>
+<span class="sd">    </span>
+<span class="sd">                        # use link function (here identity)</span>
+<span class="sd">                        epred = some_link_fun(theta)</span>
+<span class="sd">                        </span>
+<span class="sd">                        # define likelihood (here example Normal)</span>
+<span class="sd">                        likelihood = tfd.Normal(loc = epred, scale = 1.)</span>
+<span class="sd">                        </span>
+<span class="sd">                        # sample prior predictions</span>
+<span class="sd">                        ypred = likelihood.sample()</span>
+<span class="sd">                    </span>
+<span class="sd">                    return dict(&quot;ypred&quot;: ypred,</span>
+<span class="sd">                                &quot;epred&quot;: epred,</span>
+<span class="sd">                                &quot;likelihood&quot;: likelihood,</span>
+<span class="sd">                                &quot;prior_samples&quot;: prior_samples)</span>
+<span class="sd">            </span>
+<span class="sd">        :Note:</span>
+<span class="sd">            </span>
+<span class="sd">            For discrete likelihoods &quot;ypred&quot; is not sampled within the generative model</span>
+<span class="sd">            but rather a continuous approximation will be used (see softmax-gumble-specs). </span>
+<span class="sd">            Thus, for discrete likelihoods: &quot;ypred&quot;=None</span>
+<span class="sd">        </span>
+<span class="sd">    additional_model_args : dict, optional</span>
+<span class="sd">        Required if in the generative model (class object) input arguments are provided besides the</span>
+<span class="sd">        obligatory &#39;prior_samples&#39; argument. The following example shows a situation in which a design matrix</span>
+<span class="sd">        is provided additionally.</span>
+<span class="sd">        Important is that the key name is equal to the input argument name.</span>
+<span class="sd">        </span>
+<span class="sd">        :Example:</span>
+<span class="sd">            </span>
+<span class="sd">            .. highlight:: python</span>
+<span class="sd">            .. code-block:: python</span>
+<span class="sd">            </span>
+<span class="sd">                {&quot;design_matrix&quot;: # path-to-design-matrix}</span>
+<span class="sd">            </span>
+<span class="sd">    discrete_likelihood : bool</span>
+<span class="sd">        True if the likelihood is a discrete random variable otherwise False</span>
+<span class="sd">    softmax_gumble_specs : dict or None, optional</span>
+<span class="sd">        Only required if the likelihood is a discrete random variable. </span>
+<span class="sd">        In this case the output argument &quot;ypred&quot; is computed as a continuous approximation using the</span>
+<span class="sd">        softmax-gumble trick. If the softmax-gumble trick is used further hyperparameters need to be set as</span>
+<span class="sd">        shown by the following example.</span>
+<span class="sd">                                                      </span>
+<span class="sd">        :Example:</span>
+<span class="sd">            </span>
+<span class="sd">            .. highlight:: python</span>
+<span class="sd">            .. code-block:: python</span>
+<span class="sd">            </span>
+<span class="sd">                {&quot;temperature&quot;: 1.,</span>
+<span class="sd">                 &quot;upper_threshold&quot;: 31}</span>
+
+<span class="sd">        * The `temperature` argument specifies how strong the continuous approx. should be. </span>
+<span class="sd">          Values tending towards zero lead to a categorical distribution.</span>
+<span class="sd">        * The `upper_threshold` argument defines the upper truncation of a categorical distribution. </span>
+<span class="sd">          For double-bounded distribution as the Binomial distribution is simple the total_count value. </span>
+<span class="sd">          For lower-bounded distribution a reasonable threshold value needs to be chosen. Note that it is not</span>
+<span class="sd">          reasonable to be too conservative and set the upper value too high, as higher values will lead to longer</span>
+<span class="sd">          computation time.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        Dictionary including all user information about the generative model.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+  
+    <span class="k">if</span> <span class="n">softmax_gumble_specs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">softmax_gumble_specs_default</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span>
+                                        <span class="s2">&quot;upper_threshold&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+        
+        <span class="n">softmax_gumble_specs_default</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">softmax_gumble_specs</span><span class="p">)</span>
+    
+    <span class="n">model_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;model_function&quot;</span><span class="p">:</span> <span class="n">model</span><span class="p">,</span>
+        <span class="s2">&quot;additional_model_args&quot;</span><span class="p">:</span> <span class="n">additional_model_args</span><span class="p">,</span>
+        <span class="s2">&quot;softmax_gumble_specs&quot;</span><span class="p">:</span> <span class="n">softmax_gumble_specs_default</span>
+        <span class="p">}</span>
+    
+    <span class="c1"># provide a warning if the upper_threshold argument is not specified</span>
+    <span class="k">if</span> <span class="n">discrete_likelihood</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="s2">&quot;upper_threshold&quot;</span> <span class="ow">in</span> <span class="n">softmax_gumble_specs</span><span class="p">,</span> <span class="s2">&quot;The upper_threshold argument in the softmax-gumble specifications is None.&quot;</span>
+        <span class="k">if</span> <span class="s2">&quot;temperature&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">softmax_gumble_specs</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The Softmax-Gumble method with default temperature: </span><span class="si">{</span><span class="n">softmax_gumble_specs_default</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> is used.&quot;</span><span class="p">)</span>
+    <span class="c1"># get model arguments</span>
+    <span class="n">get_model_args</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfullargspec</span><span class="p">(</span><span class="n">model</span><span class="p">())[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">difference</span><span class="p">({</span><span class="s2">&quot;self&quot;</span><span class="p">,</span><span class="s2">&quot;prior_samples&quot;</span><span class="p">})</span>
+    <span class="c1"># check that all model arguments have been passed as input in the model_args section</span>
+    <span class="n">difference_set</span> <span class="o">=</span> <span class="n">get_model_args</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">additional_model_args</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">difference_set</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;model arguments and specified arguments are not identical. Check the following argument(s): </span><span class="si">{</span><span class="n">difference_set</span><span class="si">}</span><span class="s2">&quot;</span>
+    
+    <span class="k">return</span> <span class="n">model_dict</span></div>
+
+
+<div class="viewcode-block" id="target">
+<a class="viewcode-back" href="../../api/setup/setup.input_functions.html#setup.input_functions.target">[docs]</a>
+<span class="k">def</span> <span class="nf">target</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+           <span class="n">elicitation_method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+           <span class="n">loss_components</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+           <span class="n">select_obs</span><span class="p">:</span> <span class="nb">list</span> <span class="ow">or</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+           <span class="n">quantiles_specs</span><span class="p">:</span> <span class="nb">tuple</span> <span class="ow">or</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+           <span class="n">moments_specs</span><span class="p">:</span> <span class="nb">tuple</span> <span class="ow">or</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> 
+           <span class="n">custom_target_function</span><span class="p">:</span> <span class="nb">dict</span> <span class="ow">or</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+           <span class="n">custom_elicitation_function</span><span class="p">:</span> <span class="nb">dict</span> <span class="ow">or</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a dictionary including user information about the target quantities and</span>
+<span class="sd">    corresponding elicitation techniques.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name : str</span>
+<span class="sd">        name of the target quantity. If a specific output argument from the generative</span>
+<span class="sd">        model shall be used as target quantity, then the exact name should be indicated here. </span>
+<span class="sd">        It is not allowed to have multiple target quantities with the same name.</span>
+<span class="sd">    elicitation_method : str</span>
+<span class="sd">        currently implemented are &#39;histogram&#39; (histogram-based elicitation),</span>
+<span class="sd">        &#39;moments&#39; (moment-based elicitation), and &#39;quantiles&#39; (quantile-based elicitation).</span>
+<span class="sd">    loss_components : str</span>
+<span class="sd">        method indicating how the elicited statistics should enter the loss. Currently available</span>
+<span class="sd">        are &#39;all&#39;, &#39;by-group&#39;, and &#39;by-stats&#39;. The following example shall demonstrate the differences:</span>
+<span class="sd">            </span>
+<span class="sd">        :Example:</span>
+<span class="sd">            </span>
+<span class="sd">            Consider as target quantity group_means from a factor with 3 levels and as elicitation</span>
+<span class="sd">            technique: quantile-based elicitation using 5 quantiles. Then the elicited statistic will</span>
+<span class="sd">            have the shape (B,5,3).</span>
+<span class="sd">            </span>
+<span class="sd">            * &#39;all&#39;: would result in one loss component of shape (B,15) </span>
+<span class="sd">            * &#39;by-group&#39;: would result in three loss components of shape (B,5)</span>
+<span class="sd">            * &#39;by-stats&#39;: would result in five loss components of shape (B,3)</span>
+
+<span class="sd">        The decision for one of the methods should be guided by the dependency structure. </span>
+<span class="sd">        If I want to learn the distribution of a target quantity based on quantiles, </span>
+<span class="sd">        the quantiles should be together in one loss component, thus in this case </span>
+<span class="sd">        the method &#39;by-group&#39; should be preferrable.</span>
+<span class="sd">    select_obs : list or None, optional</span>
+<span class="sd">        Only needed if &quot;ypred&quot; is used as target quantity but only specific design </span>
+<span class="sd">        points should be used. Then a list with integers referring to the index of</span>
+<span class="sd">        each design point in the design matrix is required.</span>
+<span class="sd">    quantiles_specs : tuple or None, optional</span>
+<span class="sd">        Only needed if elicitation_method = &#39;quantiles&#39;. Tuple indicating the percentages that should</span>
+<span class="sd">        be elicited. </span>
+<span class="sd">        </span>
+<span class="sd">        :Example:</span>
+<span class="sd">            </span>
+<span class="sd">            .. highlight:: python</span>
+<span class="sd">            .. code-block:: python</span>
+<span class="sd">            </span>
+<span class="sd">                (25, 50, 75)          # or </span>
+<span class="sd">                (5, 25, 50, 75, 95)</span>
+<span class="sd">            </span>
+<span class="sd">        It is not recommended to use the maximum or minimum value (i.e., 0 and 100)</span>
+<span class="sd">        as it leads generally to worse learning results.</span>
+<span class="sd">    moments_specs : tuple or None, optional</span>
+<span class="sd">        Only needed if elicitation_method = &#39;moments&#39;. Tuple of strings indicating which moments </span>
+<span class="sd">        should be elicited. Currently only &quot;mean&quot; and &quot;sd&quot; are implemented</span>
+<span class="sd">        </span>
+<span class="sd">        :Example:</span>
+<span class="sd">            </span>
+<span class="sd">            .. highlight:: python</span>
+<span class="sd">            .. code-block:: python</span>
+<span class="sd">                </span>
+<span class="sd">                (&quot;mean&quot;, &quot;sd&quot;)    # or </span>
+<span class="sd">                (&quot;mean&quot;, )</span>
+<span class="sd">        </span>
+<span class="sd">    custom_target_function : dict or None, optional</span>
+<span class="sd">        It is possible to specify a custom function for deriving any desired target quantity. It can take</span>
+<span class="sd">        output arguments from the generative model as input arguments as well as additional user-specified </span>
+<span class="sd">        arguments. The following example shows the basic structure.</span>
+<span class="sd">            </span>
+<span class="sd">        :Example:</span>
+<span class="sd">            </span>
+<span class="sd">            .. highlight:: python</span>
+<span class="sd">            .. code-block:: python</span>
+<span class="sd">            </span>
+<span class="sd">                {&quot;function&quot;: callable_custom_function,</span>
+<span class="sd">                 &quot;additional_args&quot;: {&quot;argument1&quot;: 3.}}</span>
+<span class="sd">            </span>
+<span class="sd">        * the `function` argument takes as value the callable custom function</span>
+<span class="sd">        * if the custom function requires input arguments that are not part of the</span>
+<span class="sd">          output arguments of the generative model (i.e., ypred, epred, likelihood, prior_samples)</span>
+<span class="sd">          then these additional arguments have to be specified in the `additional_args` argument in</span>
+<span class="sd">          form of a dictionary. The key should have the same name as the argument.</span>
+<span class="sd">            </span>
+<span class="sd">    custom_elicitation_function : dict or None, optional</span>
+<span class="sd">        It is possible to specify a custom function to create an elicitation technique that deviates</span>
+<span class="sd">        from the currently implemented techniques. It has the same structure as explained in &quot;custom_target_function&quot;.</span>
+<span class="sd">        This function has not yet been tested.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        Dictionary including all user information about the target quantities and elicitation techniques.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">check_custom_func</span><span class="p">(</span><span class="n">custom_function</span><span class="p">,</span> <span class="n">func_type</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">custom_function</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># check whether custom_function has correct form if specified</span>
+            <span class="k">assert</span> <span class="s2">&quot;function&quot;</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">custom_function</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="sa">f</span><span class="s2">&quot;custom_</span><span class="si">{</span><span class="n">func_type</span><span class="si">}</span><span class="s2">_function must be a dictionary with required key &#39;function&#39; and optional key &#39;additional_args&#39;&quot;</span>
+            <span class="n">default_custom_function</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s2">&quot;additional_args&quot;</span><span class="p">:</span> <span class="kc">None</span>
+                <span class="p">}</span>
+            <span class="n">default_custom_function</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">custom_function</span><span class="p">)</span>
+            
+            <span class="c1"># check whether additional args have been specified </span>
+            <span class="c1"># if they are specified check for correct form</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">default_custom_function</span><span class="p">[</span><span class="s2">&quot;additional_args&quot;</span><span class="p">]</span>
+            <span class="k">except</span><span class="p">:</span> 
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">default_custom_function</span><span class="p">[</span><span class="s2">&quot;additional_args&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">default_custom_function</span><span class="p">[</span><span class="s2">&quot;additional_args&quot;</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">dict</span><span class="p">,</span> <span class="s2">&quot;additional_args must be a dictionary keys are the name of the argument and value the corresponding value of the argument to be passed&quot;</span>
+            <span class="n">custom_function</span> <span class="o">=</span> <span class="n">default_custom_function</span>    
+        <span class="k">return</span> <span class="n">custom_function</span>
+    
+    <span class="n">check_custom_func</span><span class="p">(</span><span class="n">custom_target_function</span><span class="p">,</span> <span class="n">func_type</span> <span class="o">=</span> <span class="s2">&quot;target&quot;</span><span class="p">)</span>
+    <span class="n">check_custom_func</span><span class="p">(</span><span class="n">custom_elicitation_function</span><span class="p">,</span> <span class="n">func_type</span> <span class="o">=</span> <span class="s2">&quot;elicitation&quot;</span><span class="p">)</span>
+    <span class="c1"># currently implemented loss-component combis</span>
+    <span class="k">assert</span> <span class="n">loss_components</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;by-group&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s2">&quot;by-stats&quot;</span><span class="p">],</span> <span class="s2">&quot;Currently only available values for loss_components are &#39;all&#39;, &#39;by-stats&#39; or &#39;by-group&#39;.&quot;</span>
+    <span class="c1"># currently implemented elicitation methods are histogram, quantiles, or moments</span>
+    <span class="k">assert</span> <span class="n">elicitation_method</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;quantiles&quot;</span><span class="p">,</span> <span class="s2">&quot;histogram&quot;</span><span class="p">,</span> <span class="s2">&quot;moments&quot;</span><span class="p">],</span> <span class="sa">f</span><span class="s2">&quot;The elicitation method </span><span class="si">{</span><span class="n">elicitation_method</span><span class="si">}</span><span class="s2"> is not implemented&quot;</span>
+    <span class="c1"># if elicitation method &#39;quantiles&#39; is used, quantiles_specs has to be defined</span>
+    <span class="k">if</span> <span class="n">elicitation_method</span> <span class="o">==</span> <span class="s2">&quot;quantiles&quot;</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">quantiles_specs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;quantiles_specs has to be defined for elicitation method &#39;quantiles&#39;&quot;</span>
+    <span class="k">if</span> <span class="n">elicitation_method</span> <span class="o">==</span> <span class="s2">&quot;moments&quot;</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">moments_specs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;moments_specs has to be defined for elicitation method &#39;moments&#39;&quot;</span>
+    
+    <span class="n">target_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">name</span><span class="p">],</span>
+        <span class="s2">&quot;elicitation_method&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">elicitation_method</span><span class="p">],</span>
+        <span class="s2">&quot;select_obs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">select_obs</span><span class="p">],</span>
+        <span class="s2">&quot;quantiles_specs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">quantiles_specs</span><span class="p">],</span>
+        <span class="s2">&quot;moments_specs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">moments_specs</span><span class="p">],</span>
+        <span class="s2">&quot;custom_target_function&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">custom_target_function</span><span class="p">],</span>
+        <span class="s2">&quot;custom_elicitation_function&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">custom_elicitation_function</span><span class="p">],</span>
+        <span class="s2">&quot;loss_components&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">loss_components</span><span class="p">]</span>
+        <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">target_dict</span></div>
+
+
+
+<div class="viewcode-block" id="expert">
+<a class="viewcode-back" href="../../api/setup/setup.input_functions.html#setup.input_functions.expert">[docs]</a>
+<span class="k">def</span> <span class="nf">expert</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span>
+           <span class="n">simulate_data</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+           <span class="n">simulator_specs</span><span class="p">:</span> <span class="nb">dict</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a dictionary including user information about the expert data which should be</span>
+<span class="sd">    used for training the simulation model. It is possible to provide expert</span>
+<span class="sd">    information from a file or to simulate expert information based on a pre-defined ground truth</span>
+<span class="sd">    which might be helpful for checking method performance and tuning the algorithm hyperparameter values.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data : str or None</span>
+<span class="sd">        path to file in which expert data is saved. The expert data must have the same format</span>
+<span class="sd">        as the model-simulated elicited statistics (more information will follow)</span>
+<span class="sd">    simulate_data : bool</span>
+<span class="sd">        if true, expert data is simulated based on a pre-defined ground truth. This setting</span>
+<span class="sd">        might be usefull to check method validity and performance in general.</span>
+<span class="sd">    simulator_specs : dict or None</span>
+<span class="sd">        Only needed if simulate_data=True. If data should be simulated the true prior distribution</span>
+<span class="sd">        for each model parameter needs to be specified. The following example shows a situation </span>
+<span class="sd">        in which two model parameters b0 and b1 with normal prior distribution family had been </span>
+<span class="sd">        specified in the `param()` object.</span>
+<span class="sd">        </span>
+<span class="sd">        :Example:</span>
+<span class="sd">            </span>
+<span class="sd">            .. highlight:: python</span>
+<span class="sd">            .. code-block:: python</span>
+<span class="sd">            </span>
+<span class="sd">                {&quot;b0&quot;: tfd.Normal(250.4, 7.27),</span>
+<span class="sd">                 &quot;b1&quot;: tfd.Normal(30.26, 4.82)}</span>
+<span class="sd">            </span>
+<span class="sd">        The true hyperparameter values are consequently (250.4, 7.27, 30.26, 4.82).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        Returns a dictionary including user information about expert data or simulated data given a </span>
+<span class="sd">        pre-defined ground truth.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># either expert data or expert simulator has to be specified</span>
+    <span class="k">assert</span> <span class="ow">not</span><span class="p">(</span><span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">simulate_data</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">),</span> <span class="s2">&quot;either a path to expert data has to be specified or simulation of expert data has to be true.&quot;</span>
+    <span class="c1"># if expert simulator is true, simulator specifications have to be given</span>
+    <span class="k">assert</span> <span class="n">simulate_data</span> <span class="ow">is</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">simulator_specs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;if expert simulation is true simulator specifications need to be provided&quot;</span>
+    
+    <span class="n">expert_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span>
+        <span class="s2">&quot;simulate_data&quot;</span><span class="p">:</span> <span class="n">simulate_data</span><span class="p">,</span>
+        <span class="s2">&quot;simulator_specs&quot;</span><span class="p">:</span> <span class="n">simulator_specs</span>
+        <span class="p">}</span> 
+    <span class="k">return</span> <span class="n">expert_dict</span></div>
+
+
+<div class="viewcode-block" id="loss">
+<a class="viewcode-back" href="../../api/setup/setup.input_functions.html#setup.input_functions.loss">[docs]</a>
+<span class="k">def</span> <span class="nf">loss</span><span class="p">(</span><span class="n">loss_function</span><span class="p">:</span> <span class="nb">str</span> <span class="ow">or</span> <span class="nb">callable</span> <span class="o">=</span> <span class="s2">&quot;mmd-energy&quot;</span><span class="p">,</span> 
+         <span class="n">loss_weighting</span><span class="p">:</span> <span class="nb">dict</span> <span class="ow">or</span> <span class="kc">None</span> <span class="o">=</span> <span class="p">{</span>
+             <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;dwa&quot;</span><span class="p">,</span>
+             <span class="s2">&quot;method_specs&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">1.6</span> <span class="p">}</span>
+             <span class="p">}</span>
+         <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    
+    <span class="c1"># check whether user-specified loss function is implemented</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">loss_function</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">loss_function</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;mmd-energy&quot;</span><span class="p">],</span> <span class="s2">&quot;Currently only the following loss functions are implemented &#39;mmd-energy&#39;.&quot;</span>
+        <span class="k">if</span> <span class="n">loss_function</span> <span class="o">==</span> <span class="s2">&quot;mmd-energy&quot;</span><span class="p">:</span>
+            <span class="c1"># call class and initialize it</span>
+            <span class="n">call_loss_function</span> <span class="o">=</span> <span class="n">MmdEnergy</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">call_loss_function</span> <span class="o">=</span> <span class="n">loss_function</span>
+    <span class="c1"># check whether user-specified loss-weighting is implemented</span>
+    <span class="k">if</span> <span class="n">loss_weighting</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">loss_weighting</span><span class="p">[</span><span class="s2">&quot;method&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;dwa&quot;</span><span class="p">],</span> <span class="s2">&quot;Currently only the following loss-weighting methods are implemented &#39;dwa&#39;.&quot;</span>
+
+    <span class="n">loss_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;loss_function&quot;</span><span class="p">:</span> <span class="n">call_loss_function</span><span class="p">,</span>
+        <span class="s2">&quot;loss_weighting&quot;</span><span class="p">:</span> <span class="n">loss_weighting</span>
+        <span class="p">}</span>
+    <span class="k">return</span> <span class="n">loss_dict</span></div>
+
+
+<div class="viewcode-block" id="optimization">
+<a class="viewcode-back" href="../../api/setup/setup.input_functions.html#setup.input_functions.optimization">[docs]</a>
+<span class="k">def</span> <span class="nf">optimization</span><span class="p">(</span><span class="n">optimizer</span><span class="p">:</span> <span class="nb">callable</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">,</span>
+                 <span class="n">optimizer_specs</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span>
+                     <span class="s2">&quot;learning_rate&quot;</span><span class="p">:</span> <span class="nb">callable</span> <span class="ow">or</span> <span class="nb">float</span><span class="p">,</span>
+                     <span class="s2">&quot;clipnorm&quot;</span><span class="p">:</span> <span class="mf">1.0</span>
+                     <span class="p">}</span>
+                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a dictionary including user information about the optimizer.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    optimizer : callable</span>
+<span class="sd">        Optimizer used for batch-stochastic gradient descent in form of a tf.keras.optimizers object. </span>
+<span class="sd">        The default is tf.keras.optimizers.Adam.</span>
+<span class="sd">    optimizer_specs : dict, optional</span>
+<span class="sd">        Specifications of input arguments for the optimizer. This includes for example</span>
+<span class="sd">        the initial learning rate which can be provided as float or in form of a learning rate schedule. </span>
+<span class="sd">        The default is shown in the following example.</span>
+<span class="sd">        </span>
+<span class="sd">        :Example:</span>
+<span class="sd">            </span>
+<span class="sd">            .. highlight:: python</span>
+<span class="sd">            .. code-block:: python</span>
+<span class="sd">            </span>
+<span class="sd">                {&quot;learning_rate&quot;: tf.keras.optimizers.schedules.CosineDecayRestarts(</span>
+<span class="sd">                                  0.005, 100),                    </span>
+<span class="sd">                 &quot;clipnorm&quot;: 1.0}</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        dictionary including user information about the optimizer.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO assert that keywords of optimizer are in optimizer_specs</span>
+    <span class="n">optim_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;optimizer&quot;</span><span class="p">:</span> <span class="n">optimizer</span><span class="p">,</span>
+        <span class="s2">&quot;optimizer_specs&quot;</span><span class="p">:</span> <span class="n">optimizer_specs</span>
+        <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">optim_dict</span></div>
+
+
+<div class="viewcode-block" id="prior_elicitation">
+<a class="viewcode-back" href="../../api/setup/setup.input_functions.html#setup.input_functions.prior_elicitation">[docs]</a>
+<span class="k">def</span> <span class="nf">prior_elicitation</span><span class="p">(</span>
+        <span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">sim_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">B</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">rep</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">burnin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">model_params</span><span class="p">:</span> <span class="nb">callable</span><span class="p">,</span>
+        <span class="n">expert_input</span><span class="p">:</span> <span class="nb">callable</span><span class="p">,</span>
+        <span class="n">generative_model</span><span class="p">:</span> <span class="nb">callable</span><span class="p">,</span>
+        <span class="n">target_quantities</span><span class="p">:</span> <span class="nb">callable</span><span class="p">,</span>
+        <span class="n">loss_function</span><span class="p">:</span> <span class="nb">callable</span><span class="p">,</span>
+        <span class="n">optimization_settings</span><span class="p">:</span> <span class="nb">callable</span><span class="p">,</span>
+        <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;results&quot;</span><span class="p">,</span>
+        <span class="n">print_info</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">view_ep</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    wrapper around the optimization process, when called a global dictionary will be </span>
+<span class="sd">    created including all information about the user specifications and the </span>
+<span class="sd">    learning process starts.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    method : str</span>
+<span class="sd">        which method should be used, either &#39;deep_prior&#39; or &#39;parametric_prior&#39;.</span>
+<span class="sd">    sim_id : str</span>
+<span class="sd">        unique identification of simulation used to save result in a folder with</span>
+<span class="sd">        the corresponding name.</span>
+<span class="sd">    epochs : int</span>
+<span class="sd">        number of epochs </span>
+<span class="sd">    B : int</span>
+<span class="sd">        batch size (2^7 or 2^8 should be enough)</span>
+<span class="sd">    rep : int</span>
+<span class="sd">        number of samples from the prior distributions (200 to 300 should be enough)</span>
+<span class="sd">    seed : int</span>
+<span class="sd">        seed for reproducibility.</span>
+<span class="sd">    burnin : int</span>
+<span class="sd">        number of initializations that are tried out before learning starts. </span>
+<span class="sd">        The initialization setting leading to the smallest loss is used for running the learning algorithm.</span>
+<span class="sd">        Method is only reasonable for &#39;parametric_prior&#39; method.</span>
+<span class="sd">    model_params : callable</span>
+<span class="sd">        user information on model parameters using the `param()` object</span>
+<span class="sd">    expert_input : callable</span>
+<span class="sd">        user information on expert data or pre-defined ground truth using the `expert()` object</span>
+<span class="sd">    generative_model : callable</span>
+<span class="sd">        user information on the generative model using the ´model()´ object</span>
+<span class="sd">    target_quantities : callable</span>
+<span class="sd">        user information on the target quantities and elicitation techniques using the `target()` object</span>
+<span class="sd">    loss_function : callable</span>
+<span class="sd">        user information on the loss function using the `loss()` object</span>
+<span class="sd">    optimization_settings : callable</span>
+<span class="sd">        user information on the optimization method using the `optimization()` object</span>
+<span class="sd">    output_path : str</span>
+<span class="sd">        name of folder in which results should be saved</span>
+<span class="sd">    print_info : bool</span>
+<span class="sd">        whether user feedback about epoch, loss value, and average time per epoch should be provided during training</span>
+<span class="sd">    view_ep : int</span>
+<span class="sd">        if user feedback shall be provided after how many epochs shall information be provided?</span>
+<span class="sd">        Default value is 1, thus feedback is provided after every epoch.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        global dictionary including all user input.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># create global dict.</span>
+    <span class="n">global_dict</span> <span class="o">=</span> <span class="n">create_global_dict</span><span class="p">(</span>
+        <span class="n">method</span><span class="p">,</span> <span class="n">sim_id</span><span class="p">,</span> <span class="n">epochs</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">rep</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">burnin</span><span class="p">,</span> <span class="n">model_params</span><span class="p">,</span> <span class="n">expert_input</span><span class="p">,</span> 
+        <span class="n">generative_model</span><span class="p">,</span> <span class="n">target_quantities</span><span class="p">,</span> <span class="n">loss_function</span><span class="p">,</span> 
+        <span class="n">optimization_settings</span><span class="p">,</span> <span class="n">output_path</span><span class="p">,</span> <span class="n">print_info</span><span class="p">,</span> <span class="n">view_ep</span><span class="p">)</span>
+
+    <span class="c1"># run workflow</span>
+    <span class="n">prior_elicitation_dag</span><span class="p">(</span><span class="n">global_dict</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florence Bockting
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Florence Bockting.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

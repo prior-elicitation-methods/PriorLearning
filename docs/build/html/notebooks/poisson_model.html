@@ -1,0 +1,976 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Poisson Regression Model &#8212; Prior Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/poisson_model';</script>
+    <link rel="icon" href="../_static/favicon-light.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/mmp-logo-light.png" class="logo__image only-light" alt="Prior Learning - Home"/>
+    <script>document.write(`<img src="../_static/mmp-logo-dark.png" class="logo__image only-dark" alt="Prior Learning - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_overview.html">API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/dags/modules.html">DAG</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/dags/dags.html">dags package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/dags/dags.elicitation_pipeline.html">dags.elicitation_pipeline module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/functions/modules.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/functions/functions.html">functions package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/functions/functions.helper_functions.html">functions.helper_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/functions/functions.loss_computation.html">functions.loss_computation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/functions/functions.loss_functions.html">functions.loss_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/functions/functions.model_simulation.html">functions.model_simulation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/functions/functions.prior_simulation.html">functions.prior_simulation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/functions/functions.targets_elicits_computation.html">functions.targets_elicits_computation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/functions/functions.training.html">functions.training module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/setup/modules.html">User setup</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/setup/setup.html">setup package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/setup/setup.create_dictionaries.html">setup.create_dictionaries module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/setup/setup.input_functions.html">setup.input_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/setup/setup.write_results.html">setup.write_results module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/user_input/modules.html">User input</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../api/user_input/user_input.html">user_input package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/user_input/user_input.custom_functions.html">user_input.custom_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/user_input/user_input.design_matrices.html">user_input.design_matrices module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/user_input/user_input.generative_models.html">user_input.generative_models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/user_input/user_input.utils.html">user_input.utils module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../case_studies.html">Case Studies</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/florence-bockting/PriorLearning" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/poisson_model.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Poisson Regression Model</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-case-study">Background: Case Study</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-generating-model">Data generating model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology-workflow">Methodology: Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-method">Setting up the method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-parameters">Model parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expert-data-or-ground-truth-for-method-validation">Expert data or ground truth for method validation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-model">Generative model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#target-quantities-and-elicitation-techniques">Target quantities and elicitation techniques</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-function-and-optimization-settings">Loss function and optimization settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-learning-algorithm">Run the learning algorithm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-method-performance">Evaluating method performance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-diagnostics">Convergence diagnostics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learned-prior-distributions">Learned prior distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-output">Summary output</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow_probability</span> <span class="k">as</span> <span class="nn">tfp</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">tfd</span> <span class="o">=</span> <span class="n">tfp</span><span class="o">.</span><span class="n">distributions</span> 
+
+<span class="kn">import</span> <span class="nn">setup.input_functions</span> <span class="k">as</span> <span class="nn">setfun</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="poisson-regression-model">
+<h1>Poisson Regression Model<a class="headerlink" href="#poisson-regression-model" title="Link to this heading">#</a></h1>
+<section id="background-case-study">
+<h2>Background: Case Study<a class="headerlink" href="#background-case-study" title="Link to this heading">#</a></h2>
+<p>For demonstration purposes, we adapt an example from Johnson et al. (2022), which investigates the number of LGBTQ+ anti-discrimination laws in each US state. The distribution of these laws is assumed to follow a Poisson distribution, with the rate of such laws being influenced by demographic and voting trend. The demographic trend is quantified by the percentage of a state’s residents living in urban areas, ranging from 38.7% to 94.7%. Additionally, the voting trend is represented by
+historical voting patterns in presidential elections, categorizing each state as consistently voting for the Democratic or Republican candidate or being a Swing state. We employ a Poisson regression model including one treatment-coded categorical predictor: the voting trend. This predictor has three levels: Democrats, Republicans, and Swing, with Democrats serving as the reference category. Furthermore, the model incorporates one continuous predictor: the demographic trend, measured as
+a percentage.</p>
+<p><strong>Reference</strong></p>
+<p>Johnson, A. A., Ott, M. Q., &amp; Dogucu, M. (2022). <em>Bayes rules!: An introduction to applied Bayesian modeling</em>. CRC Press.</p>
+</section>
+<section id="data-generating-model">
+<h2>Data generating model<a class="headerlink" href="#data-generating-model" title="Link to this heading">#</a></h2>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    y_i &amp;\sim \text{Poisson}(\theta_i)\\
+    \text{log}(\theta_i) &amp;= \beta_0 + \beta_1x_1 + \beta_2 x_2 + \beta_3 x_3\\
+    \beta_k &amp;\sim \text{Normal}(\mu_k, \sigma_k) \quad \text{for }k=0,\ldots,3\\
+\end{align*}\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(y_i\)</span> is the number of counts for observation <span class="math notranslate nohighlight">\(i = 1, \ldots, N\)</span>. The counts follow a Poisson distribution with rate <span class="math notranslate nohighlight">\(\theta_i\)</span>. The rate parameter is predicted by a linear combination of two predictors: the continuous predictor <span class="math notranslate nohighlight">\(x_1\)</span> with slope <span class="math notranslate nohighlight">\(\beta_1\)</span> and a three-level factor represented by the coefficients <span class="math notranslate nohighlight">\(\beta_2\)</span> and <span class="math notranslate nohighlight">\(\beta_3\)</span> for both contrasts <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\(x_3\)</span>. The logged average count <span class="math notranslate nohighlight">\(y\)</span> is denoted by <span class="math notranslate nohighlight">\(\beta_0\)</span>. All regression coefficients are assumed to have normal prior distributions with mean <span class="math notranslate nohighlight">\(\mu_k\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sigma_k\)</span> for <span class="math notranslate nohighlight">\(k = 0, \ldots, 3\)</span>. The log-link function maps <span class="math notranslate nohighlight">\(\theta_i\)</span> to the scale of the linear predictor. The main goal is to learn the hyperparameters <span class="math notranslate nohighlight">\(\lambda = (\mu_k , \sigma_k)\)</span> based on expert knowledge.</p>
+</section>
+<section id="methodology-workflow">
+<h2>Methodology: Workflow<a class="headerlink" href="#methodology-workflow" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>PriorSamples(<span class="math notranslate nohighlight">\(\lambda = (\mu_k, \sigma_k)\)</span>):</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\{\beta_k\}_s &amp;\sim \text{Normal}(\mu_k, \exp\{\sigma_k\})\\
+\end{align*}\]</div>
+<ul class="simple">
+<li><p>Generator(<span class="math notranslate nohighlight">\(\beta_k\)</span>):</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\{\text{log}(\theta_i)\}_s &amp;= \{\beta_k\}_s \times X_i\\
+\{y_i\}_s &amp;\sim \text{Poisson}(\{\theta_i\}_s)\\
+\end{align*}\]</div>
+<ul class="simple">
+<li><p>Targets(<span class="math notranslate nohighlight">\(\{y_j\}_s\)</span>, <span class="math notranslate nohighlight">\(\{\bar{y}_G\}_s\)</span>):</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\{y_j\}_s &amp;= \{y_j\}_s \quad \text{ for } j = 1,11,17,22,35,44\\
+\{\bar{y}_G\}_s &amp;= \frac{1}{\mid G \mid} \sum_{i\in G}\mathbb 1_G (\{y_i\}_s) \quad \text{ with G = Democratic, Republican, Swing}\\
+\end{align*}\]</div>
+<ul class="simple">
+<li><p>Elicits(<span class="math notranslate nohighlight">\(\{y_{j}\}_s, \{R^2\}_s\)</span>)</p></li>
+</ul>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\text{Histogram-based:}&amp; \quad \{y_j\}_s = \{y_j\}_s \quad \text{ for } j = 1,11,17,22,35,44\\
+\text{Quantile-based:}&amp; \quad Q_p^{G} = Q_{p}^{G} \{\bar{y}_G\}_s \quad \text{G = Democratic, Republican, Swing, } p = 0.1, \ldots, 0.9\\
+\end{align*}\]</div>
+</section>
+<section id="setting-up-the-method">
+<h2>Setting up the method<a class="headerlink" href="#setting-up-the-method" title="Link to this heading">#</a></h2>
+<section id="model-parameters">
+<h3>Model parameters<a class="headerlink" href="#model-parameters" title="Link to this heading">#</a></h3>
+<p>First, we need to specify the parameters in the generative model using the <code class="docutils literal notranslate"><span class="pre">param()</span></code> function which requires the following input:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: the name of the model parameter</p>
+<ul>
+<li><p>In our Poisson model we have four model parameters which we will denote as <em>b0</em>,<em>b1</em>,<em>b2</em>, and <em>b3</em></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">family</span></code>: the prior distribution family</p>
+<ul>
+<li><p>We assume a Normal prior distribution for each model parameter</p></li>
+<li><p>We created a wrapper around the Normal distribution as implemented in tensorflow-probability in order to learn the <span class="math notranslate nohighlight">\(\sigma\)</span>-hyperparameter on the log-scale.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hyperparams_dict</span></code>: a dictionary including the name of the hyperparameter values and the initial value for the learning algorithm</p>
+<ul>
+<li><p>We use distributions from which an initial value is drawn.</p></li>
+<li><p>When a hyperparameter is learned on the log-scale, we indicate this by writing “log_” before the actual name of the hyperparameter, such as <em>log_sigma0</em>.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">user_input.custom_functions</span> <span class="kn">import</span> <span class="n">Normal_log</span>
+
+<span class="n">normal_log</span> <span class="o">=</span> <span class="n">Normal_log</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">model_params</span><span class="p">():</span>  
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">setfun</span><span class="o">.</span><span class="n">param</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;b0&quot;</span><span class="p">,</span> 
+              <span class="n">family</span> <span class="o">=</span> <span class="n">normal_log</span><span class="p">,</span> 
+              <span class="n">hyperparams_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;mu0&quot;</span><span class="p">:</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span><span class="mf">2.5</span><span class="p">),</span> 
+                                  <span class="s2">&quot;log_sigma0&quot;</span><span class="p">:</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">2.</span><span class="p">,</span><span class="o">-</span><span class="mf">5.</span><span class="p">)}</span>
+              <span class="p">),</span>
+        <span class="n">setfun</span><span class="o">.</span><span class="n">param</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;b1&quot;</span><span class="p">,</span> 
+              <span class="n">family</span> <span class="o">=</span> <span class="n">normal_log</span><span class="p">,</span> 
+              <span class="n">hyperparams_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;mu1&quot;</span><span class="p">:</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.5</span><span class="p">),</span> 
+                                  <span class="s2">&quot;log_sigma1&quot;</span><span class="p">:</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">2.</span><span class="p">,</span><span class="o">-</span><span class="mf">5.</span><span class="p">)}</span>
+              <span class="p">),</span>
+        <span class="n">setfun</span><span class="o">.</span><span class="n">param</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;b2&quot;</span><span class="p">,</span> 
+              <span class="n">family</span> <span class="o">=</span> <span class="n">normal_log</span><span class="p">,</span> 
+              <span class="n">hyperparams_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;mu2&quot;</span><span class="p">:</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span><span class="o">-</span><span class="mf">1.5</span><span class="p">),</span> 
+                                  <span class="s2">&quot;log_sigma2&quot;</span><span class="p">:</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">2.</span><span class="p">,</span><span class="o">-</span><span class="mf">5.</span><span class="p">)}</span>
+              <span class="p">),</span>
+        <span class="n">setfun</span><span class="o">.</span><span class="n">param</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;b3&quot;</span><span class="p">,</span> 
+              <span class="n">family</span> <span class="o">=</span> <span class="n">normal_log</span><span class="p">,</span> 
+              <span class="n">hyperparams_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;mu3&quot;</span><span class="p">:</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="o">-</span><span class="mf">1.</span><span class="p">),</span> 
+                                  <span class="s2">&quot;log_sigma3&quot;</span><span class="p">:</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">2.</span><span class="p">,</span><span class="o">-</span><span class="mf">5.</span><span class="p">)}</span>
+              <span class="p">)</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="expert-data-or-ground-truth-for-method-validation">
+<h3>Expert data or ground truth for method validation<a class="headerlink" href="#expert-data-or-ground-truth-for-method-validation" title="Link to this heading">#</a></h3>
+<p>Next, we define the <code class="docutils literal notranslate"><span class="pre">expert()</span></code> function which represents the data input based on which the method has to learn.
+This can be either</p>
+<ul class="simple">
+<li><p>data from an expert (in this case the argument <code class="docutils literal notranslate"><span class="pre">data</span></code> expects a string with the location to the expert data) or</p></li>
+<li><p>an expected ground truth in which case we simulate once from the method using a pre-defined hyperparameter vector <span class="math notranslate nohighlight">\(\lambda^*\)</span> and learn then on this simulated data (in this case we need to set the argument <code class="docutils literal notranslate"><span class="pre">simulate_data</span> <span class="pre">=</span> <span class="pre">True</span></code> and specify the true hyperparameter values in <code class="docutils literal notranslate"><span class="pre">simulator_specs</span></code>.</p></li>
+</ul>
+<p>The second approach is helpful when we want to validate our method and check whether the implementation is correct. Because it allows us to check whether we can recover an expected ground truth under <em>ideal circumstances</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">expert_input</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">setfun</span><span class="o">.</span><span class="n">expert</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                        <span class="n">simulate_data</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                        <span class="n">simulator_specs</span> <span class="o">=</span> <span class="p">{</span>
+                          <span class="s2">&quot;b0&quot;</span><span class="p">:</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">2.91</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">),</span>
+                          <span class="s2">&quot;b1&quot;</span><span class="p">:</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">0.23</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span>
+                          <span class="s2">&quot;b2&quot;</span><span class="p">:</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="o">-</span><span class="mf">1.51</span><span class="p">,</span> <span class="mf">0.135</span><span class="p">),</span>
+                          <span class="s2">&quot;b3&quot;</span><span class="p">:</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="o">-</span><span class="mf">0.61</span><span class="p">,</span> <span class="mf">0.105</span><span class="p">)</span>
+                          <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generative-model">
+<h3>Generative model<a class="headerlink" href="#generative-model" title="Link to this heading">#</a></h3>
+<p>Now, we can define our generative model from which data should be simulated. We specified the model already formally.
+For implementation purposes a particular <em>input-output</em> structure is required:</p>
+<ul class="simple">
+<li><p>input:</p>
+<ul>
+<li><p>(required) <code class="docutils literal notranslate"><span class="pre">prior_samples</span></code>: samples drawn from the prior distributions</p></li>
+<li><p>(optional) <code class="docutils literal notranslate"><span class="pre">design_matrix</span></code>: design matrix used for the regression model</p></li>
+</ul>
+</li>
+<li><p>output:</p>
+<ul>
+<li><p>(required) <code class="docutils literal notranslate"><span class="pre">likelihood</span></code>: model likelihood</p></li>
+<li><p>(required) <code class="docutils literal notranslate"><span class="pre">ypred</span></code>: prior predictions (if likelihood is discrete <code class="docutils literal notranslate"><span class="pre">ypred=None</span></code> as it will be approximated using the Softmax-Gumble method)</p></li>
+<li><p>(required) <code class="docutils literal notranslate"><span class="pre">epred</span></code>: linear predictor</p></li>
+<li><p>(optional) <code class="docutils literal notranslate"><span class="pre">prior_samples</span></code>: we use it here again as output for easier follow-up computations</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GenerativePoissonModel</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                <span class="n">prior_samples</span><span class="p">,</span>        
+                <span class="n">design_matrix</span><span class="p">,</span>       
+                <span class="o">**</span><span class="n">kwargs</span>        
+                <span class="p">):</span>  
+        
+        <span class="c1"># linear predictor</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">design_matrix</span> <span class="o">@</span> <span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">prior_samples</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        
+        <span class="c1"># map linear predictor to theta</span>
+        <span class="n">epred</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+        
+        <span class="c1"># define likelihood</span>
+        <span class="n">likelihood</span> <span class="o">=</span> <span class="n">tfd</span><span class="o">.</span><span class="n">Poisson</span><span class="p">(</span>
+            <span class="n">rate</span> <span class="o">=</span> <span class="n">epred</span>
+        <span class="p">)</span>
+        
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">likelihood</span> <span class="o">=</span> <span class="n">likelihood</span><span class="p">,</span>     
+                    <span class="n">ypred</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>   
+                    <span class="n">epred</span> <span class="o">=</span> <span class="n">epred</span><span class="p">[:,:,:,</span><span class="mi">0</span><span class="p">],</span>
+                    <span class="n">prior_samples</span> <span class="o">=</span> <span class="n">prior_samples</span>               
+                    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>After having specified the generative model, we load all information into the <code class="docutils literal notranslate"><span class="pre">model()</span></code> function which requires the following specifications:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">generative_model</span></code>: the class of the generative model (callable)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">additional_model_args</span></code>: specifications of model arguments used as input that are not prior samples</p>
+<ul>
+<li><p>in this example we have additionally the <em>design_matrix</em>. The argument name must match with the argument of the generative model and the value is then the corresponding value (here the design matrix)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">discrete_likelihood</span></code>: whether likelihood is discrete or not; if <em>True</em> the softmax-gumble method will be used in order to approximate <code class="docutils literal notranslate"><span class="pre">ypred</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">softmax_gumble_specs</span></code>: Additional settings required by the softmax-gumble method.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">temperature</span></code>: (default) <span class="math notranslate nohighlight">\(1.\)</span> (for smaller values tending towards zero the Gumbel-Softmax distr. is equiv. to the categorical distr.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upper_threshold</span></code>: (required) if likelihood is unbounded, the upper threshold argument specifies where to truncate the distribution. Currently, we have only implemented the case where distributions lack an upper bound.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">user_input.generative_models</span> <span class="kn">import</span> <span class="n">GenerativePoissonModel</span>
+<span class="kn">from</span> <span class="nn">user_input.design_matrices</span> <span class="kn">import</span> <span class="n">load_design_matrix_equality</span>
+
+<span class="n">design_matrix</span> <span class="o">=</span> <span class="n">load_design_matrix_equality</span><span class="p">(</span><span class="s2">&quot;standardize&quot;</span><span class="p">,</span> <span class="n">selected_obs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">48</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">generative_model</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">setfun</span><span class="o">.</span><span class="n">model</span><span class="p">(</span>
+        <span class="n">GenerativePoissonModel</span><span class="p">,</span>
+        <span class="n">additional_model_args</span> <span class="o">=</span> <span class="p">{</span>
+             <span class="s2">&quot;design_matrix&quot;</span><span class="p">:</span> <span class="n">design_matrix</span>
+        <span class="p">},</span>
+        <span class="n">discrete_likelihood</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">softmax_gumble_specs</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span>
+            <span class="s2">&quot;upper_threshold&quot;</span><span class="p">:</span> <span class="mi">80</span>
+        <span class="p">}</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="target-quantities-and-elicitation-techniques">
+<h3>Target quantities and elicitation techniques<a class="headerlink" href="#target-quantities-and-elicitation-techniques" title="Link to this heading">#</a></h3>
+<p>In the next step, we can define the target quantities and the corresponding elicitation technique. Both is specified through the <code class="docutils literal notranslate"><span class="pre">target()</span></code> function which has the following options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: name of the target quantity</p>
+<ul>
+<li><p>if you want to use a target quantity which is already specified in the generative model, then you the value for <code class="docutils literal notranslate"><span class="pre">name</span></code> must match with the output argument from the generative model. For this example, <code class="docutils literal notranslate"><span class="pre">ypred</span></code> is taken directly from the generative model.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">custom_target_function</span></code>: (optional) it is possible to compute custom target quantities from the output of the generative model. Here we compute for example the group means based on the prior predictions. If a custom target function is used the following specifications have to be done:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">function</span></code>: the respective custom function (callable)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">additional_args</span></code>: in case the custom function takes as arguments parameters that are not in the output of the generative model, these parameters need to be specified here in form of a dictionary. The argument name is used as key and the respective value.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">elicitation_method</span></code>: currently available elicitation methods are <em>histogram</em>, <em>moments</em>, and <em>quantiles</em></p>
+<ul>
+<li><p>some of the elicitation methods require additional specifications:</p>
+<ul>
+<li><p><em>moments</em> requires the additional argument <code class="docutils literal notranslate"><span class="pre">moments_specs</span></code> which takes a tuple with the moments that should be elicited e.g. (“mean”, “sd”)</p></li>
+<li><p><em>quantiles</em> requires the additional argument <code class="docutils literal notranslate"><span class="pre">quantiles_specs</span></code> which takes a tuple with the percentages that should be elicited e.g. (25, 50, 75)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loss_components</span></code>: specifies the form of the loss components. Possible values are <em>by-group</em>, <em>by-stats</em>,<em>all</em>. (Detailed description will follow)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">user_input.custom_functions</span> <span class="kn">import</span> <span class="n">custom_group_means</span>
+    
+<span class="k">def</span> <span class="nf">target_quantities</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">setfun</span><span class="o">.</span><span class="n">target</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;ypred&quot;</span><span class="p">,</span>
+               <span class="n">elicitation_method</span> <span class="o">=</span> <span class="s2">&quot;histogram&quot;</span><span class="p">,</span>
+               <span class="n">loss_components</span> <span class="o">=</span> <span class="s2">&quot;by-group&quot;</span>
+               <span class="p">),</span>
+        <span class="n">setfun</span><span class="o">.</span><span class="n">target</span><span class="p">(</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;group_means&quot;</span><span class="p">,</span>
+            <span class="n">elicitation_method</span> <span class="o">=</span> <span class="s2">&quot;quantiles&quot;</span><span class="p">,</span>
+            <span class="n">quantiles_specs</span> <span class="o">=</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">),</span>
+            <span class="n">custom_target_function</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="n">custom_group_means</span><span class="p">,</span>
+                <span class="s2">&quot;additional_args&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;design_matrix&quot;</span><span class="p">:</span> <span class="n">design_matrix</span><span class="p">,</span>
+                    <span class="s2">&quot;factor_indices&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="n">loss_components</span> <span class="o">=</span> <span class="s2">&quot;by-group&quot;</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="loss-function-and-optimization-settings">
+<h3>Loss function and optimization settings<a class="headerlink" href="#loss-function-and-optimization-settings" title="Link to this heading">#</a></h3>
+<p>The loss function used to compute the discrepancy between the expert and the model-implied elicited statistics is specified via the <code class="docutils literal notranslate"><span class="pre">loss()</span></code> function which has the following arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">loss_function</span></code>: the discrepancy measure (string: <em>mmd-energy</em> or callable)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loss_weighting</span></code>: if a weighting scheme for the multiobjective loss function should be used.</p></li>
+</ul>
+<p>For the optimization settings, we consider for the moment only batch stochastic gradient descent for which we need to specify the optimizer using the <code class="docutils literal notranslate"><span class="pre">optimization()</span></code> function, which takes two arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">optimizer</span></code>: The optimizer that should be used for the current case study (here we use the Adam optimizer)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">optimizer_specs</span></code>: If further specifications of the optimizer are needed, they are specified here. For the Adam optimizer we need for example an initial learning rate. The additional keyword arguments are specified in form of a dictionary with the key matching the argument name. In this case study we use a cosine decay learning rate schedule with restarts. And we clip the gradient norm at 1.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">loss_function</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">setfun</span><span class="o">.</span><span class="n">loss</span><span class="p">(</span>
+        <span class="n">loss_function</span> <span class="o">=</span> <span class="s2">&quot;mmd-energy&quot;</span><span class="p">,</span>
+        <span class="n">loss_weighting</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">optimization_settings</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">setfun</span><span class="o">.</span><span class="n">optimization</span><span class="p">(</span>
+        <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">,</span>
+        <span class="n">optimizer_specs</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;learning_rate&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">schedules</span><span class="o">.</span><span class="n">CosineDecayRestarts</span><span class="p">(</span>
+                <span class="mf">0.01</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
+            <span class="s2">&quot;clipnorm&quot;</span><span class="p">:</span> <span class="mf">1.0</span>
+        <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-the-learning-algorithm">
+<h3>Run the learning algorithm<a class="headerlink" href="#run-the-learning-algorithm" title="Link to this heading">#</a></h3>
+<p>Finally we can wrap everything up and run the learning algorithm. Therefore we specify the last hyperparameter needed by the learning algorithm with the following <code class="docutils literal notranslate"><span class="pre">prior_elicitation()</span></code> function:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">method</span></code>: method for learning the prior distributions (currently available: <em>parametric_prior</em>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sim_id</span></code>: unique name of model (also used for saving results)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">B</span></code>: batch size</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rep</span></code>: number of simulations from the prior distributions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seed</span></code>: seed for the current simulation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">burnin</span></code>: runs before learning starts in order to find good initial values (if drawn randomly)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">epochs</span></code>: number of learning cycles until learning stops</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_path</span></code>: file location for storing results</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">setfun</span><span class="o">.</span><span class="n">prior_elicitation</span><span class="p">(</span>
+        <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;parametric_prior&quot;</span><span class="p">,</span>
+        <span class="n">sim_id</span> <span class="o">=</span> <span class="s2">&quot;pois_34765558&quot;</span><span class="p">,</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span>
+        <span class="n">rep</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="mi">34765558</span><span class="p">,</span>
+        <span class="n">burnin</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="n">epochs</span> <span class="o">=</span> <span class="mi">700</span><span class="p">,</span>
+        <span class="n">output_path</span> <span class="o">=</span> <span class="s2">&quot;results&quot;</span><span class="p">,</span>
+        <span class="n">model_params</span> <span class="o">=</span> <span class="n">model_params</span><span class="p">,</span>
+        <span class="n">expert_input</span> <span class="o">=</span> <span class="n">expert_input</span><span class="p">,</span>
+        <span class="n">generative_model</span> <span class="o">=</span> <span class="n">generative_model</span><span class="p">,</span>
+        <span class="n">target_quantities</span> <span class="o">=</span> <span class="n">target_quantities</span><span class="p">,</span>
+        <span class="n">loss_function</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">,</span>
+        <span class="n">optimization_settings</span> <span class="o">=</span> <span class="n">optimization_settings</span><span class="p">,</span>
+        <span class="n">log_info</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">print_info</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">view_ep</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="evaluating-method-performance">
+<h2>Evaluating method performance<a class="headerlink" href="#evaluating-method-performance" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">validation.plotting</span> <span class="k">as</span> <span class="nn">vp</span>
+<span class="kn">from</span> <span class="nn">vp.plot_learned_prior</span> <span class="kn">import</span> <span class="n">learned_prior_pois</span>
+<span class="kn">from</span> <span class="nn">vp.plot_diagnostics</span> <span class="kn">import</span> <span class="n">diagnostics_pois</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../sim_results/&quot;</span>
+<span class="n">file</span> <span class="o">=</span> <span class="s2">&quot;pois_34765682_200&quot;</span>
+<span class="n">selected_obs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">48</span><span class="p">]</span>
+<span class="n">true_values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.91</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.51</span><span class="p">,</span> <span class="mf">0.135</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.61</span><span class="p">,</span> <span class="mf">0.105</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="convergence-diagnostics">
+<h3>Convergence diagnostics<a class="headerlink" href="#convergence-diagnostics" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot diagnostics</span>
+<span class="n">diagnostics_pois</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">save_fig</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d98c4cd765aa360429982818c857eff62f06b46936027197470861e2050ec4f4.png" src="../_images/d98c4cd765aa360429982818c857eff62f06b46936027197470861e2050ec4f4.png" />
+</div>
+</div>
+</section>
+<section id="learned-prior-distributions">
+<h3>Learned prior distributions<a class="headerlink" href="#learned-prior-distributions" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot learned prior distributions</span>
+<span class="n">learned_prior_pois</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">selected_obs</span><span class="p">,</span> <span class="n">true_values</span><span class="p">,</span> 
+                    <span class="n">last_vals</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">save_fig</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/781f6ec007f8cdcbca01615d0b602d0e771d726a842e1aa836909a0121e04ab6.png" src="../_images/781f6ec007f8cdcbca01615d0b602d0e771d726a842e1aa836909a0121e04ab6.png" />
+</div>
+</div>
+</section>
+<section id="summary-output">
+<h3>Summary output<a class="headerlink" href="#summary-output" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">setup.write_results</span> <span class="kn">import</span> <span class="n">model_summary</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># get global dictionary</span>
+<span class="n">global_dict</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">file</span><span class="o">+</span><span class="s2">&quot;/global_dict.pkl&quot;</span><span class="p">)</span>
+
+<span class="c1"># print summary of method specifications</span>
+<span class="n">model_summary</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">file</span><span class="p">,</span> <span class="n">global_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>General summary
+---------------- 
+method=parametric_prior
+sim_id=pois_34765682_200
+seed=34765682
+B=128
+rep=300
+epochs=700
+wall time=187:16 (min:sec)
+optimizer=&lt;class &#39;keras.src.optimizers.adam.Adam&#39;&gt;
+learning rate={&#39;lr_scheduler&#39;: &lt;keras.src.optimizers.schedules.learning_rate_schedule.CosineDecayRestarts object at 0x000002D30B57BE20&gt;, &#39;init_lr&#39;: 0.01, &#39;decay_steps&#39;: 50}
+
+Model info
+---------------- 
+model name=&lt;class &#39;user_input.generative_models.GenerativePoissonModel&#39;&gt;
+model parameters=[&#39;b0&#39;, &#39;b1&#39;, &#39;b2&#39;, &#39;b3&#39;]
+
+Parametric Prior
+---------------- 
+distribution family={&#39;b0&#39;: &#39;Normal_log_scale&#39;, &#39;b1&#39;: &#39;Normal_log_scale&#39;, &#39;b2&#39;: &#39;Normal_log_scale&#39;, &#39;b3&#39;: &#39;Normal_log_scale&#39;}
+initialization={&#39;mu0&#39;: {&#39;low&#39;: 1.0, &#39;high&#39;: 2.5, &#39;name&#39;: &#39;Uniform&#39;}, &#39;log_sigma0&#39;: {&#39;low&#39;: -2.0, &#39;high&#39;: -5.0, &#39;name&#39;: &#39;Uniform&#39;}, &#39;mu1&#39;: {&#39;low&#39;: 0.0, &#39;high&#39;: 0.5, &#39;name&#39;: &#39;Uniform&#39;}, &#39;log_sigma1&#39;: {&#39;low&#39;: -2.0, &#39;high&#39;: -5.0, &#39;name&#39;: &#39;Uniform&#39;}, &#39;mu2&#39;: {&#39;low&#39;: -1.0, &#39;high&#39;: -1.5, &#39;name&#39;: &#39;Uniform&#39;}, &#39;log_sigma2&#39;: {&#39;low&#39;: -2.0, &#39;high&#39;: -5.0, &#39;name&#39;: &#39;Uniform&#39;}, &#39;mu3&#39;: {&#39;low&#39;: -0.5, &#39;high&#39;: -1.0, &#39;name&#39;: &#39;Uniform&#39;}, &#39;log_sigma3&#39;: {&#39;low&#39;: -2.0, &#39;high&#39;: -5.0, &#39;name&#39;: &#39;Uniform&#39;}}
+
+Target quantities and elicitation techniques
+--------------------- 
+
+  target quantities elicitation technique combine-loss
+0             ypred             histogram     by-group
+1       group_means             quantiles     by-group
+
+Loss components
+--------------------- 
+
+                loss components       shape
+0        histogram_ypred_loss_0  [128, 300]
+1        histogram_ypred_loss_1  [128, 300]
+2        histogram_ypred_loss_2  [128, 300]
+3        histogram_ypred_loss_3  [128, 300]
+4        histogram_ypred_loss_4  [128, 300]
+5        histogram_ypred_loss_5  [128, 300]
+6  quantiles_group_means_loss_0    [128, 3]
+7  quantiles_group_means_loss_1    [128, 3]
+8  quantiles_group_means_loss_2    [128, 3]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-case-study">Background: Case Study</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-generating-model">Data generating model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodology-workflow">Methodology: Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-method">Setting up the method</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-parameters">Model parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expert-data-or-ground-truth-for-method-validation">Expert data or ground truth for method validation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-model">Generative model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#target-quantities-and-elicitation-techniques">Target quantities and elicitation techniques</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loss-function-and-optimization-settings">Loss function and optimization settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-learning-algorithm">Run the learning algorithm</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluating-method-performance">Evaluating method performance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-diagnostics">Convergence diagnostics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learned-prior-distributions">Learned prior distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-output">Summary output</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florence Bockting
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Florence Bockting.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

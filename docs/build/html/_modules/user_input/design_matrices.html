@@ -1,0 +1,586 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>user_input.design_matrices &#8212; Prior Learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/user_input/design_matrices';</script>
+    <link rel="icon" href="../../_static/favicon-light.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/mmp-logo-light.png" class="logo__image only-light" alt="Prior Learning - Home"/>
+    <script>document.write(`<img src="../../_static/mmp-logo-dark.png" class="logo__image only-dark" alt="Prior Learning - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api_overview.html">API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/dags/modules.html">DAG</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/dags/dags.html">dags package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/dags/dags.elicitation_pipeline.html">dags.elicitation_pipeline module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/functions/modules.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/functions/functions.html">functions package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.helper_functions.html">functions.helper_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.loss_computation.html">functions.loss_computation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.loss_functions.html">functions.loss_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.model_simulation.html">functions.model_simulation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.prior_simulation.html">functions.prior_simulation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.targets_elicits_computation.html">functions.targets_elicits_computation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/functions/functions.training.html">functions.training module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/setup/modules.html">User setup</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/setup/setup.html">setup package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/setup/setup.create_dictionaries.html">setup.create_dictionaries module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/setup/setup.input_functions.html">setup.input_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/setup/setup.write_results.html">setup.write_results module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/user_input/modules.html">User input</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../api/user_input/user_input.html">user_input package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/user_input/user_input.custom_functions.html">user_input.custom_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/user_input/user_input.design_matrices.html">user_input.design_matrices module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/user_input/user_input.generative_models.html">user_input.generative_models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/user_input/user_input.utils.html">user_input.utils module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../case_studies.html">Case Studies</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/florence-bockting/PriorLearning" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for user_input.design_matrices</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">patsy</span> <span class="k">as</span> <span class="nn">pa</span>
+
+
+<div class="viewcode-block" id="load_design_matrix_haberman">
+<a class="viewcode-back" href="../../api/user_input/user_input.design_matrices.html#user_input.design_matrices.load_design_matrix_haberman">[docs]</a>
+<span class="k">def</span> <span class="nf">load_design_matrix_haberman</span><span class="p">(</span><span class="n">scaling</span><span class="p">,</span> <span class="n">selected_obs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads the haberman data set, preprocess the data, and creates a design </span>
+<span class="sd">    matrix as used by the binomial model.</span>
+<span class="sd">    source: https://archive.ics.uci.edu/dataset/43/haberman+s+survival</span>
+<span class="sd">        </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    scaling : str or None</span>
+<span class="sd">        whether the continuous predictor should be scaled; </span>
+<span class="sd">        possible values = [&#39;divide_by_std&#39;, &#39;standardize&#39;]</span>
+<span class="sd">    selected_obs : list of integers or None</span>
+<span class="sd">        whether only specific observations shall be selected from the design</span>
+<span class="sd">        matrix.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    design_matrix : tf.Tensor</span>
+<span class="sd">        design matrix.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># load dataset from repo</span>
+    <span class="kn">from</span> <span class="nn">ucimlrepo</span> <span class="kn">import</span> <span class="n">fetch_ucirepo</span> 
+    <span class="c1"># fetch dataset </span>
+    <span class="n">d_raw</span> <span class="o">=</span> <span class="n">fetch_ucirepo</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">43</span><span class="p">)[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+    <span class="c1"># select predictors</span>
+    <span class="n">d_combi</span> <span class="o">=</span> <span class="n">d_raw</span><span class="p">[</span><span class="s2">&quot;features&quot;</span><span class="p">]</span>
+    <span class="c1"># create new dataset with predictors and dependen variable</span>
+    <span class="n">d_combi</span><span class="p">[</span><span class="s2">&quot;survival_status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d_raw</span><span class="p">[</span><span class="s2">&quot;targets&quot;</span><span class="p">][</span><span class="s2">&quot;survival_status&quot;</span><span class="p">]</span>
+    <span class="c1"># aggregate observations for Binomial format</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d_combi</span><span class="p">)</span><span class="o">.</span><span class="n">group_by</span><span class="p">(</span><span class="s2">&quot;positive_auxillary_nodes&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">()</span>
+    <span class="c1"># add intercept</span>
+    <span class="n">data_int</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">intercept</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;positive_auxillary_nodes&quot;</span><span class="p">])))</span>
+    <span class="c1"># reorder columns</span>
+    <span class="n">data_reordered</span> <span class="o">=</span> <span class="n">data_int</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;positive_auxillary_nodes&quot;</span><span class="p">])</span>
+    <span class="c1"># scale predictor if specified</span>
+    <span class="k">if</span> <span class="n">scaling</span> <span class="o">==</span> <span class="s2">&quot;divide_by_std&quot;</span><span class="p">:</span>
+        <span class="n">sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_reordered</span><span class="p">[</span><span class="s2">&quot;positive_auxillary_nodes&quot;</span><span class="p">]))</span>
+        <span class="n">d_scaled</span> <span class="o">=</span> <span class="n">data_reordered</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">X_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_reordered</span><span class="p">[</span><span class="s2">&quot;positive_auxillary_nodes&quot;</span><span class="p">])</span><span class="o">/</span><span class="n">sd</span><span class="p">)</span>
+        <span class="n">d_final</span> <span class="o">=</span> <span class="n">d_scaled</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;X_scaled&quot;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">scaling</span> <span class="o">==</span> <span class="s2">&quot;standardize&quot;</span><span class="p">:</span>
+        <span class="n">sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_reordered</span><span class="p">[</span><span class="s2">&quot;positive_auxillary_nodes&quot;</span><span class="p">]))</span>
+        <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_reordered</span><span class="p">[</span><span class="s2">&quot;positive_auxillary_nodes&quot;</span><span class="p">]))</span>
+        <span class="n">d_scaled</span> <span class="o">=</span> <span class="n">data_reordered</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">X_scaled</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_reordered</span><span class="p">[</span><span class="s2">&quot;positive_auxillary_nodes&quot;</span><span class="p">])</span><span class="o">-</span><span class="n">mean</span><span class="p">)</span><span class="o">/</span><span class="n">sd</span><span class="p">)</span>
+        <span class="n">d_final</span> <span class="o">=</span> <span class="n">d_scaled</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;X_scaled&quot;</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">scaling</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">d_final</span> <span class="o">=</span> <span class="n">data_reordered</span>
+    <span class="c1"># select only relevant observations</span>
+    <span class="k">if</span> <span class="n">selected_obs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">d_final</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">d_final</span><span class="p">,</span> <span class="n">selected_obs</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># convert pandas data frame to tensor</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">d_final</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">array</span></div>
+
+
+<div class="viewcode-block" id="load_design_matrix_equality">
+<a class="viewcode-back" href="../../api/user_input/user_input.design_matrices.html#user_input.design_matrices.load_design_matrix_equality">[docs]</a>
+<span class="k">def</span> <span class="nf">load_design_matrix_equality</span><span class="p">(</span><span class="n">scaling</span><span class="p">,</span> <span class="n">selected_obs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads the equality index dataset from BayesRule!, preprocess the data, and </span>
+<span class="sd">    creates a design matrix as used in the poisson model.</span>
+<span class="sd">    source: https://www.bayesrulesbook.com/chapter-12</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    scaling : str or None</span>
+<span class="sd">        whether the continuous predictor should be scaled; </span>
+<span class="sd">        possible values = [&#39;divide_by_std&#39;, &#39;standardize&#39;]</span>
+<span class="sd">    selected_obs : list of integers or None</span>
+<span class="sd">        whether only specific observations shall be selected from the design</span>
+<span class="sd">        matrix.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    design_matrix : tf.Tensor</span>
+<span class="sd">        design matrix.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># load dataset from repo</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/bayes-rules/bayesrules/blob/404fbdbae2957976820f9249e9cc663a72141463/data-raw/equality_index/equality_index.csv?raw=true&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="c1"># exclude california from analysis as extreme outlier</span>
+    <span class="n">df_filtered</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;california&quot;</span><span class="p">]</span>
+    <span class="c1"># select predictors</span>
+    <span class="n">df_prep</span> <span class="o">=</span> <span class="n">df_filtered</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;historical&quot;</span><span class="p">,</span> <span class="s2">&quot;percent_urban&quot;</span><span class="p">]]</span>
+    <span class="c1"># reorder historical predictor</span>
+    <span class="n">df_reordered</span> <span class="o">=</span> <span class="n">df_prep</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;historical&quot;</span><span class="p">,</span> <span class="s2">&quot;percent_urban&quot;</span><span class="p">])</span>
+    <span class="c1"># add dummy coded predictors</span>
+    <span class="n">df_reordered</span><span class="p">[</span><span class="s2">&quot;gop&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df_reordered</span><span class="p">[</span><span class="s2">&quot;historical&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;gop&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">df_reordered</span><span class="p">[</span><span class="s2">&quot;swing&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df_reordered</span><span class="p">[</span><span class="s2">&quot;historical&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;swing&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">df_reordered</span><span class="p">[</span><span class="s2">&quot;intercept&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="c1"># select only required columns</span>
+    <span class="n">data_reordered</span> <span class="o">=</span> <span class="n">df_reordered</span><span class="p">[[</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;percent_urban&quot;</span><span class="p">,</span> <span class="s2">&quot;gop&quot;</span><span class="p">,</span><span class="s2">&quot;swing&quot;</span><span class="p">]]</span>
+    <span class="c1"># scale predictor if specified</span>
+    <span class="k">if</span> <span class="n">scaling</span> <span class="o">==</span> <span class="s2">&quot;divide_by_std&quot;</span><span class="p">:</span>
+        <span class="n">sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_reordered</span><span class="p">[</span><span class="s2">&quot;percent_urban&quot;</span><span class="p">]))</span>
+        <span class="n">d_scaled</span> <span class="o">=</span> <span class="n">data_reordered</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">percent_urban_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_reordered</span><span class="p">[</span><span class="s2">&quot;percent_urban&quot;</span><span class="p">])</span><span class="o">/</span><span class="n">sd</span><span class="p">)</span>
+        <span class="n">d_final</span> <span class="o">=</span> <span class="n">d_scaled</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;percent_urban_scaled&quot;</span><span class="p">,</span><span class="s2">&quot;gop&quot;</span><span class="p">,</span><span class="s2">&quot;swing&quot;</span><span class="p">]]</span>
+    <span class="k">if</span> <span class="n">scaling</span> <span class="o">==</span> <span class="s2">&quot;standardize&quot;</span><span class="p">:</span>
+        <span class="n">sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_reordered</span><span class="p">[</span><span class="s2">&quot;percent_urban&quot;</span><span class="p">]))</span>
+        <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_reordered</span><span class="p">[</span><span class="s2">&quot;percent_urban&quot;</span><span class="p">]))</span>
+        <span class="n">d_scaled</span> <span class="o">=</span> <span class="n">data_reordered</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">percent_urban_scaled</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_reordered</span><span class="p">[</span><span class="s2">&quot;percent_urban&quot;</span><span class="p">])</span><span class="o">-</span><span class="n">mean</span><span class="p">)</span><span class="o">/</span><span class="n">sd</span><span class="p">)</span>
+        <span class="n">d_final</span> <span class="o">=</span> <span class="n">d_scaled</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;intercept&quot;</span><span class="p">,</span> <span class="s2">&quot;percent_urban_scaled&quot;</span><span class="p">,</span> <span class="s2">&quot;gop&quot;</span><span class="p">,</span><span class="s2">&quot;swing&quot;</span><span class="p">]]</span>
+    <span class="k">if</span> <span class="n">scaling</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">d_final</span> <span class="o">=</span> <span class="n">data_reordered</span>
+    <span class="k">if</span> <span class="n">selected_obs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># select only relevant observations</span>
+        <span class="n">d_final</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">d_final</span><span class="p">,</span> <span class="n">selected_obs</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># convert pandas data frame to tensor</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">d_final</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">array</span></div>
+
+
+<div class="viewcode-block" id="load_design_matrix_truth">
+<a class="viewcode-back" href="../../api/user_input/user_input.design_matrices.html#user_input.design_matrices.load_design_matrix_truth">[docs]</a>
+<span class="k">def</span> <span class="nf">load_design_matrix_truth</span><span class="p">(</span><span class="n">n_group</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a design matrix for a 2 x 3 factorial design with n_group </span>
+<span class="sd">    observations per subgroup. This design matrix is used in the normal model.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_group : int</span>
+<span class="sd">        number of observations per subgroup.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    design_matrix : tf.Tensor</span>
+<span class="sd">        design matrix.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># construct design matrix with 2-level and 3-level factor</span>
+    <span class="n">df</span> <span class="o">=</span>  <span class="n">pa</span><span class="o">.</span><span class="n">dmatrix</span><span class="p">(</span><span class="s2">&quot;a*b&quot;</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">balanced</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">repeat</span> <span class="o">=</span> <span class="n">n_group</span><span class="p">),</span> 
+                    <span class="n">return_type</span><span class="o">=</span><span class="s2">&quot;dataframe&quot;</span><span class="p">)</span>
+    <span class="c1"># save in correct format</span>
+    <span class="n">d_final</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">d_final</span></div>
+
+
+<div class="viewcode-block" id="load_design_matrix_sleep">
+<a class="viewcode-back" href="../../api/user_input/user_input.design_matrices.html#user_input.design_matrices.load_design_matrix_sleep">[docs]</a>
+<span class="k">def</span> <span class="nf">load_design_matrix_sleep</span><span class="p">(</span><span class="n">scaling</span><span class="p">,</span> <span class="n">N_days</span><span class="p">,</span> <span class="n">N_subj</span><span class="p">,</span> <span class="n">selected_days</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a design matrix from the sleep study data set as used in the </span>
+<span class="sd">    multilevel mode.</span>
+<span class="sd">    Source: Belenky, G. et al. Patterns of performance degradation and restoration </span>
+<span class="sd">    during sleep restriction and subsequent recovery: a sleep dose-response study. </span>
+<span class="sd">    J.Sleep Res. 12, 1–12 (2003)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    scaling : str or None</span>
+<span class="sd">        whether the continuous predictor should be scaled; </span>
+<span class="sd">        possible values = [&#39;divide_by_std&#39;, &#39;standardize&#39;]</span>
+<span class="sd">    N_days : int</span>
+<span class="sd">        total number of days (here 10).</span>
+<span class="sd">    N_subj : int</span>
+<span class="sd">        total number of participants.</span>
+<span class="sd">    selected_days : list of integers</span>
+<span class="sd">        whether specific observations (=days) should be selected from the design</span>
+<span class="sd">        matrix.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    design_matrix : tf.Tensor</span>
+<span class="sd">        design matrix.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># create vector of (0,...9, ...) with length according to no. subj and no. days</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">N_days</span><span class="p">,</span> <span class="mf">1.</span><span class="p">),</span> <span class="p">[</span><span class="n">N_subj</span><span class="p">]),</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="c1"># if scaling of predictor is specified</span>
+    <span class="k">if</span> <span class="n">scaling</span> <span class="o">==</span> <span class="s2">&quot;standardize&quot;</span><span class="p">:</span>
+        <span class="n">X_scaled</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">/</span><span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">reduce_std</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">scaling</span> <span class="o">==</span> <span class="s2">&quot;divide_by_std&quot;</span><span class="p">:</span>
+        <span class="n">X_scaled</span> <span class="o">=</span> <span class="n">X</span><span class="o">/</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">reduce_std</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">scaling</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">X_scaled</span> <span class="o">=</span> <span class="n">X</span>
+    <span class="c1"># add intercept</span>
+    <span class="n">design_matrix</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">X_scaled</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">X_scaled</span><span class="p">],</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># select only relevant days</span>
+    <span class="k">if</span> <span class="n">selected_days</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dmatrix</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">design_matrix</span><span class="p">[</span><span class="n">day</span><span class="p">::</span><span class="n">N_days</span><span class="p">,</span> <span class="p">:]</span> <span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">selected_days</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">dmatrix</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">dmatrix</span><span class="p">,</span> <span class="p">(</span><span class="n">N_subj</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">selected_days</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dmatrix</span> <span class="o">=</span> <span class="n">design_matrix</span>
+    <span class="k">return</span> <span class="n">dmatrix</span></div>
+
+    
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florence Bockting
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Florence Bockting.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
