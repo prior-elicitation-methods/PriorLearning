@@ -1,0 +1,6 @@
+should I simulate the full data set in the generative model and then select the relevant observations in the target computation step?
+Disadvantage: Makes model slower
+Advantage: When I have follow-up computations such as R2 this is not very reasonable on a reduced data set of, say, 6 obs.
+
+I don't apply an exp/softmax transformation on the scale parameters.
+I rather apply abs() on the scale-results -> I saw difficulties in learning when using this additional transformation.

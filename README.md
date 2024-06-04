@@ -18,4 +18,3 @@ and robustness of our elicitation method in four representative case studies cov
 models, generalized linear models, and hierarchical models. Our results support the claim that
 our method is largely independent of the underlying model structure and adaptable to various
 elicitation techniques, including quantile-based, moment-based, and histogram-based methods.
-

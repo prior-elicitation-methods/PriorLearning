@@ -1,8 +1,46 @@
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
 
-[tool.pytest.ini_options]
-testpaths = [
-    "tests",
+[tool.poetry]
+name = "elicit" 
+version = "0.0.1"
+description = "A prior elicitation tool for Bayesian models"
+license = "MIT"
+authors = [
+    "Florence Bockting",
 ]
+maintainers = [
+    "Florence Bockting",
+]
+packages = [
+    { include = "functions", from = "elicit"},
+    { include = "user_input", from = "elicit" },
+    { include = "validation", from = "elicit" },
+    { include = "dags", from = "elicit" },
+    { include = "simulations", from = "elicit" },
+    { include = "setup", from = "elicit" },
+]
+
+[tool.poetry.dependencies]
+tensorflow = "2.14.0"
+tensorflow-probability = "0.22.1"
+pandas = "^2.2.2"
+signac = "^2.2.0"
+polars = "^0.20.25"
+numpy = "1.23.5"
+patsy = "^0.5.6"
+ucimlrepo = "^0.0.6"
+seaborn = "^0.13.2"
+matplotlib = "^3.8.4"
+bayesflow = "^1.1.4"
+configs = "^3.0.3"
+python = "3.9"
+pyarrow = "16.1.0"
+sphinx-pyproject = "0.3.0"
+sphinx = "7.3.7"
+sphinx-book-theme = "1.1.2"
+numpydoc = "1.7.0"
+myst_nb = "1.1.0"
+sphinx_design = "0.6.0"
+sphinxemoji = "0.3.1"

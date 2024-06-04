@@ -1,0 +1,19 @@
+2024-05-31 10:06:33.250432: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2024-05-31 10:06:33.294332: E tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:9342] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-05-31 10:06:33.294625: E tensorflow/compiler/xla/stream_executor/cuda/cuda_fft.cc:609] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-05-31 10:06:33.294829: E tensorflow/compiler/xla/stream_executor/cuda/cuda_blas.cc:1518] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-05-31 10:06:33.304583: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2024-05-31 10:06:33.305022: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-05-31 10:06:34.686222: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Traceback (most recent call last):
+  File "/work/mflobock/elicit/case_studies/sim_scripts/poisson_model.py", line 131, in <module>
+    run_simulation(seed)
+  File "/work/mflobock/elicit/case_studies/sim_scripts/poisson_model.py", line 53, in run_simulation
+    design_matrix = pd.read_pickle("elicit/simulations/data/design_matrix_pois.pkl")
+  File "/home/mflobock/.local/lib/python3.9/site-packages/pandas/io/pickle.py", line 185, in read_pickle
+    with get_handle(
+  File "/home/mflobock/.local/lib/python3.9/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'elicit/simulations/data/design_matrix_pois.pkl'
+srun: error: cgpu03-002: task 0: Exited with exit code 1

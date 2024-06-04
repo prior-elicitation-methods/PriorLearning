@@ -6,11 +6,11 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'PriorLearning'
+project = 'prior-elicitation'
 copyright = '2024, Florence Bockting'
 author = 'Florence Bockting'
 release = '0.0.1'
-#theme: `jekyll-theme-minimal`
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
@@ -58,7 +58,6 @@ html_theme_options = {
 templates_path = ['_templates']
 exclude_patterns = []
 
-
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
@@ -77,8 +76,8 @@ html_sourcelink_suffix = ""
 import os
 suppress_warnings = [
     f"autosectionlabel._examples/{filename.split('.')[0]}"
-    for filename in os.listdir("case_studies/")
-    if os.path.isfile(os.path.join("case_studies/", filename))
+    for filename in os.listdir("../../elicit/simulations/case_studies/notebooks")
+    if os.path.isfile(os.path.join("notebooks/", filename))
 ]  # Avoid duplicate label warnings for Jupyter notebooks.
 
 remove_from_toctrees = ["_autosummary/*"]
