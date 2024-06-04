@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
@@ -13,34 +13,35 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=362ab14a" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script src="_static/documentation_options.js?v=3611b776"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
     <link rel="icon" href="_static/favicon-light.ico"/>
     <link rel="index" title="Index" href="#" />
@@ -54,19 +55,23 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -88,12 +93,22 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -108,9 +123,11 @@
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="index.html">
+  
   
   
   
@@ -120,34 +137,68 @@
       
     
     
-    <img src="_static/mmp-logo-light.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/mmp-logo-dark.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/mmp-logo-light.png" class="logo__image only-light" alt="Prior Learning - Home"/>
+    <script>document.write(`<img src="_static/mmp-logo-dark.png" class="logo__image only-dark" alt="Prior Learning - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api/modules.html">API</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/PriorLearning.html">PriorLearning package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/PriorLearning.combine_losses.html">PriorLearning.combine_losses module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/PriorLearning.discrepancy_measures.html">PriorLearning.discrepancy_measures module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/PriorLearning.elicitation_techniques.html">PriorLearning.elicitation_techniques module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/PriorLearning.elicitation_wrapper.html">PriorLearning.elicitation_wrapper module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/PriorLearning.global_config_params.html">PriorLearning.global_config_params module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/PriorLearning.helper_functions.html">PriorLearning.helper_functions module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/PriorLearning.loss_helpers.html">PriorLearning.loss_helpers module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/PriorLearning.multi_loss_weighting.html">PriorLearning.multi_loss_weighting module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/PriorLearning.simulator.html">PriorLearning.simulator module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/PriorLearning.softmax_gumbel_trick.html">PriorLearning.softmax_gumbel_trick module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/PriorLearning.target_quantities.html">PriorLearning.target_quantities module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/PriorLearning.training.html">PriorLearning.training module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/PriorLearning.user_config.html">PriorLearning.user_config module</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_overview.html">API</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/dags/modules.html">DAG</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api/dags/dags.html">dags package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/dags/dags.elicitation_pipeline.html">dags.elicitation_pipeline module</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
-</li>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/functions/modules.html">Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api/functions/functions.html">functions package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/functions/functions.helper_functions.html">functions.helper_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/functions/functions.loss_computation.html">functions.loss_computation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/functions/functions.loss_functions.html">functions.loss_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/functions/functions.model_simulation.html">functions.model_simulation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/functions/functions.prior_simulation.html">functions.prior_simulation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/functions/functions.targets_elicits_computation.html">functions.targets_elicits_computation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/functions/functions.training.html">functions.training module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/setup/modules.html">User setup</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api/setup/setup.html">setup package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/setup/setup.create_dictionaries.html">setup.create_dictionaries module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/setup/setup.input_functions.html">setup.input_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/setup/setup.write_results.html">setup.write_results module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/user_input/modules.html">User input</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api/user_input/user_input.html">user_input package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/user_input/user_input.custom_functions.html">user_input.custom_functions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/user_input/user_input.design_matrices.html">user_input.design_matrices module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/user_input/user_input.generative_models.html">user_input.generative_models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/user_input/user_input.utils.html">user_input.utils module</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="case_studies.html">Case Studies</a></li>
 </ul>
 
@@ -164,7 +215,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -173,7 +224,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -222,20 +273,22 @@
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -262,95 +315,97 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
 
 <h1 id="index">Index</h1>
 
 <div class="genindex-jumpbox">
  <a href="#_"><strong>_</strong></a>
- | <a href="#A"><strong>A</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#W"><strong>W</strong></a>
  
 </div>
 <h2 id="_">_</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.discrepancy_measures.html#PriorLearning.discrepancy_measures.energy_loss.__call__">__call__() (PriorLearning.discrepancy_measures.energy_loss method)</a>
+      <li><a href="api/functions/functions.loss_functions.html#functions.loss_functions.MmdEnergy.__call__">__call__() (functions.loss_functions.MmdEnergy method)</a>
 
       <ul>
-        <li><a href="api/PriorLearning.elicitation_techniques.html#PriorLearning.elicitation_techniques.ElicitationTechnique.__call__">(PriorLearning.elicitation_techniques.ElicitationTechnique method)</a>
+        <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.Gamma_log.__call__">(user_input.custom_functions.Gamma_log method)</a>
 </li>
-        <li><a href="api/PriorLearning.helper_functions.html#PriorLearning.helper_functions.Exponential_unconstrained.__call__">(PriorLearning.helper_functions.Exponential_unconstrained method)</a>
+        <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.Normal_log.__call__">(user_input.custom_functions.Normal_log method)</a>
 </li>
-        <li><a href="api/PriorLearning.helper_functions.html#PriorLearning.helper_functions.Normal_unconstrained.__call__">(PriorLearning.helper_functions.Normal_unconstrained method)</a>
+        <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.Normal_log_log.__call__">(user_input.custom_functions.Normal_log_log method)</a>
 </li>
-        <li><a href="api/PriorLearning.helper_functions.html#PriorLearning.helper_functions.TruncatedNormal_unconstrained.__call__">(PriorLearning.helper_functions.TruncatedNormal_unconstrained method)</a>
+        <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.TruncNormal_log.__call__">(user_input.custom_functions.TruncNormal_log method)</a>
 </li>
-        <li><a href="api/PriorLearning.simulator.html#PriorLearning.simulator.InitializePriorFamily.__call__">(PriorLearning.simulator.InitializePriorFamily method)</a>
+        <li><a href="api/user_input/user_input.generative_models.html#user_input.generative_models.GenerativeBinomialModel.__call__">(user_input.generative_models.GenerativeBinomialModel method)</a>
 </li>
-        <li><a href="api/PriorLearning.simulator.html#PriorLearning.simulator.Simulator.__call__">(PriorLearning.simulator.Simulator method)</a>
+        <li><a href="api/user_input/user_input.generative_models.html#user_input.generative_models.GenerativeMultilevelModel.__call__">(user_input.generative_models.GenerativeMultilevelModel method)</a>
 </li>
-        <li><a href="api/PriorLearning.target_quantities.html#PriorLearning.target_quantities.TargetQuantities.__call__">(PriorLearning.target_quantities.TargetQuantities method)</a>
+        <li><a href="api/user_input/user_input.generative_models.html#user_input.generative_models.GenerativeNormalModel.__call__">(user_input.generative_models.GenerativeNormalModel method)</a>
+</li>
+        <li><a href="api/user_input/user_input.generative_models.html#user_input.generative_models.GenerativeNormalModel_param.__call__">(user_input.generative_models.GenerativeNormalModel_param method)</a>
+</li>
+        <li><a href="api/user_input/user_input.generative_models.html#user_input.generative_models.GenerativePoissonModel.__call__">(user_input.generative_models.GenerativePoissonModel method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.discrepancy_measures.html#PriorLearning.discrepancy_measures.energy_loss.__init__">__init__() (PriorLearning.discrepancy_measures.energy_loss method)</a>
+      <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.Gamma_log.__init__">__init__() (user_input.custom_functions.Gamma_log method)</a>
 
       <ul>
-        <li><a href="api/PriorLearning.elicitation_techniques.html#PriorLearning.elicitation_techniques.ElicitationTechnique.__init__">(PriorLearning.elicitation_techniques.ElicitationTechnique method)</a>
+        <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.Normal_log.__init__">(user_input.custom_functions.Normal_log method)</a>
 </li>
-        <li><a href="api/PriorLearning.helper_functions.html#PriorLearning.helper_functions.Exponential_unconstrained.__init__">(PriorLearning.helper_functions.Exponential_unconstrained method)</a>
+        <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.Normal_log_log.__init__">(user_input.custom_functions.Normal_log_log method)</a>
 </li>
-        <li><a href="api/PriorLearning.helper_functions.html#PriorLearning.helper_functions.Normal_unconstrained.__init__">(PriorLearning.helper_functions.Normal_unconstrained method)</a>
-</li>
-        <li><a href="api/PriorLearning.helper_functions.html#PriorLearning.helper_functions.TruncatedNormal_unconstrained.__init__">(PriorLearning.helper_functions.TruncatedNormal_unconstrained method)</a>
-</li>
-        <li><a href="api/PriorLearning.simulator.html#PriorLearning.simulator.InitializePriorFamily.__init__">(PriorLearning.simulator.InitializePriorFamily method)</a>
-</li>
-        <li><a href="api/PriorLearning.simulator.html#PriorLearning.simulator.Simulator.__init__">(PriorLearning.simulator.Simulator method)</a>
-</li>
-        <li><a href="api/PriorLearning.target_quantities.html#PriorLearning.target_quantities.TargetQuantities.__init__">(PriorLearning.target_quantities.TargetQuantities method)</a>
+        <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.TruncNormal_log.__init__">(user_input.custom_functions.TruncNormal_log method)</a>
 </li>
       </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="A">A</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.softmax_gumbel_trick.html#PriorLearning.softmax_gumbel_trick.apply_softmax_gumbel_trick">apply_softmax_gumbel_trick() (in module PriorLearning.softmax_gumbel_trick)</a>
-</li>
   </ul></td>
 </tr></table>
 
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.combine_losses.html#PriorLearning.combine_losses.combi_all">combi_all() (in module PriorLearning.combine_losses)</a>
+      <li><a href="api/functions/functions.targets_elicits_computation.html#functions.targets_elicits_computation.computation_elicited_statistics">computation_elicited_statistics() (in module functions.targets_elicits_computation)</a>
 </li>
-      <li><a href="api/PriorLearning.combine_losses.html#PriorLearning.combine_losses.combi_group">combi_group() (in module PriorLearning.combine_losses)</a>
+      <li><a href="api/functions/functions.targets_elicits_computation.html#functions.targets_elicits_computation.computation_target_quantities">computation_target_quantities() (in module functions.targets_elicits_computation)</a>
 </li>
-      <li><a href="api/PriorLearning.combine_losses.html#PriorLearning.combine_losses.combi_none">combi_none() (in module PriorLearning.combine_losses)</a>
+      <li><a href="api/functions/functions.loss_computation.html#functions.loss_computation.compute_discrepancy">compute_discrepancy() (in module functions.loss_computation)</a>
+</li>
+      <li><a href="api/functions/functions.loss_computation.html#functions.loss_computation.compute_loss_components">compute_loss_components() (in module functions.loss_computation)</a>
+</li>
+      <li><a href="api/setup/setup.create_dictionaries.html#setup.create_dictionaries.create_dict">create_dict() (in module setup.create_dictionaries)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.combine_losses.html#PriorLearning.combine_losses.combi_stats">combi_stats() (in module PriorLearning.combine_losses)</a>
+      <li><a href="api/setup/setup.create_dictionaries.html#setup.create_dictionaries.create_global_dict">create_global_dict() (in module setup.create_dictionaries)</a>
 </li>
-      <li><a href="api/PriorLearning.combine_losses.html#PriorLearning.combine_losses.combine_loss_components">combine_loss_components() (in module PriorLearning.combine_losses)</a>
+      <li><a href="api/setup/setup.write_results.html#setup.write_results.create_output_summary">create_output_summary() (in module setup.write_results)</a>
 </li>
-      <li><a href="api/PriorLearning.loss_helpers.html#PriorLearning.loss_helpers.compute_loss">compute_loss() (in module PriorLearning.loss_helpers)</a>
+      <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.custom_group_means">custom_group_means() (in module user_input.custom_functions)</a>
+</li>
+      <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.custom_mu0_sd">custom_mu0_sd() (in module user_input.custom_functions)</a>
+</li>
+      <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.custom_mu9_sd">custom_mu9_sd() (in module user_input.custom_functions)</a>
+</li>
+      <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.custom_R2">custom_R2() (in module user_input.custom_functions)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -358,13 +413,25 @@ document.write(`
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.global_config_params.html#PriorLearning.global_config_params.default_configs">default_configs() (in module PriorLearning.global_config_params)</a>
+      <li>
+    dags
+
+      <ul>
+        <li><a href="api/dags/dags.html#module-dags">module</a>
 </li>
+      </ul></li>
+      <li>
+    dags.elicitation_pipeline
+
+      <ul>
+        <li><a href="api/dags/dags.elicitation_pipeline.html#module-dags.elicitation_pipeline">module</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.discrepancy_measures.html#PriorLearning.discrepancy_measures.energy_loss.distances">distances() (PriorLearning.discrepancy_measures.energy_loss method)</a>
+      <li><a href="api/functions/functions.loss_functions.html#functions.loss_functions.MmdEnergy.distances">distances() (functions.loss_functions.MmdEnergy method)</a>
 </li>
-      <li><a href="api/PriorLearning.multi_loss_weighting.html#PriorLearning.multi_loss_weighting.dynamic_weight_averaging">dynamic_weight_averaging() (in module PriorLearning.multi_loss_weighting)</a>
+      <li><a href="api/functions/functions.loss_computation.html#functions.loss_computation.dynamic_weight_averaging">dynamic_weight_averaging() (in module functions.loss_computation)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -372,31 +439,93 @@ document.write(`
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.elicitation_wrapper.html#PriorLearning.elicitation_wrapper.elicitation_wrapper">elicitation_wrapper() (in module PriorLearning.elicitation_wrapper)</a>
-</li>
-      <li><a href="api/PriorLearning.elicitation_techniques.html#PriorLearning.elicitation_techniques.ElicitationTechnique">ElicitationTechnique (class in PriorLearning.elicitation_techniques)</a>
-</li>
-      <li><a href="api/PriorLearning.discrepancy_measures.html#PriorLearning.discrepancy_measures.energy_loss.energy_kernel">energy_kernel() (PriorLearning.discrepancy_measures.energy_loss method)</a>
+      <li><a href="api/setup/setup.input_functions.html#setup.input_functions.expert">expert() (in module setup.input_functions)</a>
 </li>
   </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.discrepancy_measures.html#PriorLearning.discrepancy_measures.energy_loss">energy_loss (class in PriorLearning.discrepancy_measures)</a>
+      <li>
+    functions
+
+      <ul>
+        <li><a href="api/functions/functions.html#module-functions">module</a>
 </li>
-      <li><a href="api/PriorLearning.elicitation_wrapper.html#PriorLearning.elicitation_wrapper.expert_model">expert_model() (in module PriorLearning.elicitation_wrapper)</a>
+      </ul></li>
+      <li>
+    functions.helper_functions
+
+      <ul>
+        <li><a href="api/functions/functions.helper_functions.html#module-functions.helper_functions">module</a>
 </li>
-      <li><a href="api/PriorLearning.helper_functions.html#PriorLearning.helper_functions.Exponential_unconstrained">Exponential_unconstrained (class in PriorLearning.helper_functions)</a>
+      </ul></li>
+      <li>
+    functions.loss_computation
+
+      <ul>
+        <li><a href="api/functions/functions.loss_computation.html#module-functions.loss_computation">module</a>
 </li>
+      </ul></li>
+      <li>
+    functions.loss_functions
+
+      <ul>
+        <li><a href="api/functions/functions.loss_functions.html#module-functions.loss_functions">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    functions.model_simulation
+
+      <ul>
+        <li><a href="api/functions/functions.model_simulation.html#module-functions.model_simulation">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.prior_simulation
+
+      <ul>
+        <li><a href="api/functions/functions.prior_simulation.html#module-functions.prior_simulation">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.targets_elicits_computation
+
+      <ul>
+        <li><a href="api/functions/functions.targets_elicits_computation.html#module-functions.targets_elicits_computation">module</a>
+</li>
+      </ul></li>
+      <li>
+    functions.training
+
+      <ul>
+        <li><a href="api/functions/functions.training.html#module-functions.training">module</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.discrepancy_measures.html#PriorLearning.discrepancy_measures.energy_loss.generate_weights">generate_weights() (PriorLearning.discrepancy_measures.energy_loss method)</a>
+      <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.Gamma_log">Gamma_log (class in user_input.custom_functions)</a>
+</li>
+      <li><a href="api/functions/functions.loss_functions.html#functions.loss_functions.MmdEnergy.generate_weights">generate_weights() (functions.loss_functions.MmdEnergy method)</a>
+</li>
+      <li><a href="api/user_input/user_input.generative_models.html#user_input.generative_models.GenerativeBinomialModel">GenerativeBinomialModel (class in user_input.generative_models)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.helper_functions.html#PriorLearning.helper_functions.group_obs">group_obs() (in module PriorLearning.helper_functions)</a>
+      <li><a href="api/user_input/user_input.generative_models.html#user_input.generative_models.GenerativeMultilevelModel">GenerativeMultilevelModel (class in user_input.generative_models)</a>
+</li>
+      <li><a href="api/user_input/user_input.generative_models.html#user_input.generative_models.GenerativeNormalModel">GenerativeNormalModel (class in user_input.generative_models)</a>
+</li>
+      <li><a href="api/user_input/user_input.generative_models.html#user_input.generative_models.GenerativeNormalModel_param">GenerativeNormalModel_param (class in user_input.generative_models)</a>
+</li>
+      <li><a href="api/user_input/user_input.generative_models.html#user_input.generative_models.GenerativePoissonModel">GenerativePoissonModel (class in user_input.generative_models)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -404,7 +533,7 @@ document.write(`
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.simulator.html#PriorLearning.simulator.InitializePriorFamily">InitializePriorFamily (class in PriorLearning.simulator)</a>
+      <li><a href="api/functions/functions.prior_simulation.html#functions.prior_simulation.intialize_priors">intialize_priors() (in module functions.prior_simulation)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -412,7 +541,25 @@ document.write(`
 <h2 id="K">K</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.discrepancy_measures.html#PriorLearning.discrepancy_measures.energy_loss.kernel_loss">kernel_loss() (PriorLearning.discrepancy_measures.energy_loss method)</a>
+      <li><a href="api/functions/functions.loss_functions.html#functions.loss_functions.MmdEnergy.kernel_loss">kernel_loss() (functions.loss_functions.MmdEnergy method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/user_input/user_input.design_matrices.html#user_input.design_matrices.load_design_matrix_equality">load_design_matrix_equality() (in module user_input.design_matrices)</a>
+</li>
+      <li><a href="api/user_input/user_input.design_matrices.html#user_input.design_matrices.load_design_matrix_haberman">load_design_matrix_haberman() (in module user_input.design_matrices)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/user_input/user_input.design_matrices.html#user_input.design_matrices.load_design_matrix_sleep">load_design_matrix_sleep() (in module user_input.design_matrices)</a>
+</li>
+      <li><a href="api/user_input/user_input.design_matrices.html#user_input.design_matrices.load_design_matrix_truth">load_design_matrix_truth() (in module user_input.design_matrices)</a>
+</li>
+      <li><a href="api/setup/setup.input_functions.html#setup.input_functions.loss">loss() (in module setup.input_functions)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -420,47 +567,55 @@ document.write(`
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.target_quantities.html#PriorLearning.target_quantities.method_grand_mean">method_grand_mean() (in module PriorLearning.target_quantities)</a>
+      <li><a href="api/user_input/user_input.utils.html#user_input.utils.marginal_prior_moments">marginal_prior_moments() (in module user_input.utils)</a>
 </li>
-      <li><a href="api/PriorLearning.target_quantities.html#PriorLearning.target_quantities.method_group_means">method_group_means() (in module PriorLearning.target_quantities)</a>
+      <li><a href="api/functions/functions.loss_functions.html#functions.loss_functions.MmdEnergy">MmdEnergy (class in functions.loss_functions)</a>
 </li>
-      <li><a href="api/PriorLearning.elicitation_techniques.html#PriorLearning.elicitation_techniques.method_moments">method_moments() (in module PriorLearning.elicitation_techniques)</a>
+      <li><a href="api/setup/setup.input_functions.html#setup.input_functions.model">model() (in module setup.input_functions)</a>
 </li>
-      <li><a href="api/PriorLearning.elicitation_techniques.html#PriorLearning.elicitation_techniques.method_quantiles">method_quantiles() (in module PriorLearning.elicitation_techniques)</a>
-</li>
-      <li><a href="api/PriorLearning.target_quantities.html#PriorLearning.target_quantities.method_R2">method_R2() (in module PriorLearning.target_quantities)</a>
+      <li><a href="api/setup/setup.write_results.html#setup.write_results.model_summary">model_summary() (in module setup.write_results)</a>
 </li>
       <li>
     module
 
       <ul>
-        <li><a href="api/PriorLearning.html#module-PriorLearning">PriorLearning</a>
+        <li><a href="api/dags/dags.html#module-dags">dags</a>
 </li>
-        <li><a href="api/PriorLearning.combine_losses.html#module-PriorLearning.combine_losses">PriorLearning.combine_losses</a>
+        <li><a href="api/dags/dags.elicitation_pipeline.html#module-dags.elicitation_pipeline">dags.elicitation_pipeline</a>
 </li>
-        <li><a href="api/PriorLearning.discrepancy_measures.html#module-PriorLearning.discrepancy_measures">PriorLearning.discrepancy_measures</a>
+        <li><a href="api/functions/functions.html#module-functions">functions</a>
 </li>
-        <li><a href="api/PriorLearning.elicitation_techniques.html#module-PriorLearning.elicitation_techniques">PriorLearning.elicitation_techniques</a>
+        <li><a href="api/functions/functions.helper_functions.html#module-functions.helper_functions">functions.helper_functions</a>
 </li>
-        <li><a href="api/PriorLearning.elicitation_wrapper.html#module-PriorLearning.elicitation_wrapper">PriorLearning.elicitation_wrapper</a>
+        <li><a href="api/functions/functions.loss_computation.html#module-functions.loss_computation">functions.loss_computation</a>
 </li>
-        <li><a href="api/PriorLearning.global_config_params.html#module-PriorLearning.global_config_params">PriorLearning.global_config_params</a>
+        <li><a href="api/functions/functions.loss_functions.html#module-functions.loss_functions">functions.loss_functions</a>
 </li>
-        <li><a href="api/PriorLearning.helper_functions.html#module-PriorLearning.helper_functions">PriorLearning.helper_functions</a>
+        <li><a href="api/functions/functions.model_simulation.html#module-functions.model_simulation">functions.model_simulation</a>
 </li>
-        <li><a href="api/PriorLearning.loss_helpers.html#module-PriorLearning.loss_helpers">PriorLearning.loss_helpers</a>
+        <li><a href="api/functions/functions.prior_simulation.html#module-functions.prior_simulation">functions.prior_simulation</a>
 </li>
-        <li><a href="api/PriorLearning.multi_loss_weighting.html#module-PriorLearning.multi_loss_weighting">PriorLearning.multi_loss_weighting</a>
+        <li><a href="api/functions/functions.targets_elicits_computation.html#module-functions.targets_elicits_computation">functions.targets_elicits_computation</a>
 </li>
-        <li><a href="api/PriorLearning.simulator.html#module-PriorLearning.simulator">PriorLearning.simulator</a>
+        <li><a href="api/functions/functions.training.html#module-functions.training">functions.training</a>
 </li>
-        <li><a href="api/PriorLearning.softmax_gumbel_trick.html#module-PriorLearning.softmax_gumbel_trick">PriorLearning.softmax_gumbel_trick</a>
+        <li><a href="api/setup/setup.html#module-setup">setup</a>
 </li>
-        <li><a href="api/PriorLearning.target_quantities.html#module-PriorLearning.target_quantities">PriorLearning.target_quantities</a>
+        <li><a href="api/setup/setup.create_dictionaries.html#module-setup.create_dictionaries">setup.create_dictionaries</a>
 </li>
-        <li><a href="api/PriorLearning.training.html#module-PriorLearning.training">PriorLearning.training</a>
+        <li><a href="api/setup/setup.input_functions.html#module-setup.input_functions">setup.input_functions</a>
 </li>
-        <li><a href="api/PriorLearning.user_config.html#module-PriorLearning.user_config">PriorLearning.user_config</a>
+        <li><a href="api/setup/setup.write_results.html#module-setup.write_results">setup.write_results</a>
+</li>
+        <li><a href="api/user_input/user_input.html#module-user_input">user_input</a>
+</li>
+        <li><a href="api/user_input/user_input.custom_functions.html#module-user_input.custom_functions">user_input.custom_functions</a>
+</li>
+        <li><a href="api/user_input/user_input.design_matrices.html#module-user_input.design_matrices">user_input.design_matrices</a>
+</li>
+        <li><a href="api/user_input/user_input.generative_models.html#module-user_input.generative_models">user_input.generative_models</a>
+</li>
+        <li><a href="api/user_input/user_input.utils.html#module-user_input.utils">user_input.utils</a>
 </li>
       </ul></li>
   </ul></td>
@@ -469,7 +624,21 @@ document.write(`
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.helper_functions.html#PriorLearning.helper_functions.Normal_unconstrained">Normal_unconstrained (class in PriorLearning.helper_functions)</a>
+      <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.Normal_log">Normal_log (class in user_input.custom_functions)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.Normal_log_log">Normal_log_log (class in user_input.custom_functions)</a>
+</li>
+      <li><a href="api/setup/setup.input_functions.html#setup.input_functions.normalizing_flow_specs">normalizing_flow_specs() (in module setup.input_functions)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/setup/setup.input_functions.html#setup.input_functions.optimization">optimization() (in module setup.input_functions)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -477,121 +646,65 @@ document.write(`
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    PriorLearning
-
-      <ul>
-        <li><a href="api/PriorLearning.html#module-PriorLearning">module</a>
+      <li><a href="api/setup/setup.input_functions.html#setup.input_functions.param">param() (in module setup.input_functions)</a>
 </li>
-      </ul></li>
-      <li>
-    PriorLearning.combine_losses
-
-      <ul>
-        <li><a href="api/PriorLearning.combine_losses.html#module-PriorLearning.combine_losses">module</a>
+      <li><a href="api/setup/setup.input_functions.html#setup.input_functions.prior_elicitation">prior_elicitation() (in module setup.input_functions)</a>
 </li>
-      </ul></li>
-      <li>
-    PriorLearning.discrepancy_measures
-
-      <ul>
-        <li><a href="api/PriorLearning.discrepancy_measures.html#module-PriorLearning.discrepancy_measures">module</a>
-</li>
-      </ul></li>
-      <li>
-    PriorLearning.elicitation_techniques
-
-      <ul>
-        <li><a href="api/PriorLearning.elicitation_techniques.html#module-PriorLearning.elicitation_techniques">module</a>
-</li>
-      </ul></li>
-      <li>
-    PriorLearning.elicitation_wrapper
-
-      <ul>
-        <li><a href="api/PriorLearning.elicitation_wrapper.html#module-PriorLearning.elicitation_wrapper">module</a>
-</li>
-      </ul></li>
-      <li>
-    PriorLearning.global_config_params
-
-      <ul>
-        <li><a href="api/PriorLearning.global_config_params.html#module-PriorLearning.global_config_params">module</a>
-</li>
-      </ul></li>
-      <li>
-    PriorLearning.helper_functions
-
-      <ul>
-        <li><a href="api/PriorLearning.helper_functions.html#module-PriorLearning.helper_functions">module</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    PriorLearning.loss_helpers
-
-      <ul>
-        <li><a href="api/PriorLearning.loss_helpers.html#module-PriorLearning.loss_helpers">module</a>
+      <li><a href="api/dags/dags.elicitation_pipeline.html#dags.elicitation_pipeline.prior_elicitation_dag">prior_elicitation_dag() (in module dags.elicitation_pipeline)</a>
 </li>
-      </ul></li>
-      <li>
-    PriorLearning.multi_loss_weighting
-
-      <ul>
-        <li><a href="api/PriorLearning.multi_loss_weighting.html#module-PriorLearning.multi_loss_weighting">module</a>
+      <li><a href="api/functions/functions.prior_simulation.html#functions.prior_simulation.priors">priors() (in module functions.prior_simulation)</a>
 </li>
-      </ul></li>
-      <li>
-    PriorLearning.simulator
-
-      <ul>
-        <li><a href="api/PriorLearning.simulator.html#module-PriorLearning.simulator">module</a>
-</li>
-      </ul></li>
-      <li>
-    PriorLearning.softmax_gumbel_trick
-
-      <ul>
-        <li><a href="api/PriorLearning.softmax_gumbel_trick.html#module-PriorLearning.softmax_gumbel_trick">module</a>
-</li>
-      </ul></li>
-      <li>
-    PriorLearning.target_quantities
-
-      <ul>
-        <li><a href="api/PriorLearning.target_quantities.html#module-PriorLearning.target_quantities">module</a>
-</li>
-      </ul></li>
-      <li>
-    PriorLearning.training
-
-      <ul>
-        <li><a href="api/PriorLearning.training.html#module-PriorLearning.training">module</a>
-</li>
-      </ul></li>
-      <li>
-    PriorLearning.user_config
-
-      <ul>
-        <li><a href="api/PriorLearning.user_config.html#module-PriorLearning.user_config">module</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.discrepancy_measures.html#PriorLearning.discrepancy_measures.energy_loss.scal">scal() (PriorLearning.discrepancy_measures.energy_loss method)</a>
+      <li><a href="api/functions/functions.prior_simulation.html#functions.prior_simulation.sample_from_priors">sample_from_priors() (in module functions.prior_simulation)</a>
 </li>
-      <li><a href="api/PriorLearning.loss_helpers.html#PriorLearning.loss_helpers.scale_loss_component">scale_loss_component() (in module PriorLearning.loss_helpers)</a>
+      <li><a href="api/functions/functions.helper_functions.html#functions.helper_functions.save_as_pkl">save_as_pkl() (in module functions.helper_functions)</a>
 </li>
+      <li><a href="api/user_input/user_input.utils.html#user_input.utils.save_hyperparameters">save_hyperparameters() (in module user_input.utils)</a>
+</li>
+      <li><a href="api/functions/functions.loss_functions.html#functions.loss_functions.MmdEnergy.scal">scal() (functions.loss_functions.MmdEnergy method)</a>
+</li>
+      <li>
+    setup
+
+      <ul>
+        <li><a href="api/setup/setup.html#module-setup">module</a>
+</li>
+      </ul></li>
+      <li>
+    setup.create_dictionaries
+
+      <ul>
+        <li><a href="api/setup/setup.create_dictionaries.html#module-setup.create_dictionaries">module</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.simulator.html#PriorLearning.simulator.Simulator">Simulator (class in PriorLearning.simulator)</a>
+      <li>
+    setup.input_functions
+
+      <ul>
+        <li><a href="api/setup/setup.input_functions.html#module-setup.input_functions">module</a>
 </li>
-      <li><a href="api/PriorLearning.discrepancy_measures.html#PriorLearning.discrepancy_measures.energy_loss.squared_distances">squared_distances() (PriorLearning.discrepancy_measures.energy_loss method)</a>
+      </ul></li>
+      <li>
+    setup.write_results
+
+      <ul>
+        <li><a href="api/setup/setup.write_results.html#module-setup.write_results">module</a>
+</li>
+      </ul></li>
+      <li><a href="api/functions/functions.model_simulation.html#functions.model_simulation.simulate_from_generator">simulate_from_generator() (in module functions.model_simulation)</a>
+</li>
+      <li><a href="api/functions/functions.model_simulation.html#functions.model_simulation.softmax_gumbel_trick">softmax_gumbel_trick() (in module functions.model_simulation)</a>
+</li>
+      <li><a href="api/functions/functions.loss_functions.html#functions.loss_functions.MmdEnergy.squared_distances">squared_distances() (functions.loss_functions.MmdEnergy method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -599,17 +712,66 @@ document.write(`
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.user_config.html#PriorLearning.user_config.target_config">target_config() (in module PriorLearning.user_config)</a>
-</li>
-      <li><a href="api/PriorLearning.user_config.html#PriorLearning.user_config.target_input">target_input() (in module PriorLearning.user_config)</a>
+      <li><a href="api/setup/setup.input_functions.html#setup.input_functions.target">target() (in module setup.input_functions)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/PriorLearning.target_quantities.html#PriorLearning.target_quantities.TargetQuantities">TargetQuantities (class in PriorLearning.target_quantities)</a>
+      <li><a href="api/functions/functions.training.html#functions.training.training_loop">training_loop() (in module functions.training)</a>
 </li>
-      <li><a href="api/PriorLearning.training.html#PriorLearning.training.trainer">trainer() (in module PriorLearning.training)</a>
+      <li><a href="api/user_input/user_input.custom_functions.html#user_input.custom_functions.TruncNormal_log">TruncNormal_log (class in user_input.custom_functions)</a>
 </li>
-      <li><a href="api/PriorLearning.helper_functions.html#PriorLearning.helper_functions.TruncatedNormal_unconstrained">TruncatedNormal_unconstrained (class in PriorLearning.helper_functions)</a>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/functions/functions.targets_elicits_computation.html#functions.targets_elicits_computation.use_custom_functions">use_custom_functions() (in module functions.targets_elicits_computation)</a>
+</li>
+      <li>
+    user_input
+
+      <ul>
+        <li><a href="api/user_input/user_input.html#module-user_input">module</a>
+</li>
+      </ul></li>
+      <li>
+    user_input.custom_functions
+
+      <ul>
+        <li><a href="api/user_input/user_input.custom_functions.html#module-user_input.custom_functions">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    user_input.design_matrices
+
+      <ul>
+        <li><a href="api/user_input/user_input.design_matrices.html#module-user_input.design_matrices">module</a>
+</li>
+      </ul></li>
+      <li>
+    user_input.generative_models
+
+      <ul>
+        <li><a href="api/user_input/user_input.generative_models.html#module-user_input.generative_models">module</a>
+</li>
+      </ul></li>
+      <li>
+    user_input.utils
+
+      <ul>
+        <li><a href="api/user_input/user_input.utils.html#module-user_input.utils">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/setup/setup.write_results.html#setup.write_results.write_results">write_results() (in module setup.write_results)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -621,16 +783,12 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -653,6 +811,7 @@ By Florence Bockting
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2024, Florence Bockting.
@@ -679,8 +838,8 @@ By Florence Bockting
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
