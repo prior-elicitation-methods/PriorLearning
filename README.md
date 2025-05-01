@@ -1,5 +1,7 @@
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
+*Important note: This repo is not anymore maintained. Please visit the current development version here: https://github.com/florence-bockting/elicito*
+
 # Simulation-based prior knowledge elicitation
 
 **See :bookmark_tabs: [preprint](https://arxiv.org/abs/2308.11672) for more information and the :globe_with_meridians: [website](https://florence-bockting.github.io/PriorLearning/) for implemented case studies.**
